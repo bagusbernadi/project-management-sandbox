@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>06 Estimasi & Budget · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="06">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Memilih teknik estimasi yang sesuai dengan informasi yang ada.</li><li>Menghitung estimasi tiga titik (PERT) dan peluang selesai tepat waktu.</li><li>Menyusun anggaran dengan contingency dan management reserve.</li></ul></div>
+
+<h2>Estimasi itu perkiraan, bukan janji</h2>
+<p><i data-k="estimasi">Estimasi</i> adalah perkiraan durasi atau biaya. Di awal proyek informasi masih sedikit sehingga estimasi bisa meleset jauh. Seiring proyek berjalan, rentang ketidakpastian menyempit. Gambaran ini disebut <i data-k="coneuncertainty">cone of uncertainty</i>.</p>
+<div class="sim" style="padding:14px"><div id="ch-cone"></div><p class="muted small center" style="margin:4px 0 0">Gambaran umum: estimasi di awal bisa kurang 25% sampai lebih 75%, dan mendekati akurat di akhir.</p></div>
+<div class="warn"><b>Hati-hati</b><p>Estimasi yang diberikan sebagai satu angka pasti hampir selalu menjadi "janji" di telinga sponsor. Sampaikan sebagai <b>rentang</b> dan sebutkan asumsinya.</p></div>
+
+<h2>Empat teknik estimasi</h2>
+<div class="grid g2">
+  <div class="card mini"><span class="tag">Cepat</span><h3><i data-k="analogous">Analogous</i></h3><p>Berdasarkan proyek serupa di masa lalu. "Lini 2 butuh 14 minggu, lini 3 mirip, jadi sekitar 14." Cocok di awal.</p></div>
+  <div class="card mini"><span class="tag b">Rumus</span><h3><i data-k="parametric">Parametric</i></h3><p>Jumlah × tarif. "12 meter konveyor × Rp8 juta per meter." Akurat bila datanya baik.</p></div>
+  <div class="card mini"><span class="tag g">Rinci</span><h3><i data-k="bottomup">Bottom-up</i></h3><p>Estimasi tiap work package lalu dijumlahkan. Paling akurat, tetapi paling lama dan butuh WBS lengkap.</p></div>
+  <div class="card mini"><span class="tag o">Ketidakpastian</span><h3><i data-k="threepoint">Three-point</i></h3><p>Tiga angka: optimis, paling mungkin, pesimis. Cocok saat risiko durasi tinggi.</p></div>
+</div>
+
+<h2>Estimasi tiga titik (PERT)</h2>
+<p>Alih-alih satu angka, minta tiga: <b>O</b> (optimis, semuanya lancar), <b>M</b> (paling mungkin), <b>P</b> (pesimis, banyak hambatan). Rumus PERT:</p>
+<p style="text-align:center"><code>E = (O + 4M + P) ÷ 6</code> &nbsp; dan &nbsp; <code>SD = (P − O) ÷ 6</code></p>
+<p>E adalah estimasi terbaik dan SD mengukur ketidakpastian. Makin lebar jarak O dan P, makin besar SD.</p>
+<div class="sim"><div class="sim-h">Simulasi · estimasi tiga titik</div>
+<h3>Pengiriman mesin dari vendor (minggu)</h3>
+<div class="ctrl"><label>Optimis (O): <input type="range" id="po" min="4" max="20" step="1" value="8"> <b id="pov"></b></label><label>Paling mungkin (M): <input type="range" id="pm" min="4" max="24" step="1" value="10"> <b id="pmv"></b></label><label>Pesimis (P): <input type="range" id="pp" min="6" max="36" step="1" value="16"> <b id="ppv"></b></label></div>
+<div id="ch-pert"></div>
+<div class="kpis"><div class="kpi"><span>E (estimasi)</span><b id="e1" style="color:#0F766E"></b></div><div class="kpi"><span>SD</span><b id="e2"></b></div><div class="kpi"><span>Rentang ±1 SD (±68%)</span><b id="e3"></b></div><div class="kpi"><span>Rentang ±2 SD (±95%)</span><b id="e4"></b></div></div>
+<div class="out" id="em"></div></div>
+
+<h3>Dari satu kegiatan ke seluruh proyek</h3>
+<p>Untuk kegiatan yang berurutan (misalnya jalur kritis), jumlahkan E-nya. Variasi dijumlahkan dalam bentuk kuadrat: <code>SD total = √(SD₁² + SD₂² + …)</code>. Dengan itu bisa dihitung peluang selesai sebelum tenggat.</p>
+<div class="sim"><div class="sim-h">Simulasi · peluang tepat waktu</div>
+<h3>Jalur kritis: desain → mesin → pasang → uji coba</h3>
+<div class="tw"><table><tr><th>Kegiatan</th><th class="num">O</th><th class="num">M</th><th class="num">P</th><th class="num">E</th><th class="num">SD</th></tr><tbody id="tb"></tbody></table></div>
+<div class="ctrl"><label>Tenggat: <input type="range" id="dd" min="20" max="34" step="1" value="26"> <b id="ddv"></b></label></div>
+<div id="ch-tot"></div>
+<div class="kpis"><div class="kpi"><span>E total</span><b id="t1"></b></div><div class="kpi"><span>SD total</span><b id="t2"></b></div><div class="kpi"><span>Peluang selesai ≤ tenggat</span><b id="t3"></b></div></div>
+<div class="out" id="tm"></div></div>
+<div class="note"><b>Aturan praktis</b><p>Tenggat sama dengan E total hanya memberi peluang sekitar <b>50%</b>. Untuk peluang sekitar 84% tambahkan 1 SD, dan sekitar 98% tambahkan 2 SD. Pertanyaan yang tepat untuk sponsor: "berapa tingkat keyakinan yang Anda butuhkan?"</p></div>
+
+<h2>Dari estimasi menjadi anggaran</h2>
+<p>Estimasi biaya semua work package dijumlahkan menjadi dasar anggaran. Lalu ada dua lapis cadangan yang sering dicampur:</p>
+<div class="tw"><table class="cmp"><tr><th>Jenis</th><th>Untuk apa</th><th>Dikelola oleh</th></tr>
+<tr><td><i data-k="contingency">Contingency reserve</i></td><td>Risiko yang <b>sudah dikenali</b> (misalnya mesin telat)</td><td>Manajer proyek</td></tr>
+<tr><td><i data-k="mgmtreserve">Management reserve</i></td><td>Kejadian <b>tak terduga</b> di luar rencana</td><td>Manajemen/sponsor (butuh persetujuan)</td></tr></table></div>
+<p>Estimasi dasar + contingency membentuk <i data-k="costbaseline">cost baseline</i>. Total baseline <b>tidak</b> termasuk management reserve. Angka total anggaran proyek yang direncanakan disebut <i data-k="bac">BAC</i>.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · menyusun anggaran</div>
+<h3>Estimasi dasar lini baru: Rp1.000 juta</h3>
+<div class="ctrl"><label>Contingency: <input type="range" id="cg" min="0" max="25" step="1" value="10"> <b id="cgv"></b></label><label>Management reserve: <input type="range" id="mr" min="0" max="10" step="1" value="5"> <b id="mrv"></b></label></div>
+<div id="bd"></div>
+<div class="kpis"><div class="kpi"><span>Cost baseline (BAC)</span><b id="b1" style="color:#0F766E"></b></div><div class="kpi"><span>Total dana yang diminta</span><b id="b2"></b></div></div>
+<div class="out" id="bm"></div></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Tingkat akurasi tipikal: <b>ROM</b> (order of magnitude) −25% s.d. +75%; <b>budget estimate</b> −10% s.d. +25%; <b>definitive</b> −5% s.d. +10%.</li>
+<li>Rumus triangular: (O + M + P) ÷ 3. Rumus beta/PERT: (O + 4M + P) ÷ 6.</li>
+<li>Urutan: estimasi biaya → <b>determine budget</b> (menjumlahkan dan menambah contingency) → cost baseline.</li>
+<li>Funding limit reconciliation: pengeluaran terencana harus cocok dengan batas dana per periode.</li>
+<li>Padding (menambah cadangan tersembunyi di tiap estimasi) dianggap praktik buruk; gunakan contingency yang transparan.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+// cone of uncertainty
+(function () {
+  const ph = ['Ide', 'Konsep', 'Desain', 'Rencana', 'Pelaksanaan', 'Selesai'], hi = [1.75, 1.5, 1.25, 1.1, 1.05, 1], lo = [.75, .8, .9, .95, .98, 1];
+  C.line('#ch-cone', { labels: ph, series: [{ name: 'Batas atas', values: hi, color: '#D9480F' }, { name: 'Batas bawah', values: lo, color: '#3B5BDB' }, { name: 'Nilai sebenarnya', values: ph.map(() => 1), color: '#0F766E' }], min: .5, max: 2, fmt: v => nf(v, 2).replace(',00', 'x'), xl: 'Tahap proyek' });
+})();
+const phi = z => { const t = 1 / (1 + .2316419 * Math.abs(z)), d = .3989423 * Math.exp(-z * z / 2), p = d * t * (.3193815 + t * (-.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274)))); return z > 0 ? 1 - p : p; };
+const pdf = (x, m, s) => Math.exp(-((x - m) ** 2) / (2 * s * s)) / (s * Math.sqrt(2 * Math.PI));
+function pert() {
+  let o = +$('#po').value, m = +$('#pm').value, p = +$('#pp').value;
+  if (m < o) { m = o; $('#pm').value = m; } if (p < m) { p = m; $('#pp').value = p; }
+  $('#pov').textContent = o; $('#pmv').textContent = m; $('#ppv').textContent = p;
+  const e = (o + 4 * m + p) / 6, sd = Math.max((p - o) / 6, .01), a = 0, b = 40, pts = []; let top = 0;
+  for (let x = a; x <= b; x += .5) { const y = pdf(x, e, sd); pts.push([x, y]); top = Math.max(top, y); }
+  C.curve('#ch-pert', { xr: [a, b], yr: [0, top * 1.15], series: [{ name: 'Sebaran kemungkinan', pts, color: '#1B2A41' }], vlines: [{ x: e, label: 'E = ' + nf(e, 1), color: '#0F766E' }, { x: o, label: 'O', color: '#3B5BDB' }, { x: p, label: 'P', color: '#D9480F' }], xl: 'Lama pengiriman (minggu)', fmt: v => '' });
+  $('#e1').textContent = nf(e, 1) + ' mgg'; $('#e2').textContent = nf(sd, 2); $('#e3').textContent = nf(e - sd, 1) + '–' + nf(e + sd, 1); $('#e4').textContent = nf(e - 2 * sd, 1) + '–' + nf(e + 2 * sd, 1);
+  const avg = (o + m + p) / 3;
+  $('#em').innerHTML = `Estimasi tunggal "paling mungkin" = ${m} minggu, tetapi PERT memberi <b>${nf(e, 1)}</b>` + (e > m + .2 ? ' karena sisi pesimis lebih jauh daripada sisi optimis: kejadian buruk lebih besar efeknya daripada kejadian baik.' : e < m - .2 ? ' karena sisi optimis lebih jauh.' : '. Sebaran simetris, sehingga hasilnya hampir sama.') + ` Rata-rata sederhana (triangular) = ${nf(avg, 1)}.`;
+}
+['po', 'pm', 'pp'].forEach(i => $('#' + i).oninput = pert); pert();
+
+const TK = [['Desain layout', 3, 4, 6], ['Pesan & kirim mesin', 8, 10, 16], ['Pasang mesin', 3, 5, 9], ['Uji coba (SAT)', 3, 4, 7]];
+$('#tb').innerHTML = TK.map(t => `<tr><td>${t[0]}</td><td class="num">${t[1]}</td><td class="num">${t[2]}</td><td class="num">${t[3]}</td><td class="num">${nf((t[1] + 4 * t[2] + t[3]) / 6, 1)}</td><td class="num">${nf((t[3] - t[1]) / 6, 2)}</td></tr>`).join('');
+const ET = TK.reduce((p, t) => p + (t[1] + 4 * t[2] + t[3]) / 6, 0), SDT = Math.sqrt(TK.reduce((p, t) => p + ((t[3] - t[1]) / 6) ** 2, 0));
+function tot() {
+  const d = +$('#dd').value; $('#ddv').textContent = d + ' minggu';
+  const pr = phi((d - ET) / SDT), pts = []; let top = 0;
+  for (let x = 16; x <= 34; x += .25) { const y = pdf(x, ET, SDT); pts.push([x, y]); top = Math.max(top, y); }
+  C.curve('#ch-tot', { xr: [16, 34], yr: [0, top * 1.15], series: [{ name: 'Sebaran durasi total', pts, color: '#1B2A41' }], vlines: [{ x: ET, label: 'E total', color: '#0F766E' }, { x: d, label: 'tenggat', color: '#D9480F' }], xl: 'Total durasi (minggu)', fmt: v => '' });
+  $('#t1').textContent = nf(ET, 1) + ' mgg'; $('#t2').textContent = nf(SDT, 2); $('#t3').textContent = nf(pr * 100, 0) + '%'; $('#t3').style.color = pr >= .8 ? '#2B8A3E' : pr >= .5 ? '#B7791F' : '#C92A2A';
+  $('#tm').innerHTML = pr >= .8 ? `Peluang ${nf(pr * 100, 0)}% cukup aman untuk sebagian besar sponsor.` : pr >= .5 ? `Peluang ${nf(pr * 100, 0)}%: lebih mungkin berhasil daripada gagal, tetapi masih berisiko. Tawarkan tenggat lebih longgar atau siapkan rencana percepatan.` : `Peluang hanya ${nf(pr * 100, 0)}%. Tenggat ini lebih mungkin gagal daripada berhasil. Bicarakan dengan sponsor sebelum berjanji.`;
+}
+$('#dd').oninput = tot; tot();
+
+function bud() {
+  const cg = +$('#cg').value, mr = +$('#mr').value, B = 1000, c = B * cg / 100, bac = B + c, m = bac * mr / 100, W = 560;
+  $('#cgv').textContent = cg + '%'; $('#mrv').textContent = mr + '%';
+  const tot = bac + m, f = v => v / tot * W;
+  $('#bd').innerHTML = `<div style="display:flex;height:46px;border-radius:10px;overflow:hidden;font-size:.82rem;font-weight:700;color:#fff;margin:10px 0"><div style="width:${f(B) / W * 100}%;background:#1B2A41;display:grid;place-items:center">Estimasi dasar ${nf(B, 0)}</div>${c ? `<div style="width:${f(c) / W * 100}%;background:#B7791F;display:grid;place-items:center">Cont. ${nf(c, 0)}</div>` : ''}${m ? `<div style="width:${f(m) / W * 100}%;background:#9AA5B5;display:grid;place-items:center">MR ${nf(m, 0)}</div>` : ''}</div>`;
+  $('#b1').textContent = 'Rp' + nf(bac, 0) + ' jt'; $('#b2').textContent = 'Rp' + nf(tot, 0) + ' jt';
+  $('#bm').innerHTML = `Manajer proyek mengelola <b>Rp${nf(bac, 0)} juta</b> (estimasi + contingency). Rp${nf(m, 0)} juta management reserve hanya bisa dipakai dengan persetujuan manajemen, dan baru masuk ke baseline setelah disetujui.` + (cg === 0 ? ' <b style="color:#C92A2A">Tanpa contingency, risiko yang sudah dikenali tidak punya dana.</b>' : '');
+}
+$('#cg').oninput = bud; $('#mr').oninput = bud; bud();
+
+quiz([
+  { q: 'O = 4, M = 6, P = 14 hari. Estimasi PERT?', o: ['6', '7', '8', '8,0'], a: 1, e: '(4 + 4×6 + 14) ÷ 6 = 42 ÷ 6 = 7 hari.' },
+  { q: 'Teknik estimasi mana yang paling akurat tetapi paling memakan waktu?', o: ['Analogous', 'Parametric', 'Bottom-up', 'Tebakan ahli'], a: 2, e: 'Bottom-up memperkirakan tiap work package lalu menjumlahkannya, sehingga butuh WBS lengkap.' },
+  { q: 'Dana cadangan untuk risiko yang sudah dikenali, dikelola oleh manajer proyek, disebut…', o: ['Management reserve', 'Contingency reserve', 'Cost baseline', 'Float'], a: 1, e: 'Contingency untuk "known unknowns" dan masuk baseline. Management reserve untuk "unknown unknowns" dan dipegang manajemen.' },
+  { q: 'Tenggat proyek sama persis dengan E total hasil PERT. Perkiraan peluang tepat waktu?', o: ['Sekitar 50%', 'Sekitar 84%', '100%', 'Sekitar 98%'], a: 0, e: 'E adalah titik tengah sebaran. Setengah kemungkinan hasil ada di atasnya, sehingga peluangnya sekitar 50%.' },
+]);
+</script>
+</body>
+</html>

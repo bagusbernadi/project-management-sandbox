@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>05 Jadwal, Gantt & Critical Path · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="05">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menyusun urutan kegiatan dengan dependency.</li><li>Menghitung durasi proyek, float, dan critical path.</li><li>Memilih cara mempercepat jadwal yang benar-benar berpengaruh.</li></ul></div>
+
+<h2>Empat langkah membuat jadwal</h2>
+<ol>
+  <li><b>Daftar kegiatan</b>: uraikan work package dari WBS menjadi <i data-k="kegiatan">kegiatan</i> kerja.</li>
+  <li><b>Urutkan</b>: tentukan mana yang harus selesai dulu (<i data-k="dependency">dependency</i>).</li>
+  <li><b>Perkirakan durasi</b>: berapa lama tiap kegiatan (dibahas di <a href="06-estimasi-budget.html">Modul 06</a>).</li>
+  <li><b>Susun jadwal</b>: hitung tanggal mulai dan selesai, lalu tampilkan dalam <i data-k="gantt">Gantt chart</i>.</li>
+</ol>
+
+<h2>Dependency: siapa menunggu siapa</h2>
+<div class="tw"><table class="cmp">
+<tr><th>Jenis</th><th>Arti</th><th>Contoh</th></tr>
+<tr><td>Finish-to-Start (FS)</td><td>B mulai setelah A selesai. Paling umum.</td><td>Pondasi mesin selesai → mesin dipasang</td></tr>
+<tr><td>Start-to-Start (SS)</td><td>B boleh mulai setelah A mulai.</td><td>Mulai menarik kabel → mulai memasang panel</td></tr>
+<tr><td>Finish-to-Finish (FF)</td><td>B tidak boleh selesai sebelum A selesai.</td><td>Menulis SOP selesai bersamaan uji coba</td></tr>
+<tr><td>Start-to-Finish (SF)</td><td>Sangat jarang.</td><td>Shift lama berhenti saat shift baru mulai</td></tr>
+</table></div>
+<p><i data-k="lag">Lag</i> adalah jeda wajib (cat mengering 2 hari). <i data-k="lag">Lead</i> adalah tumpang tindih yang diizinkan (mulai pelatihan 1 minggu sebelum mesin selesai).</p>
+
+<h2>Critical path: jalur yang menentukan</h2>
+<p>Jika kegiatan disusun sebagai jaringan (<i data-k="network">network diagram</i>), akan ada beberapa jalur dari awal ke akhir. <mark><i data-k="criticalpath">Critical path</i> adalah jalur terpanjang, dan panjangnya sama dengan durasi minimum proyek.</mark> Kegiatan di jalur ini tidak boleh terlambat sedikit pun.</p>
+<p>Menghitungnya dengan <i data-k="cpm">CPM</i>:</p>
+<ol>
+  <li><b>Forward pass</b> (maju): hitung <b>ES</b> (earliest start) dan <b>EF</b> (earliest finish). ES = EF terbesar dari pendahulunya. EF = ES + durasi.</li>
+  <li><b>Backward pass</b> (mundur): hitung <b>LF</b> (latest finish) dan <b>LS</b> (latest start). LF = LS terkecil dari penerusnya. LS = LF − durasi.</li>
+  <li><b><i data-k="float">Float</i></b> = LS − ES. Kegiatan dengan float 0 berada di critical path.</li>
+</ol>
+<div class="case"><b>Contoh kasus · Dua jalur menuju uji coba</b>
+<p>Setelah desain layout (4 minggu), ada dua pekerjaan paralel: memesan dan menerima mesin (10 minggu) dan menyiapkan utilitas (6 minggu). Keduanya harus selesai sebelum mesin dipasang. Jalur mesin lebih panjang, jadi utilitas punya <b>float 4 minggu</b>: boleh telat sampai 4 minggu tanpa menunda proyek. Mempercepat utilitas tidak membuat proyek lebih cepat, karena yang menahan adalah pengiriman mesin.</p></div>
+
+<div class="sim"><div class="sim-h">Simulasi · critical path</div>
+<h3>Geser durasi dan lihat jalur kritis berpindah</h3>
+<p class="muted small">Batang oranye = kegiatan kritis (float 0). Batang biru = kegiatan dengan float; bagian pucat di belakangnya adalah float. <b>Tantangan:</b> sponsor ingin selesai dalam ≤ 22 minggu. Kegiatan mana yang harus dipercepat?</p>
+<div class="grid g3" id="cs" style="gap:8px 18px"></div>
+<div class="ctrl"><button class="ghost" id="rs">Kembalikan ke awal</button></div>
+<div id="gt"></div>
+<div class="kpis"><div class="kpi"><span>Durasi proyek</span><b id="c1"></b></div><div class="kpi" style="flex:2 1 240px"><span>Critical path</span><b id="c2" style="font-size:1.05rem;color:#D9480F"></b></div><div class="kpi"><span>Target ≤ 22 mgg</span><b id="c3"></b></div></div>
+<div class="out" id="cm"></div></div>
+<div class="note"><b>Pelajaran dari simulasi</b><ul><li>Mempercepat kegiatan <b>non-kritis</b> tidak memendekkan proyek sama sekali.</li><li>Mempercepat kegiatan kritis memendekkan proyek <b>hanya sampai jalur lain menjadi kritis</b>. Setelah itu, beberapa jalur harus dipercepat sekaligus.</li><li>Memperlambat kegiatan non-kritis melebihi floatnya akan memindahkan jalur kritis.</li></ul></div>
+
+<h2>Mempercepat jadwal</h2>
+<div class="grid g2">
+  <div class="card mini"><span class="tag o">Mahal</span><h3><i data-k="crashing">Crashing</i></h3><p>Tambah tenaga atau lembur pada <b>kegiatan kritis</b>. Durasi turun, biaya naik. Pilih kegiatan dengan tambahan biaya per hari paling kecil.</p></div>
+  <div class="card mini"><span class="tag g">Berisiko</span><h3><i data-k="fasttrack">Fast tracking</i></h3><p>Kerjakan paralel hal yang tadinya berurutan, misalnya mulai instalasi sebelum desain 100% final. Biaya relatif kecil, risiko kerja ulang naik.</p></div>
+</div>
+<p>Masalah lain: <i data-k="leveling">resource leveling</i>. Jadwal "ideal" kadang meminta satu teknisi mengerjakan tiga hal sekaligus. Leveling menggeser kegiatan agar beban merata, dan sering membuat proyek lebih panjang.</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Float: <b>Total float</b> = LS − ES (= LF − EF). <b>Free float</b> = waktu yang boleh tertunda tanpa menunda ES kegiatan berikutnya.</li>
+<li>Durasi proyek boleh dihitung dengan konvensi ES awal = 0 (seperti di sini) atau 1; ujian biasanya memberi tahu. Konsistenlah.</li>
+<li>Kegiatan kritis bisa lebih dari satu jalur. Float negatif berarti jadwal sudah di belakang target.</li>
+<li><b>Critical chain</b> (Goldratt): menambahkan buffer pada jalur dan memperhitungkan keterbatasan sumber daya.</li>
+<li><b>Schedule baseline</b> = jadwal disetujui yang dipakai sebagai pembanding dalam pemantauan (<a href="10-earned-value.html">Modul 10</a>).</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const T0 = [
+  { id: 'A', n: 'Desain layout', d: 4, p: [] }, { id: 'B', n: 'Pesan & kirim mesin', d: 10, p: ['A'] }, { id: 'C', n: 'Siapkan utilitas', d: 6, p: ['A'] },
+  { id: 'D', n: 'Pasang mesin', d: 5, p: ['B', 'C'] }, { id: 'E', n: 'Rekrut & latih operator', d: 7, p: ['A'] }, { id: 'F', n: 'Uji coba (SAT)', d: 4, p: ['D', 'E'] }, { id: 'G', n: 'Serah terima', d: 2, p: ['F'] },
+];
+const base = T0.map(t => t.d);
+$('#cs').innerHTML = T0.map((t, i) => `<label style="display:block;font-size:.88rem"><b>${t.id}</b> ${t.n}: <b id="dv${i}"></b><br><input type="range" min="1" max="16" step="1" value="${t.d}" data-i="${i}" style="width:100%"></label>`).join('');
+function cpm(T) {
+  const m = {}; T.forEach(t => m[t.id] = { ...t, s: [] });
+  T.forEach(t => t.p.forEach(p => m[p].s.push(t.id)));
+  T.forEach(t => { const x = m[t.id]; x.es = Math.max(0, ...t.p.map(p => m[p].ef)); x.ef = x.es + t.d; });
+  const end = Math.max(...T.map(t => m[t.id].ef));
+  [...T].reverse().forEach(t => { const x = m[t.id]; x.lf = x.s.length ? Math.min(...x.s.map(s => m[s].ls)) : end; x.ls = x.lf - t.d; x.fl = x.ls - x.es; });
+  return { m, end };
+}
+function critPath(m) { // semua jalur kritis, dipisah " / "
+  const cr = Object.values(m).filter(x => x.fl === 0), starts = cr.filter(x => !x.p.some(p => m[p].fl === 0));
+  const walk = x => { const nx = cr.filter(y => y.p.includes(x.id) && y.es === x.ef); return nx.length ? nx.flatMap(y => walk(y).map(r => [x.id, ...r])) : [[x.id]]; };
+  return starts.flatMap(walk).map(r => r.join(' → ')).join(' / ');
+}
+function sch() {
+  $$('#cs input').forEach(x => T0[+x.dataset.i].d = +x.value); T0.forEach((t, i) => $('#dv' + i).textContent = t.d + ' mgg');
+  const { m, end } = cpm(T0), W = 880, H = 290, L = 190, R = 20, T = 28, rh = 33, ax = Math.max(24, end + 2), sc = (W - L - R) / ax;
+  let s = '';
+  for (let w = 0; w <= ax; w += 2) s += `<line x1="${L + w * sc}" x2="${L + w * sc}" y1="${T - 6}" y2="${T + rh * 7}" stroke="#E3E7ED"/><text x="${L + w * sc}" y="${T - 12}" font-size="10.5" fill="#5B6678" text-anchor="middle">${w}</text>`;
+  T0.forEach((t, i) => { const x = m[t.id], y = T + i * rh, cr = x.fl === 0;
+    s += `<text x="${L - 10}" y="${y + 17}" text-anchor="end" font-size="12" font-weight="${cr ? 800 : 600}" fill="${cr ? '#D9480F' : '#1B2A41'}">${t.id}. ${t.n}</text>`;
+    if (x.fl > 0) s += `<rect x="${L + x.ef * sc}" y="${y + 8}" width="${x.fl * sc}" height="14" rx="4" fill="#3B5BDB" opacity=".16"/>`;
+    s += `<rect x="${L + x.es * sc}" y="${y + 4}" width="${t.d * sc}" height="22" rx="5" fill="${cr ? '#D9480F' : '#3B5BDB'}"/><text x="${L + x.es * sc + t.d * sc / 2}" y="${y + 19}" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">${t.d}</text>`;
+    if (x.fl > 0) s += `<text x="${L + (x.ef + x.fl) * sc + 5}" y="${y + 19}" font-size="10.5" fill="#3B5BDB" font-weight="700">float ${x.fl}</text>`;
+  });
+  s += `<line x1="${L + end * sc}" x2="${L + end * sc}" y1="${T - 6}" y2="${T + rh * 7}" stroke="#0F766E" stroke-width="2.5" stroke-dasharray="5 3"/><text x="${L + end * sc - 5}" y="${T + rh * 7 + 16}" text-anchor="end" font-size="11.5" font-weight="800" fill="#0F766E">selesai minggu ${end}</text>`;
+  $('#gt').innerHTML = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="Gantt chart dengan critical path">${s}</svg>`;
+  $('#c1').textContent = end + ' mgg'; $('#c2').textContent = critPath(m);
+  $('#c3').textContent = end <= 22 ? 'Tercapai' : 'Belum'; $('#c3').style.color = end <= 22 ? '#2B8A3E' : '#C92A2A';
+  const diff = 25 - end, tot = T0.reduce((p, t, i) => p + (base[i] - t.d), 0);
+  $('#cm').innerHTML = tot === 0 ? 'Kondisi awal: durasi 25 minggu, jalur kritis A → B → D → F → G. Utilitas (C) punya float 4 minggu dan pelatihan (E) float 8 minggu.'
+    : tot > 0 && diff === 0 ? '<b>Anda mempercepat kegiatan, tetapi durasi proyek tidak berubah.</b> Kegiatan yang dipercepat tidak berada di jalur kritis (atau jalur lain tetap menahan).'
+    : diff > 0 ? `Proyek lebih cepat <b>${diff} minggu</b> dari rencana awal.` + (end <= 22 ? ' Target sponsor tercapai.' : ' Masih perlu dipercepat lagi untuk mencapai 22 minggu.')
+    : `Proyek <b>terlambat ${-diff} minggu</b> dari rencana awal. Periksa kegiatan kritis mana yang memanjang.`;
+}
+$('#cs').oninput = sch; $('#rs').onclick = () => { $$('#cs input').forEach((x, i) => x.value = base[i]); sch(); }; sch();
+
+quiz([
+  { q: 'A(3 minggu) → B(4) dan A → C(6); B dan C → D(2). Berapa durasi proyek?', o: ['9', '11', '15', '8'], a: 1, e: 'Jalur A-B-D = 9; jalur A-C-D = 3+6+2 = 11. Jalur terpanjang menentukan durasi: 11 minggu.' },
+  { q: 'Pada soal di atas, berapa float kegiatan B?', o: ['0', '2', '4', '6'], a: 1, e: 'B selesai di minggu 7, tetapi D baru bisa mulai di minggu 9 (menunggu C). B bisa telat 2 minggu tanpa menunda proyek.' },
+  { q: 'Anda mempercepat kegiatan non-kritis sebanyak 3 minggu. Dampaknya pada durasi proyek?', o: ['Turun 3 minggu', 'Tidak berubah', 'Naik', 'Turun separuhnya'], a: 1, e: 'Durasi ditentukan jalur kritis. Mempercepat kegiatan non-kritis hanya menambah float-nya.' },
+  { q: 'Mana yang paling tepat tentang fast tracking?', o: ['Menambah orang pada kegiatan kritis', 'Mengerjakan paralel kegiatan yang tadinya berurutan, dengan risiko kerja ulang', 'Memotong scope', 'Memperpanjang tenggat'], a: 1, e: 'Menambah orang adalah crashing. Fast tracking menumpuk kegiatan secara paralel dan menaikkan risiko.' },
+]);
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>14 Estimasi Agile, Hybrid & Tools · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="14">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Mengestimasi dengan story point dan memakai velocity untuk meramal.</li><li>Memadukan pendekatan predictive dan Agile pada satu proyek (hybrid).</li><li>Memilih tools sesuai kebutuhan, bukan sesuai tren.</li></ul></div>
+
+<h2>Story point: ukuran relatif, bukan jam</h2>
+<p>Memperkirakan "berapa jam" sebuah pekerjaan hampir selalu meleset, dan angka jam sering ditagih seperti janji. Tim Agile memakai <i data-k="storypoint">story point</i>: angka <b>relatif</b> yang menggambarkan usaha, kompleksitas, dan ketidakpastian. Item dibandingkan satu sama lain: "ini dua kali lebih sulit dari yang itu".</p>
+<p>Skala yang umum adalah deret Fibonacci: <code>1, 2, 3, 5, 8, 13, 21</code>. Makin besar angkanya, makin lebar jarak antar-angka, karena makin besar pekerjaan makin tidak pasti perkiraannya. Teknik yang populer: <i data-k="planningpoker">planning poker</i>. Tiap anggota memilih kartu secara diam-diam, semua dibuka bersamaan, lalu perbedaan terbesar dibahas.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · planning poker</div>
+<h3>Story: "Operator dapat mencatat NG dengan sekali tekan"</h3>
+<p class="muted small">Pilih kartu Anda. Tiga rekan tim sudah memilih (tertutup). Setelah Anda memilih, semua kartu dibuka.</p>
+<div class="seg" id="pk"></div>
+<div id="pkr" class="out fade" style="display:none"></div>
+<div class="ctrl"><button class="ghost" id="pkn">Story berikutnya</button></div></div>
+<div class="note"><b>Aturan praktis</b><p>Perbedaan besar (misalnya 2 dan 13) tidak dirata-rata. Itu sinyal bahwa ada <b>asumsi yang berbeda</b>. Biarkan yang tertinggi dan terendah menjelaskan, lalu pilih ulang. Jika masih belum jelas, buat <i data-k="spike">spike</i> (penelitian bertimebox) sebelum memperkirakan.</p></div>
+
+<h2>Velocity dan perkiraan selesai</h2>
+<p><i data-k="velocity">Velocity</i> adalah rata-rata story point yang <b>selesai</b> (memenuhi definition of done) per sprint. Dari velocity dan ukuran backlog, kita bisa meramal kapan fitur atau rilis akan selesai (<i data-k="releaseplan">release plan</i>). Grafik yang menunjukkan hal ini adalah <i data-k="burnup">burn-up chart</i>: garis pekerjaan selesai naik menuju garis total scope, dan scope yang berubah terlihat jelas.</p>
+<div class="case"><b>Contoh kasus · Aplikasi pencatat NG</b>
+<p>Backlog 120 poin. Velocity lima sprint terakhir: 18, 22, 20, 25, 19 (rata-rata 20,8; terendah 18; tertinggi 25). Perkiraan: 120 ÷ 20,8 ≈ 6 sprint. Rentangnya 5 sprint (kecepatan tertinggi) sampai 7 sprint (terendah). Memberi <b>rentang</b> lebih jujur daripada satu tanggal.</p></div>
+<div class="sim"><div class="sim-h">Simulasi · burn-up dan perkiraan rilis</div>
+<h3>Berapa sprint sampai backlog selesai?</h3>
+<div class="ctrl"><label>Ukuran backlog: <input type="range" id="bk" min="60" max="300" step="10" value="120"> <b id="bkv"></b></label><label>Scope bertambah per sprint: <input type="range" id="gr" min="0" max="20" step="1" value="0"> <b id="grv"></b></label></div>
+<div id="ch-bu"></div>
+<div class="kpis"><div class="kpi"><span>Optimis (v = 25)</span><b id="u1"></b></div><div class="kpi"><span>Rata-rata (v = 20,8)</span><b id="u2" style="color:#0F766E"></b></div><div class="kpi"><span>Pesimis (v = 18)</span><b id="u3"></b></div></div>
+<div class="out" id="um"></div></div>
+<div class="warn"><b>Velocity bukan alat menilai orang</b><p>Velocity milik satu tim dan tidak bisa dibandingkan antar-tim (poin tiap tim berbeda skalanya). Jika dipakai sebagai target atau penilaian, tim akan menggelembungkan estimasi dan angkanya kehilangan arti.</p></div>
+
+<h2>Hybrid: memakai yang terbaik dari keduanya</h2>
+<p>Proyek besar jarang murni satu pendekatan. <i data-k="hybrid">Hybrid</i> memecah proyek: bagian yang pasti dan mahal diubah dikerjakan predictive, bagian yang masih berkembang dikerjakan Agile. Contoh pola yang umum di manufaktur: kerangka besar mengikuti <i data-k="gate">stage-gate</i> (konsep → desain → uji → produksi massal), sementara pekerjaan di dalamnya, misalnya perangkat lunak kontrol dan dashboard, dikerjakan dalam sprint.</p>
+<div class="sim"><div class="sim-h">Simulasi · pilih pendekatan per bagian</div>
+<h3>Proyek NPI produk elektronik: bagian mana cocok dengan apa?</h3>
+<div id="hy"></div>
+<div class="out" id="hym">Skor: 0 / 5</div></div>
+
+<h3>Skala besar</h3>
+<p>Bila beberapa tim bekerja pada produk yang sama, diperlukan koordinasi. Pilihan umum: <b>Scrum of Scrums</b> (perwakilan tiap tim bertemu), <b>LeSS</b>, atau <b>SAFe</b> (<i data-k="scaling">scaling framework</i>). Sebagai pemula, cukup tahu bahwa kerangka-kerangka itu ada dan bahwa masalah utamanya adalah <b>ketergantungan antar-tim</b>.</p>
+
+<h2>Memilih tools</h2>
+<p>Tools membantu, tetapi tidak menggantikan cara berpikir. Aturan paling penting: <b>pilih yang paling sederhana yang sudah cukup</b>, dan pastikan seluruh tim benar-benar memakainya. Tools yang sempurna tetapi tidak diisi lebih buruk daripada spreadsheet yang selalu mutakhir.</p>
+<div class="tw"><table class="cmp"><tr><th>Kebutuhan</th><th>Tools yang cocok</th><th>Catatan</th></tr>
+<tr><td>Tracker sederhana, anggaran, daftar risiko</td><td><i data-k="spreadsheet">Excel / Google Sheets</i></td><td>Fleksibel dan semua orang bisa. Mulai di sini.</td></tr>
+<tr><td>Jadwal dengan dependency dan critical path</td><td><i data-k="msproject">MS Project</i>, GanttProject, Smartsheet</td><td>Berguna bila kegiatan banyak dan saling bergantung.</td></tr>
+<tr><td>Papan tugas harian (Kanban/Scrum)</td><td><i data-k="jira">Jira, Trello, Asana</i></td><td>Trello paling mudah, Jira paling lengkap untuk Agile.</td></tr>
+<tr><td>Dokumen dan pengetahuan bersama</td><td>SharePoint, Confluence, Google Drive</td><td>Atur versi (configuration management).</td></tr>
+<tr><td>Laporan status dan dashboard</td><td><i data-k="bi">Power BI</i>, Excel dashboard</td><td>Satu angka, satu sumber data.</td></tr></table></div>
+<div class="sim"><div class="sim-h">Simulasi · rekomendasi tools</div>
+<div class="ctrl"><label>Kebutuhan utama: <select id="t1"><option value="g">Jadwal dependency &amp; critical path</option><option value="b">Papan tugas harian</option><option value="s">Tracker/anggaran sederhana</option><option value="d">Dashboard laporan</option></select></label><label>Ukuran tim: <select id="t2"><option value="s">1–5 orang</option><option value="m">6–15 orang</option><option value="l">16+ orang</option></select></label></div>
+<div class="out fade" id="tr"></div></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Prinsip Agile yang sering diuji: <b>servant leadership</b>, tim <b>self-organizing</b> dan lintas fungsi, <b>perencanaan adaptif</b>, <b>umpan balik cepat</b>, <b>information radiator</b> (papan atau dashboard yang tampil terbuka), <b>kecepatan berkelanjutan</b>.</li>
+<li>Skala estimasi lain: <b>T-shirt sizing</b> (S, M, L, XL), <b>ideal days</b>, <b>affinity estimating</b>. Story &gt; Epic: <b>epic</b> adalah item besar yang dipecah menjadi story.</li>
+<li><b>Definition of Ready</b> (kriteria item siap masuk sprint) dan <b>Definition of Done</b> (kriteria item selesai).</li>
+<li>Praktik teknik (dari XP): <b>pair programming</b>, <b>TDD</b>, <b>continuous integration</b>, <b>refactoring</b>.</li>
+<li>Agile cocok bila kebutuhan berkembang, tim kecil lintas fungsi, dan pelanggan bisa terlibat. Hybrid sering dipakai saat sebagian kebutuhan teregulasi atau berbiaya perubahan tinggi.</li>
+<li>Daftar item sebelum sprint dibahas dalam <b><i data-k="refinement">backlog refinement</i></b>, biasanya memakai sampai ≈10% kapasitas tim.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const CARD = [1, 2, 3, 5, 8, 13, 21];
+const STY = [
+  ['Operator dapat mencatat NG dengan sekali tekan', [3, 3, 5]], ['Rekap otomatis NG per shift', [5, 8, 8]], ['Peringatan bila NG melewati batas', [3, 13, 5]], ['Ekspor laporan bulanan ke Excel', [8, 8, 8]],
+];
+let si = 0;
+function pkInit() {
+  $('#pk').innerHTML = CARD.map(c => `<button data-c="${c}">${c}</button>`).join(''); $('#pkr').style.display = 'none'; $('#pk').previousElementSibling.previousElementSibling.textContent = 'Story: "' + STY[si][0] + '"';
+}
+$('#pk').onclick = e => {
+  const b = e.target.closest('button'); if (!b) return; const me = +b.dataset.c, all = [me, ...STY[si][1]], mn = Math.min(...all), mx = Math.max(...all);
+  $$('#pk button').forEach(x => { x.disabled = true; x.classList.toggle('on', x === b); });
+  const idx = v => CARD.indexOf(v), gap = idx(mx) - idx(mn);
+  $('#pkr').style.display = 'block';
+  $('#pkr').innerHTML = `<b>Kartu dibuka:</b> Anda <b>${me}</b>, rekan: <b>${STY[si][1].join(', ')}</b>.<br>` + (gap <= 1 ? '<b style="color:#2B8A3E">Konsensus.</b> Kartu berdekatan, pilih angka yang paling banyak muncul dan lanjut ke story berikutnya.' : gap <= 2 ? '<b style="color:#B7791F">Perbedaan sedang.</b> Minta yang terendah dan tertinggi menjelaskan alasannya, lalu ulangi satu kali.' : `<b style="color:#C92A2A">Perbedaan besar (${mn} vs ${mx}).</b> Biasanya ada asumsi yang berbeda atau bagian pekerjaan yang terlewat. Diskusikan sebelum memilih ulang. Jika tetap sulit, buat spike.`);
+};
+$('#pkn').onclick = () => { si = (si + 1) % STY.length; pkInit(); }; pkInit();
+
+function bu() {
+  const B = +$('#bk').value, g = +$('#gr').value; $('#bkv').textContent = B + ' poin'; $('#grv').textContent = '+' + g + '/sprint';
+  const V = [['Optimis', 25, '#2B8A3E'], ['Rata-rata', 20.8, '#0F766E'], ['Pesimis', 18, '#C92A2A']], N = 20, mxY = Math.max(350, B + g * N + 20);
+  const sc = []; for (let k = 0; k <= N; k++) sc.push([k, B + g * k]);
+  const ser = [{ name: 'Total scope', pts: sc, color: '#1B2A41', w: 3 }, ...V.map(v => ({ name: v[0], pts: Array.from({ length: N + 1 }, (_, k) => [k, v[1] * k]), color: v[2] }))];
+  C.curve('#ch-bu', { xr: [0, N], yr: [0, Math.ceil(mxY / 50) * 50], series: ser, xl: 'Sprint (tiap sprint 2 minggu)', fmt: v => nf(v, 0) });
+  const fin = v => v[1] > g ? Math.ceil(B / (v[1] - g) - 1e-9) : Infinity, fs = V.map(fin);
+  ['u1', 'u2', 'u3'].forEach((id, i) => { $('#' + id).textContent = isFinite(fs[i]) ? fs[i] + ' sprint' : 'tidak selesai'; });
+  $('#um').innerHTML = isFinite(fs[2]) ? `Rata-rata <b>${fs[1]} sprint (${fs[1] * 2} minggu)</b>, rentang ${fs[0]}–${fs[2]} sprint. ` + (g ? `Karena scope terus bertambah ${g} poin per sprint, garis target ikut naik dan selesainya makin jauh. Burn-up memperlihatkan ini dengan jelas, padahal burndown biasa bisa menyembunyikannya.` : 'Sampaikan rentang ini ke sponsor, bukan satu tanggal pasti.') : `<b style="color:#C92A2A">Pada kecepatan pesimis, backlog tidak pernah selesai</b> karena scope bertambah ${g} poin per sprint, sama atau lebih besar dari velocity. Yang harus diputuskan: kurangi scope, tambah kapasitas, atau hentikan penambahan.`;
+}
+$('#bk').oninput = bu; $('#gr').oninput = bu; bu();
+
+const HY = [
+  ['Pemasangan mesin & fasilitas (biaya perubahan sangat tinggi)', 'p', 'Spesifikasi jelas dan perubahan mahal. Predictive dengan kontrol perubahan ketat.'],
+  ['Perangkat lunak kontrol dan antarmuka operator', 'a', 'Kebutuhan operator berkembang saat dicoba. Agile dengan umpan balik tiap sprint.'],
+  ['Sertifikasi keselamatan dan regulasi', 'p', 'Persyaratan tetap dan perlu dokumentasi formal. Predictive dengan phase gate.'],
+  ['Dashboard monitoring produksi', 'a', 'Tampilan mudah diubah dan cepat diuji ke pengguna. Agile (atau Kanban).'],
+  ['Pembelian komponen dari vendor luar negeri', 'p', 'Kontrak dan waktu tunggu panjang, perlu perencanaan di muka. Predictive.'],
+];
+let hsc = 0, han = 0;
+$('#hy').innerHTML = HY.map((x, i) => `<div class="dr" style="margin:6px 0"><span style="flex:1 1 300px">${i + 1}. ${x[0]}</span><span class="seg"><button data-i="${i}" data-v="p">Predictive</button><button data-i="${i}" data-v="a">Agile</button></span><span class="small muted" id="hf${i}" style="flex:1 1 100%"></span></div>`).join('');
+$('#hy').onclick = e => { const b = e.target.closest('button'); if (!b || b.disabled) return; const i = +b.dataset.i, ok = b.dataset.v === HY[i][1];
+  $$(`#hy button[data-i="${i}"]`).forEach(x => x.disabled = true); b.classList.add(ok ? 'on' : 'ghost'); if (ok) hsc++; han++;
+  $('#hf' + i).innerHTML = (ok ? '<b style="color:#2B8A3E">Cocok.</b> ' : '<b style="color:#C92A2A">Kurang cocok.</b> ') + HY[i][2];
+  $('#hym').textContent = `Skor: ${hsc} / 5` + (han === 5 ? ' — satu proyek, dua cara kerja: itulah hybrid.' : ''); };
+
+const TR = { g: { s: 'GanttProject atau Excel dengan template Gantt', m: 'MS Project atau Smartsheet', l: 'MS Project/Primavera dengan PMO yang mengelola templatenya' }, b: { s: 'Trello (papan sederhana)', m: 'Jira atau Asana', l: 'Jira dengan konfigurasi bersama dan dashboard lintas-tim' }, s: { s: 'Google Sheets atau Excel', m: 'Excel/Sheets dengan satu penanggung jawab dan versi terkontrol', l: 'Smartsheet atau database ringan agar tidak ada banyak versi' }, d: { s: 'Dashboard di Excel', m: 'Power BI dengan sumber data tunggal', l: 'Power BI dengan data warehouse dan hak akses' } };
+function tr() { $('#tr').innerHTML = `<b style="color:#0F766E">Mulai dengan:</b> ${TR[$('#t1').value][$('#t2').value]}.<br><span class="muted small">Pastikan tim sepakat siapa yang memperbarui, seberapa sering, dan di mana satu-satunya sumber kebenaran (single source of truth).</span>`; }
+$('#t1').onchange = tr; $('#t2').onchange = tr; tr();
+
+quiz([
+  { q: 'Backlog 100 poin dan velocity rata-rata 20 poin per sprint. Berapa sprint perkiraan sampai selesai?', o: ['4', '5', '6', '10'], a: 1, e: '100 ÷ 20 = 5 sprint (dengan asumsi scope tetap).' },
+  { q: 'Dalam planning poker, dua anggota memilih 2 dan 13. Langkah terbaik?', o: ['Rata-ratakan menjadi 7,5', 'Pilih angka terbesar', 'Biarkan keduanya menjelaskan asumsinya lalu pilih ulang', 'Abaikan yang terendah'], a: 2, e: 'Perbedaan besar menandakan asumsi berbeda. Diskusi memunculkan informasi yang dibutuhkan semua orang.' },
+  { q: 'Bagian proyek mana yang paling cocok dikerjakan secara predictive dalam proyek hybrid?', o: ['Antarmuka aplikasi yang masih dieksplorasi', 'Pemasangan mesin dengan spesifikasi tetap dan perubahan mahal', 'Ide fitur baru', 'Prototipe cepat'], a: 1, e: 'Kebutuhan stabil dengan biaya perubahan tinggi cocok dengan perencanaan di muka.' },
+  { q: 'Velocity tim A 40 poin dan tim B 25 poin. Kesimpulan yang benar?', o: ['Tim A lebih produktif', 'Tim B perlu ditegur', 'Tidak bisa dibandingkan karena skala poin tiap tim berbeda', 'Tim A harus menjadi acuan'], a: 2, e: 'Story point bersifat relatif per tim. Velocity berguna untuk meramal tim itu sendiri, bukan membandingkan antar-tim.' },
+]);
+</script>
+</body>
+</html>

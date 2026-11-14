@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 Apa itu Proyek & Project Management · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="01">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Membedakan proyek dari pekerjaan rutin (operasi).</li><li>Menjelaskan tiga batasan utama proyek dan kenapa saling menarik.</li><li>Menyebutkan tugas manajer proyek dan menulis kriteria keberhasilan yang terukur.</li></ul></div>
+
+<h2>Apa itu proyek?</h2>
+<p><mark>Proyek adalah usaha sementara untuk menghasilkan sesuatu yang unik.</mark> "Sementara" berarti punya awal dan akhir. "Unik" berarti hasilnya tidak sama persis dengan yang pernah dibuat sebelumnya. Mengelola usaha seperti itu agar tujuannya tercapai disebut <i data-k="pm">project management</i>.</p>
+
+<div class="case"><b>Contoh kasus · Pabrik komponen elektronik</b>
+<p>Pak Dimas bekerja di pabrik yang setiap hari memproduksi 5.000 unit komponen. Itu <b>operasi</b>: berulang, tanpa tanggal selesai.</p>
+<p>Bulan depan perusahaan memutuskan memasang satu lini perakitan baru untuk produk baru, selesai paling lambat 12 minggu. Itu <b>proyek</b>: ada awal, ada akhir, dan lini itu belum pernah ada. Pak Dimas ditunjuk sebagai <i data-k="manajerproyek">manajer proyek</i>.</p></div>
+
+<div class="tw"><table class="cmp">
+<tr><th></th><th>Proyek</th><th>Operasi</th></tr>
+<tr><td>Waktu</td><td>Ada tanggal mulai dan selesai</td><td>Berjalan terus</td></tr>
+<tr><td>Hasil</td><td>Unik, sekali jadi</td><td>Berulang, standar</td></tr>
+<tr><td>Tujuan</td><td>Mencapai hasil lalu bubar</td><td>Menjaga bisnis tetap berjalan</td></tr>
+<tr><td>Contoh pabrik</td><td>Pasang lini baru, pindah mesin, produk baru</td><td>Produksi harian, QC rutin, perawatan terjadwal</td></tr>
+</table></div>
+<p>Proyek biasanya <b>mengubah</b> operasi. Setelah lini baru selesai, ia diserahkan dan menjadi bagian operasi.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · proyek atau operasi?</div>
+<h3>Klik jawaban Anda untuk tiap kegiatan</h3>
+<div id="po"></div>
+<div class="out" id="posc">Skor: 0 / 6</div>
+</div>
+
+<h2>Tiga batasan utama</h2>
+<p>Setiap proyek bergerak di dalam tiga batasan yang saling menarik, disebut <i data-k="triple">triple constraint</i>:</p>
+<div class="grid g3">
+  <div class="card mini"><span class="tag">1</span><h3>Scope</h3><p>Apa saja yang harus dikerjakan dan dihasilkan.</p></div>
+  <div class="card mini"><span class="tag b">2</span><h3>Waktu</h3><p>Kapan harus selesai dan berapa lama tiap bagiannya.</p></div>
+  <div class="card mini"><span class="tag o">3</span><h3>Biaya</h3><p>Dana yang tersedia, termasuk tenaga kerja dan material.</p></div>
+</div>
+<p>Mengubah satu hampir selalu mengubah yang lain. Di tengahnya ada <b>kualitas</b>: jika salah satu sisi dipaksa tanpa mengorbankan sisi lain, yang biasanya dikorbankan adalah mutu. Ayo coba.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · segitiga batasan</div>
+<h3>Lini perakitan baru: tarik scope dan tenggat</h3>
+<p class="muted small">Asumsi: tiap stasiun kerja butuh 1,5 minggu dan Rp100 juta. Jika tenggat lebih pendek dari waktu normal, Anda harus "crashing" (menambah lembur dan tenaga), yang menambah biaya dan risiko mutu.</p>
+<div class="ctrl"><label>Scope: <input type="range" id="sc" min="4" max="12" step="1" value="8"> <b id="scv"></b></label><label>Tenggat: <input type="range" id="dl" min="6" max="20" step="1" value="12"> <b id="dlv"></b></label></div>
+<div class="kpis"><div class="kpi"><span>Waktu normal</span><b id="k1"></b></div><div class="kpi"><span>Biaya</span><b id="k2" style="color:#D9480F"></b></div><div class="kpi"><span>Risiko mutu</span><b id="k3"></b></div></div>
+<div class="out" id="kmsg"></div>
+</div>
+<div class="note"><b>Aturan praktis</b><p>Jika sponsor berkata "scope sama, waktu dipercepat, biaya tetap", tanyakan: <b>sisi mana yang boleh bergeser?</b> Salah satu dari tiga harus fleksibel, atau mutu yang akan menanggung.</p></div>
+
+<h2>Apa yang dikerjakan manajer proyek?</h2>
+<p>Manajer proyek bukan orang yang mengerjakan semua pekerjaan teknis. Tugasnya <b>mengintegrasikan</b>: memastikan semua bagian berjalan menuju satu tujuan.</p>
+<ul>
+  <li><b>Merencanakan</b>: scope, jadwal, biaya, risiko, dan komunikasi.</li>
+  <li><b>Memimpin tim</b>: membagi peran, memotivasi, menyelesaikan konflik.</li>
+  <li><b>Berhubungan dengan <i data-k="stakeholder">stakeholder</i></b>: sponsor, pelanggan, vendor, bagian lain.</li>
+  <li><b>Memantau dan mengendalikan</b>: membandingkan kemajuan dengan rencana, lalu bertindak.</li>
+</ul>
+<p>Orang-orang kunci: <i data-k="sponsor">sponsor</i> (pemberi dana dan wewenang), manajer proyek (pemimpin pelaksana), tim proyek (pelaksana), dan <i data-k="pmo">PMO</i> (unit pendukung standar, jika ada).</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<p><b>Talent Triangle PMI</b> menyebut tiga kompetensi manajer proyek: <b>Ways of Working</b> (cara kerja: predictive, Agile, hybrid), <b>Power Skills</b> (kepemimpinan, komunikasi, negosiasi), dan <b>Business Acumen</b> (memahami strategi dan bisnis).</p>
+<p>Hierarki: <b>proyek</b> → <b><i data-k="program">program</i></b> (proyek terkait yang dikelola bersama) → <b>portofolio</b> (kumpulan untuk strategi perusahaan).</p></div>
+
+<h2>Proyek berhasil itu seperti apa?</h2>
+<p>Banyak proyek selesai tepat waktu dan biaya, tetapi hasilnya tidak dipakai. Karena itu <i data-k="kriteria">kriteria keberhasilan</i> harus ditulis di awal dan terukur.</p>
+<div class="case"><b>Contoh kasus · Lini baru</b>
+<p>Buruk: "Lini baru berjalan lancar."</p>
+<p>Baik: "Lini 3 beroperasi paling lambat 30 Juni, biaya ≤ Rp1,2 miliar, dan mencapai yield ≥ 95% serta output ≥ 400 unit/shift pada minggu ke-4 setelah serah terima."</p></div>
+<p>Contoh khas di manufaktur adalah <i data-k="npi">NPI</i> (New Product Introduction): proyek memperkenalkan produk baru ke produksi massal. Hasil akhirnya bukan "mesin terpasang", melainkan "produksi stabil dengan mutu dan output sesuai target".</p>
+<div class="warn"><b>Hati-hati</b><p>"Selesai" tidak sama dengan "berhasil". Selesaikan proyek dengan <i data-k="deliverable">deliverable</i> yang benar <i>dan</i> manfaat yang diinginkan. Manfaat dibahas lagi di <a href="11-change-closing.html">Modul 11</a>.</p></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const PO = [
+  ['Membuat 5.000 unit komponen setiap hari', 'o', 'Berulang dan tidak ada tanggal selesai: operasi.'],
+  ['Memasang lini perakitan baru selama 12 minggu', 'p', 'Hasil unik dan punya tanggal selesai: proyek.'],
+  ['Pemeriksaan QC rutin tiap shift', 'o', 'Rutin dan berulang: operasi.'],
+  ['Memindahkan semua mesin ke gedung baru', 'p', 'Sekali jadi dan berbatas waktu: proyek.'],
+  ['Perawatan preventif mesin tiap bulan', 'o', 'Berulang menurut jadwal: operasi.'],
+  ['Mengembangkan dan meluncurkan produk baru ke produksi', 'p', 'Menghasilkan sesuatu yang belum ada: proyek.'],
+];
+let sc = 0, an = 0;
+$('#po').innerHTML = PO.map((x, i) => `<div class="dr" style="margin:6px 0"><span style="flex:1 1 280px">${i + 1}. ${x[0]}</span><span class="seg"><button data-i="${i}" data-v="p">Proyek</button><button data-i="${i}" data-v="o">Operasi</button></span><span class="small muted" id="pf${i}" style="flex:1 1 100%"></span></div>`).join('');
+$('#po').onclick = e => {
+  const b = e.target.closest('button'); if (!b || b.disabled) return;
+  const i = +b.dataset.i, ok = b.dataset.v === PO[i][1];
+  $$(`#po button[data-i="${i}"]`).forEach(x => x.disabled = true);
+  b.classList.add(ok ? 'on' : 'ghost'); if (ok) sc++; an++;
+  $('#pf' + i).innerHTML = (ok ? '<b style="color:#2B8A3E">Benar.</b> ' : '<b style="color:#C92A2A">Belum tepat.</b> ') + PO[i][2];
+  $('#posc').textContent = `Skor: ${sc} / 6` + (an === 6 ? (sc === 6 ? ' — sempurna!' : ' — ulangi dengan membaca tabel di atas.') : '');
+};
+
+function tri() {
+  const st = +$('#sc').value, dl = +$('#dl').value, normal = st * 1.5, base = st * 100, crash = Math.max(0, normal - dl);
+  const cost = base * (1 + 0.07 * crash) + Math.max(0, dl - normal) * 5, r = crash / normal;
+  $('#scv').textContent = st + ' stasiun'; $('#dlv').textContent = dl + ' minggu';
+  $('#k1').textContent = nf(normal, 1) + ' mgg'; $('#k2').textContent = 'Rp' + nf(cost, 0) + ' jt';
+  const lv = r === 0 ? ['Rendah', '#2B8A3E'] : r < .15 ? ['Sedang', '#B7791F'] : r < .3 ? ['Tinggi', '#D9480F'] : ['Sangat tinggi', '#C92A2A'];
+  $('#k3').textContent = lv[0]; $('#k3').style.color = lv[1];
+  $('#kmsg').innerHTML = crash === 0 ? (dl - normal > 2 ? `Tenggat longgar ${nf(dl - normal, 1)} minggu. Aman, tetapi ada biaya overhead karena tim menunggu terlalu lama.` : 'Tenggat realistis untuk scope ini. Biaya dan mutu terjaga.')
+    : `Waktu dipercepat <b>${nf(crash, 1)} minggu</b> dari normal. Biaya naik ${nf(cost - base, 0)} juta karena lembur dan tambahan tenaga` + (r >= .3 ? '. Dengan tekanan sebesar ini, hampir pasti ada yang dikorbankan: <b>mutu atau scope</b>.' : '. Jika tidak ada tambahan dana, yang bergeser adalah mutu atau scope.');
+}
+$('#sc').oninput = tri; $('#dl').oninput = tri; tri();
+
+quiz([
+  { q: 'Mana yang termasuk proyek?', o: ['Produksi harian lini 1', 'Pemeriksaan QC rutin', 'Memasang lini produksi baru untuk produk baru', 'Perawatan preventif bulanan'], a: 2, e: 'Proyek punya awal-akhir dan menghasilkan sesuatu yang unik. Tiga pilihan lain berulang tanpa batas waktu.' },
+  { q: 'Sponsor meminta scope ditambah dua stasiun, tenggat dan biaya tidak berubah. Apa yang paling mungkin terjadi?', o: ['Semuanya tetap baik', 'Mutu atau pekerjaan yang lain dikorbankan', 'Biaya otomatis turun', 'Waktu otomatis bertambah'], a: 1, e: 'Triple constraint saling menarik. Jika tiga-tiganya dikunci, penyesuaiannya muncul di mutu atau risiko.' },
+  { q: 'Manakah kriteria keberhasilan yang baik?', o: ['Lini baru berjalan lancar', 'Yield ≥ 95% dan output ≥ 400 unit/shift pada minggu ke-4', 'Semua orang puas', 'Selesai secepat mungkin'], a: 1, e: 'Kriteria yang baik terukur, punya angka dan waktu. Yang lain terlalu samar untuk diperiksa.' },
+  { q: 'Tugas utama manajer proyek adalah…', o: ['Mengerjakan semua pekerjaan teknis sendiri', 'Mengintegrasikan semua bagian agar mencapai tujuan', 'Hanya membuat laporan', 'Menyetujui anggaran perusahaan'], a: 1, e: 'Manajer proyek memimpin dan mengintegrasikan: rencana, tim, stakeholder, serta pengendalian.' },
+]);
+</script>
+</body>
+</html>

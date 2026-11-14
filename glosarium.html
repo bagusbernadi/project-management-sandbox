@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glosarium · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="glos">
+<main class="wrap">
+<section class="hero">
+  <span class="eyebrow">Glosarium</span>
+  <h1>Kamus istilah Project Management</h1>
+  <p class="lead">Semua istilah yang disorot kuning di dalam modul, dengan penjelasan sederhana. Ketik untuk mencari.</p>
+</section>
+<input class="search" id="q" type="search" placeholder="Cari istilah, misalnya: critical path, EVM, sprint…" aria-label="Cari istilah">
+<p class="muted small" id="cnt"></p>
+<div id="list"></div>
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const keys = Object.keys(G).sort((a, b) => G[a][0].localeCompare(G[b][0], 'id'));
+function render() {
+  const q = $('#q').value.trim().toLowerCase(), hit = keys.filter(k => !q || (G[k][0] + ' ' + G[k][1]).toLowerCase().includes(q));
+  $('#cnt').textContent = `${hit.length} dari ${keys.length} istilah`;
+  $('#list').innerHTML = hit.map(k => { const m = MODULES.find(x => x.id === G[k][2]); return `<div class="gl" id="${k}"><b>${G[k][0]}</b><p>${G[k][1]}</p>${m ? `<a href="${m.file}">Dibahas di Modul ${m.id} · ${m.title} →</a>` : ''}</div>`; }).join('') || '<p class="muted">Tidak ada istilah yang cocok.</p>';
+}
+$('#q').oninput = render; render();
+if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) { el.scrollIntoView({ block: 'center' }); el.style.borderColor = '#D9480F'; el.style.boxShadow = '0 0 0 3px #FDE8DC'; } }
+</script>
+</body>
+</html>

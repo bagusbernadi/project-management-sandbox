@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>10 Memantau Progres: Earned Value · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="10">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menjelaskan arti PV, EV, dan AC dengan bahasa sendiri.</li><li>Menghitung dan membaca SPI, CPI, CV, SV, dan EAC.</li><li>Menyimpulkan kondisi proyek dari angka-angka itu dan memilih tindakan.</li></ul></div>
+
+<h2>Kenapa "uang terpakai 50%" tidak cukup</h2>
+<p>Pertengahan proyek, sponsor bertanya: "Bagaimana kondisinya?" Anda menjawab: "Sudah terpakai Rp500 juta dari Rp1 miliar." Apakah itu bagus? <b>Belum bisa dinilai.</b> Jika pekerjaan yang selesai baru 30%, Anda boros. Jika sudah 70%, Anda hemat. Biaya harus dibandingkan dengan <b>pekerjaan yang benar-benar selesai</b>.</p>
+<p><i data-k="evm">Earned Value Management</i> (EVM) memecahkannya dengan menyatakan semuanya dalam satu satuan: rupiah.</p>
+
+<h2>Tiga angka dasar</h2>
+<div class="grid g3">
+  <div class="card mini"><span class="tag b">PV</span><h3><i data-k="pv">Planned Value</i></h3><p>Nilai pekerjaan yang <b>seharusnya</b> selesai sampai hari ini menurut rencana.</p></div>
+  <div class="card mini"><span class="tag">EV</span><h3><i data-k="ev">Earned Value</i></h3><p>Nilai pekerjaan yang <b>benar-benar</b> selesai sampai hari ini = % selesai × BAC.</p></div>
+  <div class="card mini"><span class="tag o">AC</span><h3><i data-k="ac">Actual Cost</i></h3><p>Uang yang <b>sungguh-sungguh</b> sudah dikeluarkan sampai hari ini.</p></div>
+</div>
+<div class="case"><b>Contoh kasus · Lini baru, minggu ke-10 dari 20</b>
+<p>Anggaran (BAC) Rp1.000 juta. Menurut rencana, di minggu ke-10 setengah pekerjaan seharusnya selesai: <b>PV = 500</b>. Kenyataannya yang selesai baru 40%: <b>EV = 0,40 × 1.000 = 400</b>. Uang yang sudah keluar: <b>AC = 450</b>.</p>
+<p>Artinya: pekerjaan tertinggal (EV &lt; PV) dan biaya melebihi hasil (AC &gt; EV). Proyek terlambat dan boros sekaligus.</p></div>
+
+<h2>Dua indeks yang paling berguna</h2>
+<div class="grid g2">
+  <div class="card mini"><h3><i data-k="spi">SPI</i> = EV ÷ PV</h3><p>Indeks jadwal. <b>&gt; 1</b> lebih cepat, <b>= 1</b> sesuai, <b>&lt; 1</b> terlambat. Contoh: 400 ÷ 500 = 0,80. Dari setiap Rp1 pekerjaan yang direncanakan, baru 80 sen yang tercapai.</p></div>
+  <div class="card mini"><h3><i data-k="cpi">CPI</i> = EV ÷ AC</h3><p>Indeks biaya. <b>&gt; 1</b> hemat, <b>= 1</b> sesuai, <b>&lt; 1</b> boros. Contoh: 400 ÷ 450 = 0,89. Setiap Rp1 yang dikeluarkan hanya menghasilkan 89 sen pekerjaan.</p></div>
+</div>
+<p>Selisihnya dalam rupiah: <i data-k="cv">CV</i> = EV − AC dan SV = EV − PV. Positif bagus, negatif buruk. Contoh: CV = 400 − 450 = −50, SV = 400 − 500 = −100.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · earned value</div>
+<h3>Atur kondisi proyek, baca kesimpulannya</h3>
+<p class="muted small">BAC Rp1.000 juta, 20 minggu. PV mengikuti kurva S rencana. Coba pilih contoh di bawah, lalu ubah slider sendiri.</p>
+<div class="seg" id="pr"></div>
+<div class="ctrl"><label>Minggu ke: <input type="range" id="wk" min="2" max="20" step="1" value="10"> <b id="wkv"></b></label><label>% selesai (aktual): <input type="range" id="pc" min="0" max="100" step="1" value="40"> <b id="pcv"></b></label><label>Biaya aktual (AC): <input type="range" id="ac" min="50" max="1400" step="10" value="450"> <b id="acv"></b></label></div>
+<div id="ch-ev"></div>
+<div class="kpis" id="kp"></div>
+<div class="out" id="em"></div></div>
+
+<h2>Memperkirakan akhir proyek</h2>
+<p>Jika kondisi sekarang berlanjut, berapa total biaya saat selesai? Rumus yang paling umum:</p>
+<ul>
+  <li><i data-k="eac">EAC</i> = BAC ÷ CPI (anggap efisiensi sekarang berlanjut).</li>
+  <li><i data-k="etc">ETC</i> = EAC − AC (sisa biaya yang masih perlu) dan <b>VAC</b> = BAC − EAC (selisih terhadap anggaran; negatif berarti melebihi).</li>
+  <li><i data-k="tcpi">TCPI</i> = (BAC − EV) ÷ (BAC − AC): efisiensi yang <b>harus</b> dicapai pada sisa proyek agar tetap dalam anggaran. Jika jauh di atas 1, target hampir tidak realistis.</li>
+</ul>
+<p>Contoh di atas: CPI = 0,89 → EAC = 1.000 ÷ 0,89 ≈ 1.125; VAC ≈ −125. Jika tidak ada perbaikan, proyek berakhir kira-kira Rp125 juta di atas anggaran.</p>
+
+<h2>Cara membaca kombinasi</h2>
+<div class="tw"><table class="cmp"><tr><th>SPI</th><th>CPI</th><th>Artinya</th><th>Langkah awal</th></tr>
+<tr><td>&lt; 1</td><td>&lt; 1</td><td>Terlambat dan boros</td><td>Cari akar masalah, kurangi scope atau minta tambahan dana/waktu</td></tr>
+<tr><td>&lt; 1</td><td>&gt; 1</td><td>Hemat tetapi lambat</td><td>Mungkin kurang sumber daya. Pertimbangkan menambah tenaga di jalur kritis</td></tr>
+<tr><td>&gt; 1</td><td>&lt; 1</td><td>Cepat tetapi boros</td><td>Periksa lembur atau pemborosan. Mungkin crashing berlebihan</td></tr>
+<tr><td>&gt; 1</td><td>&gt; 1</td><td>Cepat dan hemat</td><td>Pastikan mutu terjaga dan estimasi tidak terlalu longgar</td></tr></table></div>
+
+<div class="warn"><b>Hati-hati</b><p>EV hanya sejujur data "% selesai". Masalah klasik adalah <b>"90% selesai"</b> yang bertahan berminggu-minggu. Gunakan aturan yang tegas, misalnya <b>0/100</b> (nol sebelum selesai, 100% saat selesai) atau <b>50/50</b> (50% saat mulai, 100% saat selesai) untuk paket kerja kecil, dan ukuran fisik bila ada (meter kabel terpasang).</p></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Hafalkan: <b>CV = EV − AC</b>, <b>SV = EV − PV</b>, <b>CPI = EV ÷ AC</b>, <b>SPI = EV ÷ PV</b>. Ingat: EV selalu di <b>pembilang</b> pada indeks.</li>
+<li>Empat versi EAC: (1) <b>BAC ÷ CPI</b> (kinerja sekarang berlanjut); (2) <b>AC + (BAC − EV)</b> (penyimpangan sekali saja, sisa sesuai rencana); (3) <b>AC + (BAC − EV) ÷ (CPI × SPI)</b> (jadwal dan biaya memengaruhi); (4) <b>AC + estimasi baru dari bawah ke atas</b>.</li>
+<li>TCPI terhadap BAC = (BAC − EV) ÷ (BAC − AC). TCPI terhadap EAC = (BAC − EV) ÷ (EAC − AC).</li>
+<li><b>Earned Schedule</b> memperbaiki kelemahan SPI di akhir proyek (SPI selalu mendekati 1 saat selesai). Karena itu SPI kurang andal di akhir proyek.</li>
+<li>Kurva S dibuat dari data PV kumulatif. Garis dasar kinerja (<b>performance measurement baseline</b>) = baseline biaya.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const BAC = 1000, N = 20, sm = u => 3 * u * u - 2 * u * u * u, pvAt = t => BAC * sm(t / N);
+const PRE = { 'Sesuai rencana': [10, 50, 500], 'Hemat tetapi lambat': [10, 40, 350], 'Cepat tetapi boros': [10, 60, 750], 'Terlambat dan boros': [10, 40, 600] };
+$('#pr').innerHTML = Object.keys(PRE).map(k => `<button data-p="${k}">${k}</button>`).join('');
+function ev() {
+  const t = +$('#wk').value, pc = +$('#pc').value, AC = +$('#ac').value; $('#wkv').textContent = t; $('#pcv').textContent = pc + '%'; $('#acv').textContent = 'Rp' + AC + ' jt';
+  const PV = pvAt(t), EV = BAC * pc / 100, spi = EV / PV, cpi = AC ? EV / AC : 0, cv = EV - AC, sv = EV - PV, eac = cpi ? BAC / cpi : Infinity, vac = BAC - eac, tcpi = BAC - AC > 0 ? (BAC - EV) / (BAC - AC) : Infinity;
+  const pts = []; for (let k = 0; k <= N; k += .5) pts.push([k, pvAt(k)]);
+  C.curve('#ch-ev', { xr: [0, N], yr: [0, 1400], series: [{ name: 'PV (rencana)', pts, color: '#9AA5B5', dash: true }, { name: 'EV', pts: [[t, EV]], color: '#0F766E', dot: true }, { name: 'AC', pts: [[t, AC]], color: '#D9480F', dot: true }], hlines: [{ y: BAC, label: 'BAC 1.000', color: '#1B2A41' }], vlines: [{ x: t, label: 'minggu ' + t, color: '#3B5BDB' }], xl: 'Minggu', fmt: v => nf(v, 0) });
+  const col = (v, good) => good ? '#2B8A3E' : '#C92A2A', f2 = v => nf(v, 2);
+  $('#kp').innerHTML = [['PV', nf(PV, 0), ''], ['EV', nf(EV, 0), ''], ['AC', nf(AC, 0), ''], ['SPI', f2(spi), col(0, spi >= 1)], ['CPI', f2(cpi), col(0, cpi >= 1)], ['CV', nf(cv, 0), col(0, cv >= 0)], ['SV', nf(sv, 0), col(0, sv >= 0)], ['EAC', isFinite(eac) ? nf(eac, 0) : '—', col(0, eac <= BAC)], ['VAC', isFinite(vac) ? nf(vac, 0) : '—', col(0, vac >= 0)], ['TCPI', isFinite(tcpi) ? f2(tcpi) : '—', col(0, tcpi <= 1.05)]].map(k => `<div class="kpi" style="flex:1 1 90px"><span>${k[0]}</span><b style="color:${k[2]}">${k[1]}</b></div>`).join('');
+  const sT = spi < .98 ? 'terlambat' : spi > 1.02 ? 'lebih cepat' : 'sesuai jadwal', cT = cpi < .98 ? 'boros' : cpi > 1.02 ? 'hemat' : 'sesuai biaya';
+  let m = `<b>Proyek ${sT} dan ${cT}.</b> `;
+  if (cpi < .98) m += `Jika efisiensi ini berlanjut, total biaya sekitar <b>Rp${nf(eac, 0)} juta</b> (melebihi anggaran Rp${nf(-vac, 0)} juta). `;
+  if (tcpi > 1.1 && isFinite(tcpi)) m += `Untuk tetap dalam anggaran, sisa proyek harus dikerjakan dengan efisiensi ${f2(tcpi)}, jauh lebih baik dari sekarang (${f2(cpi)}): <b>sangat sulit</b>. `;
+  if (spi < .9) m += 'Keterlambatan cukup serius; periksa jalur kritis.';
+  $('#em').innerHTML = m;
+}
+['wk', 'pc', 'ac'].forEach(i => $('#' + i).oninput = () => { $$('#pr button').forEach(b => b.classList.remove('on')); ev(); });
+$('#pr').onclick = e => { const k = e.target.dataset.p; if (!k) return; [$('#wk').value, $('#pc').value, $('#ac').value] = PRE[k]; $$('#pr button').forEach(b => b.classList.toggle('on', b.dataset.p === k)); ev(); };
+ev();
+
+quiz([
+  { q: 'PV = 400, EV = 360, AC = 450. Berapa SPI?', o: ['0,80', '0,90', '1,11', '1,25'], a: 1, e: 'SPI = EV ÷ PV = 360 ÷ 400 = 0,90: terlambat.' },
+  { q: 'Dengan data yang sama (PV 400, EV 360, AC 450), berapa CPI dan apa artinya?', o: ['0,80: boros', '0,90: hemat', '1,25: boros', '0,80: hemat'], a: 0, e: 'CPI = 360 ÷ 450 = 0,80. Di bawah 1 berarti biaya melebihi nilai pekerjaan yang dicapai (boros).' },
+  { q: 'BAC = Rp1.000 juta, CPI = 0,8. Berapa EAC (versi BAC ÷ CPI)?', o: ['Rp800 juta', 'Rp1.000 juta', 'Rp1.250 juta', 'Rp1.800 juta'], a: 2, e: '1.000 ÷ 0,8 = Rp1.250 juta. VAC = −250.' },
+  { q: 'BAC Rp800 juta. Pekerjaan selesai 25%. Berapa EV?', o: ['Rp25 juta', 'Rp200 juta', 'Rp400 juta', 'Rp600 juta'], a: 1, e: 'EV = % selesai × BAC = 0,25 × 800 = Rp200 juta.' },
+  { q: 'CV negatif berarti…', o: ['Proyek lebih cepat dari jadwal', 'Proyek melebihi anggaran terhadap pekerjaan yang dicapai', 'Proyek sesuai rencana', 'PV lebih besar dari AC'], a: 1, e: 'CV = EV − AC. Negatif berarti biaya aktual lebih besar daripada nilai pekerjaan yang diperoleh.' },
+]);
+</script>
+</body>
+</html>

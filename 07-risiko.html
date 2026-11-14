@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>07 Risk Management · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="07">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Membedakan risiko dari issue dan menulis risiko dengan benar.</li><li>Menilai dan memprioritaskan risiko dengan matriks dan EMV.</li><li>Memilih strategi respons dan memeriksa apakah responsnya sepadan.</li></ul></div>
+
+<h2>Risiko dan issue</h2>
+<p><mark><i data-k="risiko">Risiko</i> adalah sesuatu yang <b>mungkin</b> terjadi dan akan memengaruhi tujuan proyek.</mark> Bila sudah terjadi, namanya <i data-k="issue">issue</i> dan harus ditangani sekarang. Risiko bisa negatif (ancaman) maupun positif (peluang, misalnya harga material turun).</p>
+<p>Menulis risiko yang baik memakai tiga bagian: <b>sebab → kejadian → akibat</b>.</p>
+<div class="case"><b>Contoh kasus · Menulis risiko</b>
+<p>Buruk: "Masalah dengan vendor."</p>
+<p>Baik: "<b>Karena</b> mesin diimpor dan jadwal pelabuhan padat, <b>maka</b> mesin bisa tiba terlambat, <b>sehingga</b> instalasi mundur dan lini 1 harus lembur untuk memenuhi pesanan." Rumusan seperti ini menunjukkan di mana harus bertindak.</p></div>
+
+<h2>Proses mengelola risiko</h2>
+<div class="grid g4">
+  <div class="card mini"><span class="tag">1</span><h3>Identifikasi</h3><p>Brainstorming, checklist, proyek lalu, wawancara.</p></div>
+  <div class="card mini"><span class="tag b">2</span><h3>Analisis</h3><p>Nilai probabilitas dan dampak, lalu urutkan.</p></div>
+  <div class="card mini"><span class="tag g">3</span><h3>Respons</h3><p>Pilih strategi dan pemilik tiap risiko.</p></div>
+  <div class="card mini"><span class="tag o">4</span><h3>Pantau</h3><p>Periksa pemicu dan perbarui daftar berkala.</p></div>
+</div>
+<p>Semuanya dicatat dalam <i data-k="riskregister">risk register</i>: daftar risiko beserta nilai, pemilik, respons, dan <i data-k="trigger">pemicu</i> (tanda peringatan). Manajer proyek memperbaruinya terus, bukan sekali di awal.</p>
+
+<h2>Menilai: probabilitas × dampak</h2>
+<p>Skor risiko = <i data-k="probabilitas">probabilitas</i> × dampak, masing-masing skala 1–5. Hasilnya digambar pada <i data-k="riskmatrix">risk matrix</i> agar prioritas langsung terlihat.</p>
+<div class="sim"><div class="sim-h">Simulasi · risk matrix</div>
+<h3>Pilih risiko, ubah probabilitas dan dampaknya</h3>
+<div class="seg" id="rk"></div>
+<div class="ctrl"><label>Probabilitas: <input type="range" id="rp" min="1" max="5" step="1"> <b id="rpv"></b></label><label>Dampak: <input type="range" id="ri" min="1" max="5" step="1"> <b id="riv"></b></label></div>
+<div id="ch-rm"></div>
+<div class="out" id="rmsg"></div></div>
+<div class="note"><b>Dampak sebaiknya didefinisikan</b><p>Sepakati di awal arti skala. Misalnya dampak 5 = keterlambatan &gt; 4 minggu atau biaya &gt; Rp200 juta; dampak 1 = &lt; 3 hari atau &lt; Rp5 juta. Tanpa definisi, "tinggi" menurut dua orang bisa berbeda jauh.</p></div>
+
+<h2>Menghitung dengan uang: EMV</h2>
+<p><i data-k="emv">EMV</i> = probabilitas × dampak (rupiah). Contoh: risiko 40% dengan akibat Rp150 juta memiliki EMV Rp60 juta. Jumlah EMV semua risiko menjadi dasar menentukan besar <i data-k="contingency">contingency reserve</i> (<a href="06-estimasi-budget.html">Modul 06</a>).</p>
+
+<h2>Memilih respons</h2>
+<div class="tw"><table class="cmp"><tr><th>Ancaman</th><th>Arti</th><th>Contoh</th></tr>
+<tr><td><i data-k="avoid">Avoid</i></td><td>Ubah rencana agar risiko hilang</td><td>Survei beban listrik sebelum desain, supaya masalah trafo tidak muncul</td></tr>
+<tr><td><i data-k="mitigate">Mitigate</i></td><td>Kurangi probabilitas atau dampak</td><td>Pesan mesin lebih awal, siapkan vendor cadangan</td></tr>
+<tr><td><i data-k="transfer">Transfer</i></td><td>Pindahkan dampak ke pihak lain</td><td>Kontrak harga tetap, asuransi pengiriman</td></tr>
+<tr><td><i data-k="accept">Accept</i></td><td>Terima, siapkan cadangan atau hadapi saat terjadi</td><td>Risiko kecil yang biaya responsnya lebih mahal</td></tr></table></div>
+<p>Untuk <b>peluang</b>: <b>exploit</b> (pastikan terjadi), <b>enhance</b> (perbesar kemungkinan), <b>share</b> (bagi dengan mitra), <b>accept</b>.</p>
+<p>Respons harus <b>sepadan</b>: tidak masuk akal membayar Rp25 juta untuk menghindari risiko yang EMV-nya Rp6 juta. Coba.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · apakah respons ini sepadan?</div>
+<h3>Aktifkan respons dan lihat selisih bersihnya</h3>
+<p class="muted small">Manfaat bersih = penurunan EMV − biaya respons. Positif berarti sepadan.</p>
+<div class="tw"><table><thead><tr><th>Risiko</th><th class="num">Prob.</th><th class="num">Dampak</th><th class="num">EMV</th><th>Respons</th><th class="num">Biaya</th><th class="num">EMV baru</th><th class="num">Bersih</th><th>Pakai?</th></tr></thead><tbody id="ev"></tbody></table></div>
+<div class="kpis"><div class="kpi"><span>EMV sebelum</span><b id="v1"></b></div><div class="kpi"><span>EMV sesudah + biaya</span><b id="v2"></b></div><div class="kpi"><span>Manfaat bersih</span><b id="v3"></b></div></div>
+<div class="out" id="vm"></div></div>
+
+<div class="warn"><b>Hati-hati</b><p>Respons bisa melahirkan <i data-k="residual">risiko baru</i>. Menambah vendor cadangan mengurangi risiko keterlambatan, tetapi menambah risiko koordinasi dan perbedaan kualitas (secondary risk). Risiko yang tersisa setelah respons disebut residual risk. Keduanya dicatat juga.</p></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li><b>Kualitatif</b>: matriks, probability-impact, urgensi. <b>Kuantitatif</b>: EMV, <i>decision tree</i>, <i>sensitivity (tornado)</i>, simulasi <i>Monte Carlo</i>.</li>
+<li><b>Contingency plan</b>: dijalankan jika pemicu terjadi. <b>Fallback plan</b>: dijalankan jika respons utama gagal. <b>Workaround</b>: respons atas risiko yang belum diidentifikasi.</li>
+<li><i data-k="riskappetite">Risk appetite</i> (kemauan mengambil risiko) dan risk threshold berbeda tiap stakeholder.</li>
+<li>Risiko non-kritis dapat dimasukkan ke <b>watchlist</b>. Risk audit memeriksa efektivitas proses.</li>
+<li>Ancaman besar pada Agile ditangani lewat siklus pendek: umpan balik cepat adalah mitigasi risiko bawaan.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const RK = [['Mesin impor telat tiba', 4, 4], ['Kapasitas listrik kurang', 2, 5], ['Operator kunci resign', 2, 3], ['Kurs naik', 3, 3], ['Dokumen vendor telat', 4, 2]];
+let rc = 0;
+const lv = s => s >= 16 ? ['Ekstrem', 'ex', '#C92A2A', 'Tangani segera dan laporkan ke sponsor.'] : s >= 10 ? ['Tinggi', 'hi', '#D9480F', 'Perlu rencana respons dan pemilik yang jelas.'] : s >= 5 ? ['Sedang', 'md', '#B7791F', 'Pantau dan siapkan respons sederhana.'] : ['Rendah', 'lo', '#0F766E', 'Cukup dipantau di watchlist.'];
+$('#rk').innerHTML = RK.map((r, i) => `<button data-i="${i}">R${i + 1} ${r[0]}</button>`).join('');
+function drawRM() {
+  const W = 520, H = 330, L = 60, T = 14, cw = 84, ch = 52, col = { lo: '#DDF1EE', md: '#FBF0D3', hi: '#FDE8DC', ex: '#F8C9C9' }; let s = '';
+  for (let p = 1; p <= 5; p++) for (let i = 1; i <= 5; i++) { const x = L + (p - 1) * cw, y = T + (5 - i) * ch; s += `<rect x="${x}" y="${y}" width="${cw}" height="${ch}" fill="${col[lv(p * i)[1]]}" stroke="#fff" stroke-width="2"/><text x="${x + cw - 6}" y="${y + 14}" text-anchor="end" font-size="10" fill="#8A93A3">${p * i}</text>`; }
+  for (let k = 1; k <= 5; k++) s += `<text class="ax" x="${L + (k - .5) * cw}" y="${T + 5 * ch + 16}" text-anchor="middle">${k}</text><text class="ax" x="${L - 10}" y="${T + (5 - k + .5) * ch + 4}" text-anchor="end">${k}</text>`;
+  s += `<text class="ax" x="${L + 2.5 * cw}" y="${H - 4}" text-anchor="middle">Probabilitas →</text><text class="ax" transform="translate(14 ${T + 2.5 * ch}) rotate(-90)" text-anchor="middle">Dampak →</text>`;
+  const seen = {};
+  RK.forEach((r, i) => { const key = r[1] + '-' + r[2], n = seen[key] = (seen[key] || 0) + 1, x = L + (r[1] - 1) * cw + 20 + (n - 1) * 26, y = T + (5 - r[2]) * ch + 30, on = i === rc; s += `<circle cx="${x}" cy="${y}" r="${on ? 13 : 11}" fill="${on ? '#D9480F' : '#1B2A41'}" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y + 4}" text-anchor="middle" font-size="11" font-weight="800" fill="#fff">R${i + 1}</text>`; });
+  $('#ch-rm').innerHTML = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="Risk matrix 5x5">${s}</svg>`;
+}
+function updR() {
+  RK[rc][1] = +$('#rp').value; RK[rc][2] = +$('#ri').value; $('#rpv').textContent = RK[rc][1]; $('#riv').textContent = RK[rc][2];
+  const sc = RK[rc][1] * RK[rc][2], l = lv(sc); drawRM();
+  $('#rmsg').innerHTML = `<b>R${rc + 1} ${RK[rc][0]}:</b> ${RK[rc][1]} × ${RK[rc][2]} = <b style="color:${l[2]}">${sc} (${l[0]})</b>. ${l[3]}`;
+}
+function setR(i) { rc = i; $$('#rk button').forEach((b, j) => b.classList.toggle('on', j === i)); $('#rp').value = RK[i][1]; $('#ri').value = RK[i][2]; updR(); }
+$('#rk').onclick = e => { const b = e.target.closest('button'); if (b) setR(+b.dataset.i); }; $('#rp').oninput = updR; $('#ri').oninput = updR; setR(0);
+
+const EV = [
+  ['Mesin impor telat', 40, 150, 'Mitigate: pesan awal + vendor cadangan', 20, 15], ['Kapasitas listrik kurang', 20, 200, 'Avoid: survei beban sebelum desain', 15, 0],
+  ['Operator kunci resign', 10, 60, 'Mitigate: cross-training', 25, 5], ['Kurs naik', 30, 80, 'Transfer: kontrak harga tetap', 10, 0],
+];
+const on = EV.map(() => false);
+$('#ev').innerHTML = EV.map((r, i) => `<tr><td>${r[0]}</td><td class="num">${r[1]}%</td><td class="num">${r[2]}</td><td class="num">${nf(r[1] * r[2] / 100, 1)}</td><td>${r[3]}</td><td class="num">${r[4]}</td><td class="num" id="en${i}"></td><td class="num" id="eb${i}"></td><td><input type="checkbox" data-i="${i}" aria-label="Pakai respons ${i + 1}"></td></tr>`).join('');
+function evm() {
+  let a = 0, b = 0, c = 0;
+  EV.forEach((r, i) => { const e0 = r[1] * r[2] / 100, e1 = r[5] * r[2] / 100, use = on[i], net = e0 - e1 - r[4]; a += e0; b += use ? e1 + r[4] : e0; c += use ? net : 0;
+    $('#en' + i).textContent = nf(e1, 1); const t = $('#eb' + i); t.textContent = nf(net, 1); t.style.color = net > 0 ? '#2B8A3E' : '#C92A2A'; t.style.fontWeight = 800; });
+  $('#v1').textContent = 'Rp' + nf(a, 1) + ' jt'; $('#v2').textContent = 'Rp' + nf(b, 1) + ' jt'; $('#v3').textContent = (c >= 0 ? '+' : '−') + 'Rp' + nf(Math.abs(c), 1) + ' jt'; $('#v3').style.color = c > 0 ? '#2B8A3E' : c < 0 ? '#C92A2A' : '';
+  const bad = EV.some((r, i) => on[i] && r[1] * r[2] / 100 - r[5] * r[2] / 100 - r[4] <= 0), best = EV.every((r, i) => on[i] === (r[1] * r[2] / 100 - r[5] * r[2] / 100 - r[4] > 0));
+  $('#vm').innerHTML = best ? '<b style="color:#2B8A3E">Kombinasi terbaik.</b> Hanya respons yang menghasilkan manfaat bersih positif yang dipakai. Risiko operator resign sebaiknya <b>diterima</b>: cross-training lebih mahal daripada kerugian yang diharapkan.' : bad ? '<b style="color:#C92A2A">Ada respons yang lebih mahal daripada risikonya.</b> Lihat kolom "Bersih" berwarna merah.' : 'Masih ada respons bermanfaat yang belum dipakai. Cari baris dengan nilai bersih positif.';
+}
+$('#ev').onchange = e => { on[+e.target.dataset.i] = e.target.checked; evm(); }; evm();
+
+quiz([
+  { q: 'Mana yang merupakan issue (bukan risiko)?', o: ['Mesin mungkin telat tiba', 'Mesin sudah telat 2 minggu', 'Kurs mungkin naik', 'Operator mungkin resign'], a: 1, e: 'Issue adalah sesuatu yang sudah terjadi dan harus ditangani sekarang.' },
+  { q: 'Risiko dengan probabilitas 30% dan dampak Rp200 juta. EMV-nya?', o: ['Rp30 juta', 'Rp60 juta', 'Rp90 juta', 'Rp200 juta'], a: 1, e: '0,30 × 200 = Rp60 juta.' },
+  { q: 'Membeli asuransi pengiriman untuk risiko kerusakan mesin adalah strategi…', o: ['Avoid', 'Mitigate', 'Transfer', 'Accept'], a: 2, e: 'Dampak finansialnya dipindahkan ke perusahaan asuransi.' },
+  { q: 'Biaya respons Rp25 juta untuk risiko yang EMV-nya Rp6 juta. Keputusan masuk akal?', o: ['Pakai respons itu', 'Terima risiko dan pantau', 'Tambahkan contingency 100%', 'Hentikan proyek'], a: 1, e: 'Respons lebih mahal daripada kerugian yang diharapkan. Menerima risiko lebih sepadan.' },
+]);
+</script>
+</body>
+</html>

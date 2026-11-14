@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>17 Strategi Ujian · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="17">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Memilih sertifikasi yang sesuai dan memahami format ujiannya.</li><li>Membaca soal situasional dan menyingkirkan opsi yang jelas keliru.</li><li>Mengatur waktu ujian dan memakai kartu rumus untuk persiapan akhir.</li></ul></div>
+
+<h2>Memilih sertifikasi</h2>
+<p>Tiga jalur yang dicakup latihan di website ini, dengan format per tanggal penulisan. Selalu cek halaman resmi penyelenggara sebelum mendaftar karena format dan syarat dapat berubah.</p>
+<div class="tw"><table class="cmp"><tr><th></th><th>PMP</th><th>CAPM</th><th>PSM I</th><th>CSM</th></tr>
+<tr><td>Penyelenggara</td><td>PMI</td><td>PMI</td><td>Scrum.org</td><td>Scrum Alliance</td></tr>
+<tr><td>Soal</td><td>180 (170 dinilai)</td><td>150 (135 dinilai)</td><td>80</td><td>sekitar 50</td></tr>
+<tr><td>Waktu</td><td>240 menit</td><td>180 menit</td><td>60 menit</td><td>60 menit</td></tr>
+<tr><td>Nilai lulus</td><td>tidak dipublikasikan</td><td>tidak dipublikasikan</td><td>85%</td><td>sekitar 74%</td></tr>
+<tr><td>Fokus</td><td>People 33%, Process 41%, Business Env. 26%</td><td>Fundamentals 36%, Predictive 17%, Agile 20%, Business Analysis 27%</td><td>Scrum Guide 2020</td><td>Scrum (biasanya via kelas)</td></tr>
+<tr><td>Cocok untuk</td><td>Manajer proyek berpengalaman</td><td>Pemula tanpa pengalaman kerja proyek</td><td>Belajar mandiri tentang Scrum</td><td>Lewat pelatihan resmi</td></tr></table></div>
+<div class="note"><b>Saran untuk Anda</b><p>Jika baru memulai dan ingin menguji dasar, CAPM adalah awal yang wajar. PMP mensyaratkan pengalaman memimpin proyek. Untuk Scrum, baca Scrum Guide 2020 berulang kali: banyak soal menguji ketepatan kata, bukan hafalan umum. Syarat pendaftaran dan biaya berubah-ubah, jadi periksa di situs PMI, Scrum.org, atau Scrum Alliance.</p></div>
+
+<h2>Cara membaca soal situasional</h2>
+<p>Sebagian besar soal PMP berbentuk cerita: ada masalah, lalu empat pilihan yang tampak masuk akal. Gunakan urutan berikut.</p>
+<div class="sim"><div class="sim-h">Simulasi · lima langkah membaca soal</div><div id="st"></div></div>
+
+<h3>Kata kunci dan arti sebenarnya</h3>
+<div class="tw"><table class="cmp"><tr><th>Kata dalam soal</th><th>Biasanya berarti</th></tr>
+<tr><td>"Langkah pertama"</td><td>Kumpulkan informasi atau nilai dampak dulu, sebelum bertindak atau mengeskalasi.</td></tr>
+<tr><td>"Paling tepat" / "terbaik"</td><td>Beberapa opsi benar sebagian. Pilih yang paling sesuai proses dan paling proaktif.</td></tr>
+<tr><td>"Selanjutnya"</td><td>Lihat apa yang sudah terjadi; pilih langkah berikutnya dalam urutan proses.</td></tr>
+<tr><td>"Agile / sprint / backlog" dalam cerita</td><td>Jawab dengan logika Agile: tim berdaya, perubahan lewat backlog, bukan perintah dari atas.</td></tr>
+<tr><td>"Sponsor / governance / toleransi"</td><td>Keputusan di luar wewenang Anda perlu dieskalasi dengan data dan opsi.</td></tr></table></div>
+
+<h2>Latihan menyingkirkan opsi</h2>
+<p>Klik tiap opsi untuk melihat kenapa ia menggoda atau keliru. Pelajari polanya.</p>
+<div class="sim"><div class="sim-h">Simulasi · bedah satu soal</div>
+<h3>Operator melaporkan bahwa mesin baru sering berhenti. Vendor bilang itu "normal". Anda manajer proyek. Langkah terbaik pertama?</h3>
+<div class="opts" id="ops" style="display:grid;gap:8px"></div><div class="out" id="opo">Klik sebuah opsi untuk melihat bedahnya.</div></div>
+
+<h2>Mengatur waktu</h2>
+<p>Tidak ada gunanya mahir tetapi kehabisan waktu. Pilih ujian, lalu gerakkan slider untuk melihat apakah laju Anda cukup.</p>
+<div class="sim"><div class="sim-h">Simulasi · kalkulator laju</div>
+<div class="seg" id="ex"></div>
+<div class="ctrl"><label>Waktu berjalan: <input type="range" id="te" min="0" value="60" style="width:220px"> <b id="tev"></b></label><label>Soal selesai: <input type="range" id="qd" min="0" value="30" style="width:220px"> <b id="qdv"></b></label></div>
+<div class="kpis"><div class="kpi"><span>Detik per soal (jatah)</span><b id="k1"></b></div><div class="kpi"><span>Seharusnya selesai</span><b id="k2"></b></div><div class="kpi"><span>Sisa detik per soal</span><b id="k3"></b></div></div>
+<div class="out" id="ko"></div></div>
+<ul><li><b>Jangan terpaku</b> pada satu soal. Tandai, pilih jawaban terbaik sementara, lanjut.</li><li><b>Manfaatkan jeda</b> (PMP: dua jeda 10 menit). Setelah masuk jeda, soal bagian sebelumnya tidak bisa dibuka lagi.</li><li><b>Jangan biarkan soal kosong.</b> Setahu saya PMI tidak mengurangi nilai untuk jawaban salah; pastikan lagi di panduan ujian terbaru.</li></ul>
+
+<h2>Kartu rumus</h2>
+<div class="tw"><table class="cmp"><tr><th>Topik</th><th>Rumus</th></tr>
+<tr><td>Earned value</td><td>CV = EV − AC · SV = EV − PV · CPI = EV ÷ AC · SPI = EV ÷ PV</td></tr>
+<tr><td>Perkiraan akhir</td><td>EAC = BAC ÷ CPI (tren berlanjut) · EAC = AC + BAC − EV (varians satu kali) · ETC = EAC − AC · VAC = BAC − EAC</td></tr>
+<tr><td>TCPI</td><td>(BAC − EV) ÷ (BAC − AC)</td></tr>
+<tr><td>PERT</td><td>E = (O + 4M + P) ÷ 6 · SD = (P − O) ÷ 6</td></tr>
+<tr><td>Komunikasi</td><td>Saluran = n(n−1) ÷ 2</td></tr>
+<tr><td>Risiko</td><td>EMV = peluang × dampak</td></tr>
+<tr><td>Jadwal</td><td>Float = LS − ES = LF − EF · jalur kritis = jalur terpanjang, float 0</td></tr>
+<tr><td>Nilai proyek</td><td>NPV = jumlah arus kas didiskonto − investasi · BCR = manfaat ÷ biaya</td></tr>
+<tr><td>Agile</td><td>Velocity = story point selesai per sprint · Lead time = total waktu · Cycle time = waktu dikerjakan</td></tr></table></div>
+<p>Untuk menghafal, pakai kartu interaktif di <a href="latihan.html">Latihan Ujian</a> (tab "Kartu rumus").</p>
+
+<h2>Rencana belajar empat minggu</h2>
+<div class="tw"><table class="cmp"><tr><th>Minggu</th><th>Fokus</th></tr>
+<tr><td>1</td><td>Baca ulang modul 01–09 dan kerjakan kuisnya. Catat istilah yang sering salah.</td></tr>
+<tr><td>2</td><td>Modul 10–14 (earned value, change, Scrum, Kanban). Hafalkan rumus dengan kartu.</td></tr>
+<tr><td>3</td><td>Modul 16 dan latihan per topik. Fokus pada domain terlemah.</td></tr>
+<tr><td>4</td><td>Dua simulasi bertimer. Bahas semua jawaban salah, lalu ulangi sampai konsisten di atas target.</td></tr></table></div>
+<p>Jadwal di atas hanya contoh. Sesuaikan dengan waktu yang Anda punya, dan ingat bahwa soal di website ini terbatas: tambahkan latihan dari sumber resmi.</p>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+stepper('#st', [
+  { t: 'Pendekatan', h: '<h3>1. Tentukan pendekatannya</h3><p>Apakah ceritanya predictive, Agile, atau hybrid? Cari petunjuk: "sprint", "backlog", "baseline", "gate". Pendekatan menentukan siapa yang berwenang dan apa yang normal.</p><div class="out"><b>Contoh:</b> "Product Owner menambah item" → logika Agile. "Perubahan pada baseline" → logika predictive.</div>' },
+  { t: 'Kata kunci', h: '<h3>2. Garis bawahi pertanyaannya</h3><p>Cari "pertama", "terbaik", "selanjutnya", "paling mungkin". Pertanyaan yang sama dengan cerita yang sama bisa punya jawaban berbeda tergantung kata ini.</p>' },
+  { t: 'Peran Anda', h: '<h3>3. Siapa Anda dalam cerita?</h3><p>Manajer proyek, Scrum Master, atau anggota tim? Wewenang berbeda: Scrum Master tidak memerintah tim, manajer proyek tidak mengubah baseline sendiri.</p>' },
+  { t: 'Coret opsi', h: '<h3>4. Coret opsi yang ekstrem</h3><p>Biasanya keliru: <b>menyalahkan</b> orang, <b>mengabaikan</b> masalah, <b>menunggu</b> tanpa tindakan, <b>langsung mengeskalasi</b>, <b>memutuskan sepihak</b>, atau <b>menutupi</b> informasi.</p><div class="out">Setelah mencoret, biasanya tersisa dua. Bandingkan dengan kata kunci langkah 2.</div>' },
+  { t: 'Pilih', h: '<h3>5. Pilih yang proaktif dan sesuai proses</h3><p>Jawaban yang baik umumnya: <b>mengumpulkan fakta, bekerja sama, mengikuti proses, transparan</b>. Bila masih ragu, pilih opsi yang melibatkan pemangku kepentingan yang tepat dengan data, bukan yang melewati proses.</p>' },
+]);
+
+const OP = [
+  ['Mengganti vendor sekarang juga', 'Terlalu cepat dan sepihak. Belum ada data bahwa vendor penyebabnya, dan penggantian punya dampak biaya dan jadwal.', 0],
+  ['Menyelidiki data gangguan bersama operator dan vendor untuk menemukan penyebabnya', 'Tepat. Langkah pertama adalah mengumpulkan fakta bersama pihak terkait sebelum memutuskan tindakan.', 1],
+  ['Mengabaikan karena vendor sudah menjawab', 'Mengabaikan sinyal dari operator berisiko. Pernyataan vendor perlu diverifikasi.', 0],
+  ['Melaporkan vendor ke sponsor karena ingkar', 'Eskalasi terlalu dini dan menuduh sebelum ada bukti. Kumpulkan data dulu, baru bawa opsi bila perlu.', 0],
+];
+$('#ops').innerHTML = OP.map((o, i) => `<button class="ghost" style="text-align:left;font-weight:500" data-i="${i}">${o[0]}</button>`).join('');
+$('#ops').onclick = e => { const b = e.target.closest('button'); if (!b) return; const o = OP[+b.dataset.i]; b.classList.toggle('on', true); $('#opo').innerHTML = (o[2] ? '<b style="color:#2B8A3E">Jawaban terbaik. </b>' : '<b style="color:#C92A2A">Kurang tepat. </b>') + o[1]; };
+
+const EX = { pmp: ['PMP', 180, 240], capm: ['CAPM', 150, 180], psm: ['PSM I', 80, 60], csm: ['CSM', 50, 60] };
+let ex = 'pmp';
+$('#ex').innerHTML = Object.entries(EX).map(([k, v]) => `<button data-k2="${k}" class="${k === ex ? 'on' : ''}">${v[0]}</button>`).join('');
+function kal() {
+  const [nm, N, T] = EX[ex], te = $('#te'), qd = $('#qd'); te.max = T; qd.max = N;
+  if (+te.value > T) te.value = T; if (+qd.value > N) qd.value = N;
+  const t = +te.value, q = +qd.value, per = T * 60 / N, exp = t * 60 / per, left = (T - t) * 60, rem = N - q;
+  $('#tev').textContent = t + ' dari ' + T + ' menit'; $('#qdv').textContent = q + ' dari ' + N;
+  $('#k1').textContent = nf(per, 0) + ' dtk'; $('#k2').textContent = nf(exp, 0) + ' soal'; $('#k3').textContent = rem ? nf(left / rem, 0) + ' dtk' : '—';
+  const diff = q - exp;
+  $('#ko').innerHTML = rem === 0 ? '<b style="color:#2B8A3E">Semua soal selesai.</b> Gunakan sisa waktu untuk meninjau soal yang ditandai.' : diff >= 2 ? `<b style="color:#2B8A3E">Anda di depan jatah sekitar ${nf(diff, 0)} soal.</b> Sisa waktu cukup untuk meninjau soal yang ragu.` : diff <= -2 ? `<b style="color:#C92A2A">Anda tertinggal sekitar ${nf(-diff, 0)} soal.</b> Percepat: pilih jawaban terbaik, tandai, dan lanjut.` : '<b style="color:#B7791F">Laju Anda pas dengan jatah.</b> Jaga konsisten dan sisakan waktu untuk soal yang ditandai.';
+}
+$('#ex').onclick = e => { const b = e.target.closest('button'); if (!b) return; ex = b.dataset.k2; $('#te').value = Math.round(EX[ex][2] / 3); $('#qd').value = Math.round(EX[ex][1] / 3); $$('button', $('#ex')).forEach(x => x.classList.toggle('on', x === b)); kal(); };
+$('#te').oninput = kal; $('#qd').oninput = kal; kal();
+
+quiz([
+  { q: 'Soal menyatakan "langkah pertama". Apa yang biasanya paling tepat?', o: ['Langsung mengeskalasi ke sponsor', 'Mengumpulkan fakta atau menilai dampak lebih dulu', 'Memutuskan sendiri', 'Menunggu perkembangan'], a: 1, e: 'Sebelum bertindak, pahami situasinya. Eskalasi dan keputusan datang setelah data ada.' },
+  { q: 'Dalam cerita Agile, anggota tim meminta Anda menentukan tugas harian mereka. Jawaban yang paling sesuai?', o: ['Memberi daftar tugas rinci', 'Mendorong tim mengatur dirinya sendiri dan memilih tugas', 'Meminta atasan menugaskan', 'Menolak membantu'], a: 1, e: 'Tim Agile bersifat self-organizing; peran Anda adalah membimbing dan menyingkirkan hambatan.' },
+  { q: 'Pada ujian PMI, jika Anda tidak yakin pada suatu soal, strategi terbaik?', o: ['Dikosongkan', 'Pilih jawaban terbaik sementara, tandai, dan lanjut', 'Menghabiskan 10 menit sampai yakin', 'Menebak tanpa membaca'], a: 1, e: 'Soal kosong pasti tidak bernilai, dan waktu perlu dijaga. Setahu saya PMI tidak mengurangi nilai untuk jawaban salah; cek panduan terbaru.' },
+  { q: 'Berapa nilai lulus PSM I?', o: ['65%', '75%', '85%', 'Tidak ada'], a: 2, e: 'PSM I memerlukan 85% (sekitar 68 dari 80 soal) dalam 60 menit.' },
+]);
+</script>
+</body>
+</html>

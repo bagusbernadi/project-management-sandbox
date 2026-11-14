@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 Scope & WBS · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="04">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menulis batas scope yang jelas, termasuk apa yang tidak dikerjakan.</li><li>Menyusun WBS yang memenuhi aturan 100%.</li><li>Mengenali dan mencegah scope creep.</li></ul></div>
+
+<h2>Scope: batas pekerjaan</h2>
+<p><i data-k="scope">Scope</i> adalah seluruh pekerjaan yang harus dilakukan, <b>dan hanya itu</b>, untuk menghasilkan hasil yang dijanjikan. Ada dua jenis:</p>
+<ul>
+  <li><b>Product scope</b>: ciri dan fungsi hasil. Contoh: lini mampu merakit 400 unit/shift.</li>
+  <li><b>Project scope</b>: pekerjaan untuk menghasilkannya. Contoh: desain, pemesanan, instalasi, pelatihan.</li>
+</ul>
+<p>Scope dimulai dari <i data-k="requirement">requirement</i>: apa yang dibutuhkan stakeholder. Cara menggali: wawancara, workshop, observasi di lantai produksi, survei, dan prototipe.</p>
+<div class="case"><b>Contoh kasus · Dua kalimat berbeda</b>
+<p>"Pasang lini baru" bisa berarti mesin saja, atau mesin plus utilitas plus pelatihan plus SOP. Produksi mengira semuanya termasuk, sementara vendor mengira hanya mesin. Di sini muncul perselisihan.</p>
+<p>Solusinya <b>scope statement</b> yang menulis apa yang termasuk <i>dan apa yang tidak</i> ("tidak termasuk renovasi gedung dan lini 4").</p></div>
+
+<h3>Memprioritaskan requirement: MoSCoW</h3>
+<div class="grid g4">
+  <div class="card mini"><span class="tag o">Must</span><h3><i data-k="moscow">Must have</i></h3><p>Tanpa ini proyek gagal. Contoh: sensor keselamatan.</p></div>
+  <div class="card mini"><span class="tag g">Should</span><h3>Should have</h3><p>Penting, tetapi ada jalan pintas. Contoh: display andon.</p></div>
+  <div class="card mini"><span class="tag b">Could</span><h3>Could have</h3><p>Bagus jika ada waktu dan dana. Contoh: laporan otomatis.</p></div>
+  <div class="card mini"><span class="tag">Won't</span><h3>Won't (kali ini)</h3><p>Sepakat tidak dikerjakan sekarang. Contoh: integrasi ke ERP.</p></div>
+</div>
+
+<h2>WBS: memecah pekerjaan</h2>
+<p><i data-k="wbs">WBS</i> (Work Breakdown Structure) memecah scope menjadi bagian makin kecil, berbentuk pohon, sampai level yang bisa diperkirakan dan diberi penanggung jawab. Level terbawah disebut <i data-k="workpackage">work package</i>.</p>
+<div class="sim" style="padding:14px">
+  <svg viewBox="0 0 880 250" class="chart" role="img" aria-label="Contoh WBS lini baru">
+    <g font-size="12.5" font-weight="700" text-anchor="middle">
+      <rect x="350" y="6" width="180" height="40" rx="10" fill="#1B2A41"/><text x="440" y="31" fill="#fff">Lini Perakitan Baru</text>
+      <g stroke="#9AA5B5" stroke-width="2" fill="none"><path d="M440 46V66M110 66H770M110 66V86M275 66V86M440 66V86M605 66V86M770 66V86"/></g>
+      <g fill="#0F766E"><rect x="30" y="86" width="160" height="38" rx="9"/><rect x="195" y="86" width="160" height="38" rx="9"/><rect x="360" y="86" width="160" height="38" rx="9"/><rect x="525" y="86" width="160" height="38" rx="9"/><rect x="690" y="86" width="160" height="38" rx="9"/></g>
+      <g fill="#fff"><text x="110" y="110">1 Mesin</text><text x="275" y="110">2 Utilitas</text><text x="440" y="110">3 Orang &amp; SOP</text><text x="605" y="110">4 Pengujian</text><text x="770" y="110">5 Serah terima</text></g>
+      <g font-size="11" font-weight="600" fill="#1B2A41" stroke="#E3E7ED">
+        <rect x="30" y="142" width="160" height="30" rx="7" fill="#DDF1EE"/><rect x="30" y="178" width="160" height="30" rx="7" fill="#DDF1EE"/>
+        <rect x="195" y="142" width="160" height="30" rx="7" fill="#DDF1EE"/><rect x="195" y="178" width="160" height="30" rx="7" fill="#DDF1EE"/>
+        <rect x="360" y="142" width="160" height="30" rx="7" fill="#DDF1EE"/><rect x="360" y="178" width="160" height="30" rx="7" fill="#DDF1EE"/>
+        <rect x="525" y="142" width="160" height="30" rx="7" fill="#DDF1EE"/>
+        <rect x="690" y="142" width="160" height="30" rx="7" fill="#DDF1EE"/><rect x="690" y="178" width="160" height="30" rx="7" fill="#DDF1EE"/>
+      </g>
+      <g font-size="11" font-weight="600" fill="#1B2A41"><text x="110" y="161">1.1 Pembelian mesin</text><text x="110" y="197">1.2 Instalasi mesin</text><text x="275" y="161">2.1 Listrik &amp; udara</text><text x="275" y="197">2.2 Jaringan data</text><text x="440" y="161">3.1 Pelatihan operator</text><text x="440" y="197">3.2 SOP &amp; WI</text><text x="605" y="161">4.1 Uji coba (SAT)</text><text x="770" y="161">5.1 Serah terima</text><text x="770" y="197">5.2 Dokumentasi</text></g>
+    </g>
+  </svg>
+  <p class="muted small center" style="margin:6px 0 0">Tiga tingkat: proyek → deliverable utama → work package.</p>
+</div>
+<div class="note"><b>Tiga aturan WBS</b><ul><li><b><i data-k="rule100">Aturan 100%</i></b>: gabungan semua anak harus sama dengan induknya. Tidak kurang, tidak lebih.</li><li><b>Berorientasi hasil</b>: tulis benda (kata benda): "Mesin terpasang", bukan "memasang mesin".</li><li><b>Berhenti di work package</b>: cukup kecil untuk diperkirakan dan dimiliki satu orang/tim.</li></ul></div>
+
+<div class="sim"><div class="sim-h">Simulasi · uji aturan 100%</div>
+<h3>Susun WBS lini baru: centang pekerjaan yang termasuk scope</h3>
+<p class="muted small">Bobot menunjukkan porsi pekerjaan. Dua item di bawah <b>tidak pernah diminta sponsor</b>.</p>
+<div id="wb"></div>
+<div class="kpis"><div class="kpi"><span>Cakupan scope</span><b id="w1"></b></div><div class="kpi"><span>Pekerjaan di luar scope</span><b id="w2"></b></div></div>
+<div class="out" id="wmsg"></div></div>
+
+<h2>Scope creep: musuh yang datang pelan-pelan</h2>
+<p><i data-k="scopecreep">Scope creep</i> adalah penambahan pekerjaan sedikit demi sedikit <b>tanpa persetujuan formal</b>. Tiap permintaan terlihat sepele ("sekalian ya, Pak"), tetapi jumlahnya mengikis jadwal dan anggaran.</p>
+<div class="sim"><div class="sim-h">Simulasi · biaya permintaan kecil</div>
+<h3>Berapa permintaan "sepele" yang Anda terima tanpa prosedur?</h3>
+<p class="muted small">Rata-rata tiap permintaan: 2 hari kerja dan Rp8 juta. Proyek awal: 84 hari dan Rp1.200 juta.</p>
+<div class="ctrl"><label>Permintaan: <input type="range" id="cr" min="0" max="15" step="1" value="6"> <b id="crv"></b></label></div>
+<div id="ch-cr"></div>
+<div class="out" id="crm"></div></div>
+<p>Cara menahannya: setiap permintaan baru dicatat sebagai <b>change request</b> (lihat <a href="11-change-closing.html">Modul 11</a>), dinilai dampaknya, lalu disetujui atau ditolak oleh yang berwenang. Bukan berarti selalu menolak, tetapi <b>keputusan diambil dengan sadar</b>.</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li><b><i data-k="scopebaseline">Scope baseline</i></b> = scope statement + WBS + WBS dictionary. WBS dictionary menjelaskan tiap work package: deskripsi, penanggung jawab, <i data-k="acceptance">acceptance criteria</i>, jadwal, biaya.</li>
+<li><b><i data-k="rtm">Requirements traceability matrix</i></b> menghubungkan requirement → deliverable → pengujian.</li>
+<li><b>Validate Scope</b> = pelanggan/sponsor <i>menerima</i> deliverable secara formal. <b>Control Quality</b> = tim memeriksa deliverable <i>benar</i> secara teknis. Urutannya: control quality dulu, baru validate scope.</li>
+<li><b>Gold plating</b>: menambah fitur yang tidak diminta. Dianggap praktik buruk walaupun niatnya baik.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const WP = [
+  ['Desain layout lini', 8, 1], ['Pembelian & pengiriman mesin', 30, 1], ['Instalasi mesin', 15, 1], ['Instalasi utilitas (listrik, udara, jaringan)', 12, 1],
+  ['Pelatihan operator', 8, 1], ['SOP & instruksi kerja', 7, 1], ['Uji coba & commissioning (SAT)', 12, 1], ['Serah terima & dokumentasi', 8, 1],
+  ['Renovasi ruang rapat manajer', 0, 0], ['Persiapan lini 4 (belum disetujui)', 0, 0],
+];
+const WHY = { 'Pembelian & pengiriman mesin': 'Tanpa mesin tidak ada lini.', 'Uji coba & commissioning (SAT)': 'Tidak ada bukti lini berfungsi sebelum serah terima.', 'Pelatihan operator': 'Mesin ada, tetapi tidak ada yang mampu mengoperasikan.', 'Instalasi utilitas (listrik, udara, jaringan)': 'Mesin tidak bisa menyala.', 'Serah terima & dokumentasi': 'Produksi tidak punya dasar menerima lini.' };
+$('#wb').innerHTML = WP.map((w, i) => `<label style="display:flex;gap:10px;align-items:center;padding:4px 0"><input type="checkbox" data-i="${i}" ${w[2] ? 'checked' : ''}> <span style="flex:1">${w[0]}</span><span class="pill">${w[1] ? w[1] + '%' : 'di luar scope'}</span></label>`).join('');
+function wbs() {
+  let cov = 0, extra = 0; const miss = [];
+  $$('#wb input').forEach((c, i) => { if (c.checked) { cov += WP[i][1]; if (!WP[i][2]) extra++; } else if (WP[i][2] && WHY[WP[i][0]]) miss.push(WP[i][0]); });
+  $('#w1').textContent = cov + '%'; $('#w1').style.color = cov === 100 ? '#2B8A3E' : '#C92A2A'; $('#w2').textContent = extra + ' item'; $('#w2').style.color = extra ? '#C92A2A' : '#2B8A3E';
+  let m = '';
+  if (cov === 100 && !extra) m = '<b style="color:#2B8A3E">Memenuhi aturan 100%.</b> Semua pekerjaan tercakup dan tidak ada yang berlebih.';
+  else { if (cov < 100) m += `<b style="color:#C92A2A">Cakupan hanya ${cov}%.</b> Ada pekerjaan yang terlewat, dan ia akan muncul belakangan sebagai kejutan biaya. ` + (miss.length ? 'Contoh: ' + miss.slice(0, 2).map(x => `"${x}" (${WHY[x]})`).join('; ') + '. ' : ''); if (extra) m += `<b style="color:#C92A2A">${extra} item di luar scope.</b> Menambah pekerjaan yang tidak diminta adalah gold plating dan awal scope creep.`; }
+  $('#wmsg').innerHTML = m;
+}
+$('#wb').onchange = wbs; wbs();
+
+function creep() {
+  const n = +$('#cr').value, d = 84 + 2 * n, b = 1200 + 8 * n; $('#crv').textContent = n + ' kali';
+  C.bar('#ch-cr', { labels: ['Jadwal rencana', 'Jadwal sekarang', 'Biaya rencana', 'Biaya sekarang'], values: [100, 100 + 2 * n / 84 * 100, 100, 100 + 8 * n / 1200 * 100], colors: ['#9AA5B5', '#D9480F', '#9AA5B5', '#D9480F'], min: 0, max: 160, fmt: v => nf(v, 0), xl: 'Indeks (rencana = 100)' });
+  $('#crm').innerHTML = n === 0 ? 'Tanpa permintaan tambahan. Jadwal 84 hari dan biaya Rp1.200 juta.' : `<b>+${2 * n} hari (${nf(2 * n / 84 * 100, 0)}%)</b> dan <b>+Rp${8 * n} juta (${nf(8 * n / 1200 * 100, 1)}%)</b>. Jadwal menjadi ${d} hari dan biaya Rp${nf(b, 0)} juta. Tidak satu pun dari ini muncul di rencana awal.`;
+}
+$('#cr').oninput = creep; creep();
+
+quiz([
+  { q: 'Mana nama work package yang baik pada WBS?', o: ['Memasang mesin', 'Mesin terpasang', 'Urusan mesin', 'Tim instalasi'], a: 1, e: 'WBS berorientasi deliverable: gunakan kata benda hasil, bukan kata kerja.' },
+  { q: 'Apa isi aturan 100%?', o: ['Semua pekerjaan harus selesai 100% tepat waktu', 'WBS mencakup seluruh scope, tidak kurang dan tidak lebih', 'Anggaran terpakai 100%', 'Semua stakeholder setuju 100%'], a: 1, e: 'Gabungan semua bagian WBS harus sama dengan 100% scope.' },
+  { q: 'Pelanggan meminta tambahan kecil di tengah proyek. Tindakan terbaik?', o: ['Langsung dikerjakan agar pelanggan senang', 'Ditolak semua', 'Dicatat sebagai change request dan dinilai dampaknya', 'Disembunyikan dari sponsor'], a: 2, e: 'Perubahan harus lewat prosedur agar keputusan diambil dengan sadar atas dampak waktu, biaya, dan risiko.' },
+  { q: 'Tim menambahkan fitur bagus yang tidak diminta pelanggan. Istilahnya?', o: ['Crashing', 'Gold plating', 'Fast tracking', 'Rework'], a: 1, e: 'Gold plating adalah menambah di luar scope. Walau niatnya baik, ia menambah risiko tanpa persetujuan.' },
+]);
+</script>
+</body>
+</html>

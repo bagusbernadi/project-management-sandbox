@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11 Change Control & Closing · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="11">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menjalankan proses change control dari pengajuan sampai pembaruan baseline.</li><li>Menilai change request berdasarkan dampak dan manfaat.</li><li>Menutup proyek dengan lengkap dan menulis lessons learned yang berguna.</li></ul></div>
+
+<h2>Perubahan itu pasti terjadi</h2>
+<p>Kebutuhan berubah, vendor terlambat, regulasi baru muncul. Tujuan <i data-k="changecontrol">change control</i> bukan menolak perubahan, melainkan memastikan <b>setiap perubahan diputuskan dengan sadar</b>: dampaknya diketahui, yang berwenang menyetujui, dan semua orang tahu hasilnya. Tanpa itu, yang terjadi adalah <a href="04-scope-wbs.html">scope creep</a>.</p>
+
+<h2>Alur change control</h2>
+<p>Klik tiap langkah. Contoh: operator meminta tambahan layar andon (tampilan status mesin) pada lini baru.</p>
+<div class="sim"><div class="sim-h">Simulasi · alur perubahan</div><div id="cc"></div></div>
+
+<h2>Menilai change request</h2>
+<p>Pertanyaan yang dipakai untuk menilai sebuah <i data-k="cr">change request</i>:</p>
+<ul><li><b>Wajib atau pilihan?</b> (regulasi, keselamatan, cacat desain vs sekadar keinginan)</li><li><b>Dampaknya</b> pada scope, jadwal, biaya, mutu, risiko.</li><li><b>Manfaatnya</b> bagi tujuan bisnis.</li><li><b>Dananya</b> dari mana: contingency atau tambahan anggaran?</li><li><b>Alternatifnya</b>: tunda ke fase berikutnya, versi lebih sederhana.</li></ul>
+<div class="sim"><div class="sim-h">Simulasi · sidang perubahan</div>
+<h3>Anda adalah ketua <i data-k="ccb">CCB</i>. Putuskan tiga permintaan.</h3>
+<p class="muted small">Sisa contingency: <b>Rp60 juta</b>. Buffer jadwal sebelum menyentuh tenggat: <b>5 hari</b>.</p>
+<div id="crs"></div>
+<div class="kpis"><div class="kpi"><span>Sisa contingency</span><b id="m1"></b></div><div class="kpi"><span>Sisa buffer jadwal</span><b id="m2"></b></div></div>
+<div class="out" id="mm">Pilih keputusan untuk tiap permintaan.</div></div>
+<div class="note"><b>Aturan praktis</b><p>Jika perubahan <b>melampaui cadangan</b> atau <b>mengubah baseline</b>, itu bukan keputusan manajer proyek sendiri: bawa ke sponsor/CCB, lalu perbarui baseline setelah disetujui.</p></div>
+<p>Perubahan darurat (misalnya masalah keselamatan) boleh dilaksanakan lebih dulu, tetapi <b>tetap harus dicatat dan disahkan sesudahnya</b>. Pada Agile, perubahan kebutuhan ditangani lewat penyusunan ulang <i data-k="backlog">product backlog</i> oleh Product Owner (<a href="12-scrum.html">Modul 12</a>).</p>
+
+<h2>Menutup proyek</h2>
+<p><i data-k="closing">Penutupan</i> sering dilewatkan karena tim sudah lelah dan sudah dipindah ke pekerjaan lain. Padahal di sinilah manfaat dikunci dan pelajaran disimpan. Daftar periksa minimal:</p>
+<div class="sim"><div class="sim-h">Simulasi · daftar periksa penutupan</div>
+<h3>Centang yang sudah selesai untuk proyek lini baru</h3>
+<div id="cl"></div>
+<div style="background:#EEF1F5;border-radius:99px;height:12px;margin:12px 0;overflow:hidden"><div id="clb" style="height:100%;width:0;background:#0F766E;transition:width .3s"></div></div>
+<div class="out" id="clm"></div></div>
+
+<h3>Lessons learned yang berguna</h3>
+<p><i data-k="lessons">Lessons learned</i> bukan daftar keluhan. Isi dengan format sederhana: <b>apa yang terjadi → penyebabnya → apa yang disarankan untuk proyek berikutnya</b>. Kumpulkan sepanjang proyek (bukan hanya di akhir) dan tulis tanpa menyalahkan individu.</p>
+<div class="tw"><table class="cmp"><tr><th>Kurang berguna</th><th>Berguna</th></tr>
+<tr><td>"Vendor lambat sekali."</td><td>"Mesin tiba 3 minggu terlambat karena jadwal pelabuhan tidak dicek saat memesan. Saran: jadikan pengecekan jadwal pelabuhan syarat sebelum PO dan pesan 4 minggu lebih awal."</td></tr>
+<tr><td>"Komunikasi buruk."</td><td>"Perubahan desain tidak sampai ke tim instalasi karena hanya dikirim lewat email. Saran: setiap perubahan dibahas di rapat harian dan dicatat di papan bersama."</td></tr></table></div>
+<p>Terakhir, <i data-k="benefit">benefit realization</i>: beberapa bulan setelah serah terima, ukur apakah manfaat yang dijanjikan di business case tercapai (misalnya yield ≥ 95%). Ini yang membedakan proyek "selesai" dari proyek "berhasil" (<a href="01-proyek.html">Modul 01</a>).</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Proses <b>Perform Integrated Change Control</b> berada di kelompok Monitoring &amp; Controlling. Hanya perubahan yang <b>disetujui</b> yang boleh diimplementasikan. Urutan standar: catat → nilai dampak → putuskan → laksanakan → perbarui dokumen → komunikasikan.</li>
+<li>Ketika ada permintaan perubahan, <b>langkah pertama manajer proyek</b> adalah menilai dampaknya (bukan langsung menolak atau menerima).</li>
+<li><i data-k="configmgmt">Configuration management</i> mengendalikan versi dokumen dan hasil kerja. <b>Change log</b> mencatat semua permintaan beserta statusnya.</li>
+<li><b>Close Project or Phase</b>: validasi penerimaan, serah terima, tutup kontrak (<i>procurement closure</i>), arsipkan, lepas sumber daya, laporan akhir. Jika proyek dihentikan lebih awal, tetap dilakukan penutupan dan dicatat alasannya.</li>
+<li><b>Direct and Manage Project Work</b> menghasilkan change request. <b>Monitor and Control Project Work</b> menilai kinerja dan merekomendasikan tindakan korektif.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+stepper('#cc', [
+  { t: 'Ajukan', h: '<h3>1. Ajukan change request</h3><p>Siapa pun boleh mengusulkan, tetapi harus tertulis: apa yang diubah dan kenapa.</p><div class="out"><b>Contoh:</b> Pak Budi (supervisor produksi) mengisi formulir: "Tambah layar andon di lini baru agar gangguan mesin terlihat dari jauh."</div>' },
+  { t: 'Catat', h: '<h3>2. Catat di change log</h3><p>Beri nomor dan tanggal. Dengan begitu tidak ada permintaan yang hilang atau dikerjakan diam-diam.</p><div class="out"><b>Contoh:</b> CR-007, diterima 12 Mei, pemohon Pak Budi, status "dinilai".</div>' },
+  { t: 'Nilai dampak', h: '<h3>3. Nilai dampak</h3><p>Hitung dampak pada scope, jadwal, biaya, mutu, risiko, dan sumber daya.</p><div class="out"><b>Contoh:</b> biaya Rp45 juta, tambahan 4 hari instalasi (di jalur kritis), butuh listrik tambahan sehingga ada risiko baru.</div>' },
+  { t: 'Putuskan', h: '<h3>4. Putuskan</h3><p>Pihak berwenang (CCB atau sponsor) memilih: setujui, tolak, atau tunda. Alasan dicatat.</p><div class="out"><b>Contoh:</b> CCB menunda ke fase 2 karena contingency tersisa tidak cukup dan manfaatnya bukan kewajiban.</div>' },
+  { t: 'Laksanakan', h: '<h3>5. Laksanakan (jika disetujui)</h3><p>Pekerjaan perubahan dimasukkan ke WBS dan jadwal. Pemilik tugasnya jelas.</p><div class="out"><b>Contoh:</b> jika disetujui, paket kerja "Layar andon terpasang" ditambahkan, dengan penanggung jawab dan tanggal.</div>' },
+  { t: 'Perbarui & kabari', h: '<h3>6. Perbarui baseline dan komunikasikan</h3><p>Dokumen dan baseline diperbarui, lalu semua yang terdampak diberi tahu. Versi lama diarsipkan.</p><div class="out"><b>Contoh:</b> Pak Budi diberi tahu hasilnya beserta alasan penundaan, dan CR-007 ditutup di change log.</div>' },
+]);
+
+const CR = [
+  { n: 'CR-A · Sensor keselamatan tambahan', d: 'Diminta auditor keselamatan; wajib untuk izin operasi.', c: 25, t: 3, f: { a: ['ok', 'Tepat. Ini perubahan wajib. Tanpa sensor, lini tidak mendapat izin. Dananya sepadan dari contingency.'], r: ['bad', 'Menolak perubahan wajib berarti lini tidak bisa beroperasi. Akibatnya jauh lebih mahal.'], d: ['bad', 'Menunda perubahan wajib berisiko menggagalkan serah terima.'] } },
+  { n: 'CR-B · Ganti warna panel kontrol', d: 'Selera manajer; tidak ada dampak fungsi atau manfaat bisnis.', c: 8, t: 2, f: { a: ['bad', 'Menyetujui permintaan tanpa manfaat bisnis membuka pintu scope creep. Biaya kecil, tetapi preseden berbahaya.'], r: ['ok', 'Tepat. Tidak ada manfaat bisnis. Jelaskan alasannya dengan sopan dan tawarkan membahasnya saat lini sudah operasi.'], d: ['ok', 'Cukup baik. Menunda ke fase operasi juga wajar karena bukan syarat proyek.'] } },
+  { n: 'CR-C · Display andon real-time', d: 'Deteksi gangguan lebih cepat; bukan kewajiban. Manfaat jelas tetapi tidak mendesak.', c: 45, t: 4, f: { a: ['warn', 'Manfaatnya nyata, tetapi dengan CR-A contingency tak cukup. Menyetujui berarti melampaui cadangan dan butuh persetujuan sponsor untuk tambahan dana.'], r: ['warn', 'Menolak mentah-mentah membuang manfaat nyata. Lebih baik ditunda ke fase 2 atau diajukan dengan pendanaan terpisah.'], d: ['ok', 'Tepat. Manfaat jelas, dana tidak ada. Tunda ke fase 2 atau ajukan pendanaan terpisah ke sponsor.'] } },
+];
+const dec = [null, null, null], lab = { ok: ['Keputusan baik', '#2B8A3E'], bad: ['Perlu dipertimbangkan ulang', '#C92A2A'], warn: ['Dengan syarat', '#B7791F'] };
+$('#crs').innerHTML = CR.map((c, i) => `<div class="card" style="margin:10px 0;box-shadow:none"><b>${c.n}</b><p class="muted small" style="margin:.2em 0 .5em">${c.d} Biaya <b>Rp${c.c} jt</b>, tambahan waktu <b>${c.t} hari</b>.</p><div class="seg" data-i="${i}"><button data-v="a">Setujui</button><button data-v="r">Tolak</button><button data-v="d">Tunda</button></div><div class="small" id="cf${i}" style="margin-top:8px"></div></div>`).join('');
+function crf() {
+  let cont = 60, buf = 5, n = 0;
+  CR.forEach((c, i) => { if (dec[i] === 'a') { cont -= c.c; buf -= c.t; } if (dec[i]) n++; });
+  $('#m1').textContent = 'Rp' + cont + ' jt'; $('#m1').style.color = cont < 0 ? '#C92A2A' : ''; $('#m2').textContent = buf + ' hari'; $('#m2').style.color = buf < 0 ? '#C92A2A' : '';
+  $('#mm').innerHTML = n < 3 ? 'Pilih keputusan untuk tiap permintaan.' : (cont < 0 || buf < 0 ? '<b style="color:#C92A2A">Keputusan Anda melampaui cadangan' + (cont < 0 ? ' dana' : '') + (buf < 0 ? ' dan buffer jadwal' : '') + '.</b> Perubahan ini harus dibawa ke sponsor untuk persetujuan dan pembaruan baseline.' : '<b style="color:#2B8A3E">Keputusan Anda masih dalam cadangan.</b> Perubahan wajib diakomodasi, permintaan tanpa manfaat tidak membebani proyek.');
+}
+$('#crs').onclick = e => { const b = e.target.closest('button'); if (!b) return; const i = +b.parentNode.dataset.i, v = b.dataset.v; dec[i] = v; $$('button', b.parentNode).forEach(x => x.classList.toggle('on', x === b)); const f = CR[i].f[v], l = lab[f[0]]; $('#cf' + i).innerHTML = `<b style="color:${l[1]}">${l[0]}.</b> ${f[1]}`; crf(); }; crf();
+
+const CL = ['Penerimaan formal deliverable oleh sponsor/pelanggan (validate scope)', 'Serah terima ke produksi, termasuk pelatihan dan SOP', 'Dokumen akhir, gambar as-built, dan arsip proyek', 'Penutupan kontrak vendor dan pembayaran final', 'Pelepasan tim dan evaluasi kinerja anggota', 'Sesi lessons learned dan penyimpanannya', 'Rencana mengukur manfaat (yield, output) setelah serah terima', 'Laporan penutupan ke sponsor'];
+$('#cl').innerHTML = CL.map((c, i) => `<label style="display:flex;gap:10px;padding:4px 0"><input type="checkbox" data-i="${i}"> <span>${c}</span></label>`).join('');
+function cl() {
+  const n = $$('#cl input:checked').length; $('#clb').style.width = n / CL.length * 100 + '%';
+  $('#clm').innerHTML = n === 0 ? 'Belum ada yang dicentang.' : n === CL.length ? '<b style="color:#2B8A3E">Penutupan lengkap.</b> Proyek siap dinyatakan selesai secara administratif, dan manfaat akan diukur.' : `<b>${n} dari ${CL.length} selesai.</b> ` + (!$$('#cl input')[0].checked ? 'Tanpa penerimaan formal, proyek belum sah dianggap selesai dan pembayaran vendor bisa bermasalah. ' : '') + (!$$('#cl input')[5].checked ? 'Tanpa lessons learned, kesalahan yang sama akan terulang di proyek berikutnya.' : '');
+}
+$('#cl').onchange = cl; cl();
+
+quiz([
+  { q: 'Pelanggan meminta perubahan desain di tengah proyek. Langkah pertama manajer proyek?', o: ['Langsung mengerjakan', 'Menolak karena mengganggu rencana', 'Menilai dampaknya pada scope, jadwal, biaya, dan risiko', 'Meminta tim lembur'], a: 2, e: 'Nilai dampak dulu, baru ajukan ke pihak berwenang. Menolak atau menerima tanpa data adalah keputusan buta.' },
+  { q: 'Siapa yang menyetujui change request yang mengubah baseline?', o: ['Siapa pun yang memintanya', 'Manajer proyek sendirian', 'Pihak berwenang seperti CCB atau sponsor', 'Vendor'], a: 2, e: 'Perubahan baseline butuh persetujuan pihak berwenang, lalu baseline diperbarui.' },
+  { q: 'Lessons learned yang paling berguna berisi…', o: ['Daftar orang yang salah', 'Apa yang terjadi, penyebabnya, dan saran untuk proyek berikutnya', 'Foto tim', 'Ringkasan anggaran'], a: 1, e: 'Format yang dapat ditindaklanjuti. Tujuan lessons learned adalah memperbaiki, bukan menyalahkan.' },
+  { q: 'Mengapa benefit realization dilakukan setelah proyek selesai?', o: ['Untuk menagih vendor', 'Untuk memastikan manfaat bisnis yang dijanjikan benar-benar tercapai', 'Untuk mengubah scope', 'Untuk memperpanjang kontrak'], a: 1, e: 'Proyek berhasil bila manfaatnya tercapai, bukan sekadar selesai. Manfaat baru terlihat setelah hasil dipakai.' },
+]);
+</script>
+</body>
+</html>

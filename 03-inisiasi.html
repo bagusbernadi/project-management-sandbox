@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 Inisiasi: Business Case, Charter & Stakeholder · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="03">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menghitung ROI dan payback untuk menilai apakah proyek layak.</li><li>Menyebutkan isi project charter.</li><li>Memetakan stakeholder dengan power/interest grid dan memilih cara melibatkannya.</li></ul></div>
+
+<h2>Sebelum mulai: kenapa proyek ini ada?</h2>
+<p>Banyak proyek gagal bukan karena dikerjakan buruk, tetapi karena <b>tidak seharusnya dikerjakan</b> atau tidak jelas gunanya. Fase inisiasi menjawab tiga hal: <b>mengapa</b> (alasan bisnis), <b>apa</b> (hasil garis besar), dan <b>siapa</b> (pihak yang terlibat).</p>
+
+<h2>Business case dan angka kelayakan</h2>
+<p><i data-k="businesscase">Business case</i> menjelaskan masalah, pilihan solusi, biaya, manfaat, dan risiko. Dua angka yang paling sering dipakai:</p>
+<ul>
+  <li><i data-k="roi">ROI</i> = (total manfaat − biaya) ÷ biaya × 100%.</li>
+  <li><i data-k="payback">Payback period</i> = biaya investasi ÷ manfaat per bulan, yaitu berapa bulan sampai modal kembali.</li>
+</ul>
+<div class="case"><b>Contoh kasus · Lini perakitan baru</b>
+<p>Investasi Rp1,2 miliar. Dengan lini baru, perusahaan menghemat biaya lembur dan mengurangi reject sebesar Rp40 juta per bulan. Payback = 1.200 ÷ 40 = <b>30 bulan</b>. Apakah layak? Itu tergantung umur lini dan alternatif lain, sehingga pengambil keputusan butuh angka ini.</p></div>
+
+<div class="sim"><div class="sim-h">Simulasi · ROI dan payback</div>
+<h3>Kapan modal kembali?</h3>
+<div class="ctrl"><label>Investasi: <input type="range" id="inv" min="400" max="2000" step="50" value="1200"> <b id="invv"></b></label><label>Manfaat/bulan: <input type="range" id="sv" min="10" max="120" step="5" value="40"> <b id="svv"></b></label><label>Umur lini: <input type="range" id="hz" min="12" max="72" step="6" value="48"> <b id="hzv"></b></label></div>
+<div id="ch-roi"></div>
+<div class="kpis"><div class="kpi"><span>Payback</span><b id="r1"></b></div><div class="kpi"><span>Total manfaat</span><b id="r2"></b></div><div class="kpi"><span>ROI selama umur lini</span><b id="r3"></b></div></div>
+<div class="out" id="rmsg"></div></div>
+
+<h2>Project charter</h2>
+<p><i data-k="charter">Project charter</i> adalah dokumen singkat (biasanya 1–2 halaman) yang <b>secara resmi memulai proyek</b> dan memberi wewenang kepada manajer proyek. Tanpa charter, manajer proyek tidak punya dasar untuk meminta sumber daya.</p>
+<div class="tw"><table class="cmp">
+<tr><th>Isi charter</th><th>Contoh</th></tr>
+<tr><td>Tujuan &amp; alasan</td><td>Menambah kapasitas produk X sebesar 30%</td></tr>
+<tr><td>Deliverable garis besar</td><td>Lini 3 terpasang, teruji, dan operator terlatih</td></tr>
+<tr><td><i data-k="kriteria">Kriteria keberhasilan</i></td><td>Yield ≥ 95% pada minggu ke-4 setelah serah terima</td></tr>
+<tr><td>Ringkasan jadwal &amp; <i data-k="milestone">milestone</i></td><td>Mulai 1 Maret, selesai 30 Juni</td></tr>
+<tr><td>Anggaran awal</td><td>Rp1,2 miliar</td></tr>
+<tr><td><i data-k="asumsi">Asumsi &amp; batasan</i></td><td>Asumsi: vendor mengirim mesin dalam 8 minggu. Batasan: tidak boleh mengganggu produksi lini 1.</td></tr>
+<tr><td>Risiko tingkat tinggi</td><td>Keterlambatan impor mesin</td></tr>
+<tr><td>Manajer proyek &amp; <i data-k="sponsor">sponsor</i></td><td>Pak Dimas, disetujui Direktur Pabrik</td></tr>
+</table></div>
+<div class="warn"><b>Hati-hati</b><p>Asumsi yang tidak dicatat adalah risiko yang tersembunyi. Setiap kalimat "pasti bisa" sebaiknya ditulis sebagai asumsi lalu diperiksa kebenarannya.</p></div>
+
+<h2>Memetakan stakeholder</h2>
+<p><i data-k="stakeholder">Stakeholder</i> adalah semua pihak yang memengaruhi atau terpengaruh oleh proyek. Kesalahan klasik: baru ingat pada orang penting ketika proyek hampir selesai, lalu mereka menolak hasilnya. Cara termudah mengelolanya adalah <i data-k="powerinterest">power/interest grid</i>.</p>
+<ul>
+  <li><b>Power tinggi, interest tinggi</b>: kelola dengan erat (manage closely).</li>
+  <li><b>Power tinggi, interest rendah</b>: jaga agar puas (keep satisfied).</li>
+  <li><b>Power rendah, interest tinggi</b>: beri informasi (keep informed).</li>
+  <li><b>Power rendah, interest rendah</b>: pantau saja (monitor).</li>
+</ul>
+
+<div class="sim"><div class="sim-h">Simulasi · peta stakeholder</div>
+<h3>Pilih stakeholder, atur power dan interest-nya</h3>
+<div class="seg" id="sh"></div>
+<div class="ctrl"><label>Power: <input type="range" id="pw" min="0" max="10" step="1"> <b id="pwv"></b></label><label>Interest: <input type="range" id="it" min="0" max="10" step="1"> <b id="itv"></b></label></div>
+<div id="ch-grid"></div>
+<div class="out" id="shm"></div></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<p><b>Stakeholder register</b> mencatat identitas, harapan, pengaruh, dan tingkat keterlibatan saat ini dan yang diinginkan: <i>unaware</i> (tidak sadar), <i>resistant</i> (menolak), <i>neutral</i>, <i>supportive</i> (mendukung), <i>leading</i> (memimpin). Tugas manajer proyek menggeser mereka dari kondisi sekarang ke yang diinginkan.</p>
+<p>Model lain: <b>Salience</b> (power, urgency, legitimacy) dan <b>Influence/Impact grid</b>. Pada Agile, stakeholder dilibatkan terus-menerus lewat sprint review.</p></div>
+
+<h2>Kick-off</h2>
+<p>Setelah charter disetujui dan stakeholder dipetakan, adakan <i data-k="kickoff">kick-off meeting</i>. Tujuannya menyamakan tujuan, peran, jadwal besar, dan cara berkomunikasi. Pertemuan 60 menit di awal dapat menghemat puluhan jam salah paham di tengah proyek.</p>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+function roi() {
+  const I = +$('#inv').value, s = +$('#sv').value, h = +$('#hz').value, pb = I / s, tot = s * h, r = (tot - I) / I * 100;
+  $('#invv').textContent = 'Rp' + nf(I, 0) + ' jt'; $('#svv').textContent = 'Rp' + s + ' jt'; $('#hzv').textContent = h + ' bln';
+  const pts = Array.from({ length: h + 1 }, (_, m) => [m, -I + s * m]);
+  const lo = -Math.ceil(I / 500) * 500, hi = Math.max(500, Math.ceil((tot - I) / 500) * 500);
+  C.curve('#ch-roi', { xr: [0, h], yr: [lo, hi], series: [{ name: 'Posisi kas kumulatif (jt)', pts, color: '#0F766E', dot: false }], hlines: [{ y: 0, label: 'impas', color: '#D9480F' }], vlines: pb <= h ? [{ x: pb, label: 'payback ' + nf(pb, 1) + ' bln', color: '#D9480F' }] : [], xl: 'Bulan sejak lini beroperasi', fmt: v => nf(v, 0) });
+  $('#r1').textContent = nf(pb, 1) + ' bln'; $('#r2').textContent = 'Rp' + nf(tot, 0) + ' jt'; $('#r3').textContent = nf(r, 0) + '%'; $('#r3').style.color = r > 0 ? '#2B8A3E' : '#C92A2A';
+  $('#rmsg').innerHTML = pb > h ? '<b style="color:#C92A2A">Modal tidak kembali selama umur lini.</b> Proyek merugi kecuali ada manfaat lain yang belum dihitung.' : pb > h * .6 ? '<b style="color:#B7791F">Layak tetapi tipis.</b> Modal kembali di akhir umur lini, sehingga risiko meleset sedikit saja bisa menghapus untung.' : '<b style="color:#2B8A3E">Layak.</b> Modal kembali jauh sebelum umur lini habis.';
+}
+['inv', 'sv', 'hz'].forEach(i => $('#' + i).oninput = roi); roi();
+
+const SH = [['Direktur pabrik (sponsor)', 9, 7], ['Manajer produksi', 7, 9], ['Operator lini', 2, 9], ['Vendor mesin', 4, 8], ['Bagian keuangan', 7, 3], ['Auditor mutu/regulator', 8, 2], ['Pemasok material', 3, 4], ['Karyawan bagian lain', 1, 2]];
+let cur = 0;
+$('#sh').innerHTML = SH.map((s, i) => `<button data-i="${i}">${s[0]}</button>`).join('');
+function drawGrid() {
+  const W = 520, H = 320, L = 50, T = 14, pw = 450, ph = 270; let s = '';
+  const q = [[0, 0, 'Jaga agar puas', '#FBF0D3'], [1, 0, 'Kelola dengan erat', '#FDE8DC'], [0, 1, 'Pantau', '#EEF1F5'], [1, 1, 'Beri informasi', '#DDF1EE']];
+  q.forEach(([c, r, t, col]) => s += `<rect x="${L + c * pw / 2}" y="${T + r * ph / 2}" width="${pw / 2}" height="${ph / 2}" fill="${col}" stroke="#fff" stroke-width="2"/><text x="${L + c * pw / 2 + 8}" y="${T + r * ph / 2 + 18}" font-size="12" font-weight="800" fill="#5B6678">${t}</text>`);
+  s += `<text class="ax" x="${L + pw / 2}" y="${H - 4}" text-anchor="middle">Interest (kepentingan) →</text><text class="ax" transform="translate(14 ${T + ph / 2}) rotate(-90)" text-anchor="middle">Power (pengaruh) →</text>`;
+  SH.forEach((p, i) => { const x = L + p[2] / 10 * pw * .94 + 12, y = T + ph - (p[1] / 10 * ph * .9) - 18, on = i === cur; s += `<circle cx="${x}" cy="${y}" r="${on ? 9 : 6.5}" fill="${on ? '#D9480F' : '#3B5BDB'}" stroke="#fff" stroke-width="2"/><text x="${x}" y="${y - 12}" text-anchor="${x > 400 ? 'end' : 'start'}" font-size="10.5" font-weight="${on ? 800 : 600}" fill="#1B2A41">${p[0].split(' (')[0]}</text>`; });
+  $('#ch-grid').innerHTML = `<svg viewBox="0 0 ${W} ${H}" class="chart" role="img" aria-label="Power interest grid">${s}</svg>`;
+}
+function setSh(i) {
+  cur = i; $$('#sh button').forEach((b, j) => b.classList.toggle('on', j === i));
+  $('#pw').value = SH[i][1]; $('#it').value = SH[i][2]; upd();
+}
+function upd() {
+  SH[cur][1] = +$('#pw').value; SH[cur][2] = +$('#it').value; $('#pwv').textContent = SH[cur][1]; $('#itv').textContent = SH[cur][2];
+  const hp = SH[cur][1] >= 5, hi = SH[cur][2] >= 5;
+  const st = hp && hi ? ['Kelola dengan erat', 'Libatkan dalam keputusan, rapat rutin, dan minta persetujuan pada hal penting.'] : hp ? ['Jaga agar puas', 'Beri ringkasan singkat berkala dan jangan membuat mereka terkejut. Mereka bisa menghentikan proyek.'] : hi ? ['Beri informasi', 'Update rutin dan ruang untuk masukan. Mereka sering menjadi sumber informasi dan pendukung di lapangan.'] : ['Pantau', 'Cukup diinformasikan seperlunya. Periksa berkala jika posisinya berubah.'];
+  $('#shm').innerHTML = `<b>${SH[cur][0]}</b> → <b style="color:#D9480F">${st[0]}.</b> ${st[1]}`; drawGrid();
+}
+$('#sh').onclick = e => { if (e.target.dataset.i) setSh(+e.target.dataset.i); };
+$('#pw').oninput = upd; $('#it').oninput = upd; setSh(0);
+
+quiz([
+  { q: 'Investasi Rp900 juta, manfaat Rp30 juta per bulan. Berapa payback period?', o: ['15 bulan', '30 bulan', '27 bulan', '3 bulan'], a: 1, e: '900 ÷ 30 = 30 bulan.' },
+  { q: 'Apa fungsi utama project charter?', o: ['Menjadwalkan semua kegiatan rinci', 'Secara resmi memulai proyek dan memberi wewenang kepada manajer proyek', 'Mencatat lessons learned', 'Menggantikan kontrak vendor'], a: 1, e: 'Charter dikeluarkan oleh sponsor atau pihak di luar proyek, memberi dasar resmi bagi manajer proyek.' },
+  { q: 'Auditor regulator: power tinggi, interest rendah. Strategi yang tepat?', o: ['Pantau saja', 'Beri informasi rutin', 'Jaga agar puas', 'Abaikan'], a: 2, e: 'Power tinggi artinya mereka bisa memengaruhi nasib proyek. Jaga agar puas dan jangan beri kejutan.' },
+  { q: 'Kalimat "vendor pasti mengirim mesin dalam 8 minggu" sebaiknya dicatat sebagai…', o: ['Fakta', 'Asumsi yang perlu divalidasi', 'Deliverable', 'Milestone'], a: 1, e: 'Hal yang dianggap benar tanpa bukti adalah asumsi. Jika salah, ia menjadi risiko.' },
+]);
+</script>
+</body>
+</html>

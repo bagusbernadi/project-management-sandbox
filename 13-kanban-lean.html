@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13 Kanban & Lean · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="13">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menyusun papan Kanban dan menetapkan batas WIP.</li><li>Menjelaskan Hukum Little dan kenapa terlalu banyak pekerjaan sekaligus memperlambat.</li><li>Mengenali delapan jenis pemborosan dalam Lean.</li></ul></div>
+
+<h2>Kanban: lihat alurnya, batasi yang sedang berjalan</h2>
+<p><i data-k="kanban">Kanban</i> (bahasa Jepang: "kartu") berasal dari sistem produksi Toyota. Dalam manajemen proyek, ia dipakai untuk mengatur alur pekerjaan lewat papan. Cocok untuk pekerjaan yang datang terus-menerus dan tidak jelas awal-akhirnya: perawatan mesin, permintaan perbaikan, dukungan IT pabrik.</p>
+<p>Enam praktik utama:</p>
+<ol><li><b>Visualisasikan</b> pekerjaan di papan (kolom = tahap).</li><li><b>Batasi <i data-k="wip">WIP</i></b> (work in progress) di tiap kolom.</li><li><b>Kelola alur</b>: cari tempat pekerjaan menumpuk.</li><li><b>Buat kebijakan eksplisit</b>: apa arti "selesai" untuk tiap kolom.</li><li><b>Lakukan loop umpan balik</b> (rapat singkat, review).</li><li><b>Perbaiki bersama</b> secara bertahap.</li></ol>
+<div class="note"><b>Beda dengan Scrum</b><p>Kanban tidak punya sprint dan peran khusus. Item ditarik (<i data-k="pull">pull</i>) begitu ada kapasitas. Perubahan boleh kapan saja, asalkan batas WIP dihormati.</p></div>
+
+<div class="sim"><div class="sim-h">Simulasi · papan Kanban</div>
+<h3>Klik kartu untuk memindahkannya ke tahap berikutnya</h3>
+<p class="muted small">Tugas: menyiapkan lini baru agar siap beroperasi. Kolom "Dikerjakan" punya batas WIP. Coba tarik lebih dari batas.</p>
+<div class="ctrl"><label>Batas WIP "Dikerjakan": <input type="range" id="wl" min="1" max="6" step="1" value="3"> <b id="wlv"></b></label><button class="ghost" id="kr">Ulangi</button></div>
+<div class="board" id="kb"></div>
+<div class="out" id="km">Klik kartu di Backlog untuk memulai.</div></div>
+
+<h2>Hukum Little: kenapa terlalu banyak itu lambat</h2>
+<p>Dalam sistem yang stabil berlaku <i data-k="little">Hukum Little</i>:</p>
+<p style="text-align:center"><code>Cycle time = WIP ÷ Throughput</code></p>
+<p><i data-k="cycletime">Cycle time</i> = lama satu item dari mulai dikerjakan sampai selesai. <i data-k="throughput">Throughput</i> = jumlah item selesai per minggu. Jika throughput tetap, cara satu-satunya mempercepat penyelesaian adalah <b>mengurangi WIP</b>.</p>
+<div class="case"><b>Contoh kasus · Teknisi yang "sibuk"</b>
+<p>Seorang teknisi memegang 10 tugas sekaligus. Ia selalu terlihat sibuk, tetapi tiap tugas memakan waktu lama karena ia terus berpindah-pindah. Jika ia dibatasi 3 tugas, tiap tugas selesai jauh lebih cepat, dan total yang selesai per minggu sering <b>tidak turun, bahkan naik</b>, karena waktu berpindah konteks berkurang.</p></div>
+<div class="sim"><div class="sim-h">Simulasi · WIP, throughput, dan cycle time</div>
+<h3>Berapa tugas sebaiknya dikerjakan bersamaan oleh satu tim?</h3>
+<p class="muted small">Model sederhana: tiap tambahan tugas menambah pekerjaan paralel, tetapi di atas sekitar 6 tugas waktu berpindah konteks menurunkan produktivitas.</p>
+<div class="ctrl"><label>WIP tim: <input type="range" id="wp" min="1" max="20" step="1" value="4"> <b id="wpv"></b></label></div>
+<div class="grid g2"><div id="ch-th"></div><div id="ch-ct"></div></div>
+<div class="kpis"><div class="kpi"><span>Throughput</span><b id="l1"></b></div><div class="kpi"><span>Cycle time</span><b id="l2" style="color:#D9480F"></b></div></div>
+<div class="out" id="lm"></div></div>
+
+<h2>Lean: buang pemborosan</h2>
+<p><i data-k="lean">Lean</i> berfokus pada nilai bagi pelanggan dan membuang <i data-k="muda">muda</i> (pemborosan). Lima prinsipnya: tentukan <b>nilai</b>, petakan <b>aliran nilai</b>, ciptakan <b>aliran lancar</b>, gunakan sistem <b>tarik</b>, dan kejar <b>kesempurnaan</b> lewat perbaikan terus-menerus (kaizen).</p>
+<p>Delapan pemborosan (sering diingat dengan DOWNTIME) dan padanannya di proyek:</p>
+<div class="tw"><table class="cmp"><tr><th>Pemborosan</th><th>Di pabrik</th><th>Di proyek</th></tr>
+<tr><td>Defects (cacat)</td><td>Reject dan rework</td><td>Kesalahan desain yang dikerjakan ulang</td></tr>
+<tr><td>Overproduction</td><td>Produksi melebihi permintaan</td><td>Fitur yang tidak diminta (gold plating)</td></tr>
+<tr><td>Waiting (menunggu)</td><td>Mesin menunggu material</td><td>Menunggu persetujuan atau keputusan</td></tr>
+<tr><td>Non-utilized talent</td><td>Operator tidak dilibatkan ide perbaikan</td><td>Keahlian tim tidak dipakai</td></tr>
+<tr><td>Transportation</td><td>Memindahkan material berulang</td><td>Serah terima berlapis antar-tim</td></tr>
+<tr><td>Inventory</td><td>Stok setengah jadi menumpuk</td><td>Pekerjaan setengah jadi (WIP berlebih)</td></tr>
+<tr><td>Motion</td><td>Operator berjalan bolak-balik</td><td>Mencari dokumen atau informasi</td></tr>
+<tr><td>Extra processing</td><td>Pemeriksaan ganda tanpa guna</td><td>Laporan yang tidak dibaca</td></tr></table></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li><b><i data-k="leadtime">Lead time</i></b> = dari permintaan masuk sampai selesai (termasuk menunggu). <b>Cycle time</b> = dari mulai dikerjakan sampai selesai.</li>
+<li><b><i data-k="cfd">Cumulative flow diagram</i></b>: pita yang melebar di satu tahap menandakan <b><i data-k="bottleneck">bottleneck</i></b> (antrean menumpuk).</li>
+<li><b>Class of service</b>: kategori kecepatan layanan (mendesak, standar, tetap-tanggal).</li>
+<li><b>Muda, Mura (ketidakmerataan), Muri (beban berlebih)</b> adalah tiga jenis pemborosan dalam Lean.</li>
+<li><b>Just-in-time</b>, <b>value stream mapping</b>, dan <b>5S</b> sering muncul sebagai pendukung Lean.</li>
+<li>Papan Agile umumnya: To Do, In Progress, Done. Batas WIP pada kolom In Progress adalah ciri khas Kanban.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const TS = ['Gambar layout final', 'Sensor limit', 'SOP pelatihan', 'Cek kalibrasi', 'Pasang rak material', 'Uji alarm', 'Dokumen as-built', 'Label mesin'];
+let col = TS.map(() => 0), msg = ''; // 0 backlog, 1 dikerjakan, 2 uji, 3 selesai
+const LIM2 = 2;
+function kb() {
+  const wl = +$('#wl').value; $('#wlv').textContent = wl + ' kartu';
+  const names = ['Backlog', 'Dikerjakan', 'Uji', 'Selesai'], lim = [null, wl, LIM2, null];
+  $('#kb').innerHTML = names.map((n, c) => { const items = TS.map((t, i) => [t, i]).filter(x => col[x[1]] === c), over = lim[c] && items.length >= lim[c];
+    return `<div class="col ${over ? 'over' : ''}"><h4>${n}<span class="lim">${lim[c] ? items.length + '/' + lim[c] : items.length}</span></h4>${items.map(x => `<div class="tk ${c === 1 ? 'b' : ''}" data-i="${x[1]}" ${c < 3 ? 'style="cursor:pointer"' : ''}>${x[0]}</div>`).join('')}</div>`; }).join('');
+  $('#km').innerHTML = msg || 'Klik kartu di Backlog untuk memulai.';
+}
+$('#kb').onclick = e => {
+  const t = e.target.closest('.tk'); if (!t) return; const i = +t.dataset.i, c = col[i]; if (c >= 3) return;
+  const wl = +$('#wl').value, cnt = k => col.filter(x => x === k).length;
+  if (c === 0 && cnt(1) >= wl) msg = `<b style="color:#C92A2A">Batas WIP penuh (${wl}).</b> Jangan memulai tugas baru; <b>selesaikan dulu yang berjalan</b>. Inilah inti sistem tarik: hanya tarik saat ada kapasitas.`;
+  else if (c === 1 && cnt(2) >= LIM2) msg = '<b style="color:#C92A2A">Kolom Uji penuh.</b> Penyumbatan ada di tahap pengujian. Bantu menguji, jangan menambah antrean di depan. Itulah bottleneck.';
+  else { col[i] = c + 1; msg = col.every(x => x === 3) ? '<b style="color:#2B8A3E">Semua selesai.</b> Perhatikan: dengan batas WIP, pekerjaan mengalir rapi dan tidak ada yang menggantung.' : `Kartu dipindahkan. Selesai: <b>${col.filter(x => x === 3).length}</b>.`; }
+  kb();
+};
+$('#wl').oninput = () => { msg = ''; kb(); }; $('#kr').onclick = () => { col = TS.map(() => 0); msg = ''; kb(); }; kb();
+
+const thr = w => 5 * w / (w + 2) - .12 * Math.max(0, w - 5), ctf = w => w / thr(w);
+function lw() {
+  const w = +$('#wp').value; $('#wpv').textContent = w + ' tugas';
+  const a = [], b = []; for (let k = 1; k <= 20; k++) { a.push([k, thr(k)]); b.push([k, ctf(k)]); }
+  C.curve('#ch-th', { xr: [1, 20], yr: [0, 5], series: [{ name: 'Throughput (item/mgg)', pts: a, color: '#0F766E' }, { name: 'Anda', pts: [[w, thr(w)]], color: '#D9480F', dot: true }], xl: 'WIP', fmt: v => nf(v, 0) });
+  C.curve('#ch-ct', { xr: [1, 20], yr: [0, 8], series: [{ name: 'Cycle time (mgg)', pts: b, color: '#3B5BDB' }, { name: 'Anda', pts: [[w, ctf(w)]], color: '#D9480F', dot: true }], xl: 'WIP', fmt: v => nf(v, 0) });
+  $('#l1').textContent = nf(thr(w), 1) + ' item/mgg'; $('#l2').textContent = nf(ctf(w), 1) + ' mgg';
+  $('#lm').innerHTML = w <= 2 ? 'WIP sangat rendah: cycle time cepat, tetapi sebagian anggota mungkin menganggur sehingga throughput belum maksimal.' : w <= 7 ? `<b style="color:#2B8A3E">Zona sehat.</b> Throughput hampir maksimal dan cycle time masih pendek. Cek Hukum Little: ${w} ÷ ${nf(thr(w), 2)} = ${nf(ctf(w), 1)} minggu.` : `<b style="color:#C92A2A">Terlalu banyak pekerjaan sekaligus.</b> Throughput malah turun (waktu berpindah konteks) dan cycle time melonjak menjadi ${nf(ctf(w), 1)} minggu. Setiap tugas menunggu lebih lama, padahal tim terlihat sibuk.`;
+}
+$('#wp').oninput = lw; lw();
+
+quiz([
+  { q: 'Tujuan utama batas WIP pada Kanban adalah…', o: ['Membatasi jumlah anggota tim', 'Mencegah terlalu banyak pekerjaan setengah jadi sehingga alur lancar', 'Mempercepat rapat', 'Menambah beban kerja'], a: 1, e: 'Batas WIP memaksa tim menyelesaikan sebelum memulai yang baru, sehingga cycle time turun.' },
+  { q: 'WIP rata-rata 12 tugas dan throughput 4 tugas per minggu. Berapa cycle time rata-rata (Hukum Little)?', o: ['3 minggu', '8 minggu', '16 minggu', '48 minggu'], a: 0, e: 'Cycle time = WIP ÷ throughput = 12 ÷ 4 = 3 minggu.' },
+  { q: 'Pita di sebuah cumulative flow diagram melebar di tahap "Uji". Artinya?', o: ['Tahap uji sangat cepat', 'Antrean menumpuk di tahap uji (bottleneck)', 'Tim menganggur', 'Proyek selesai'], a: 1, e: 'Pita yang melebar berarti item masuk ke tahap itu lebih cepat daripada keluar: hambatan alur.' },
+  { q: 'Manakah yang termasuk pemborosan (muda) di proyek?', o: ['Menunggu persetujuan berhari-hari', 'Rapat harian 15 menit', 'Memperlihatkan hasil ke pelanggan', 'Menulis SOP singkat'], a: 0, e: 'Menunggu tidak menambah nilai bagi pelanggan. Tiga yang lain adalah kegiatan yang menambah nilai atau mencegah masalah.' },
+]);
+</script>
+</body>
+</html>

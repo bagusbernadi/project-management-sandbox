@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 Siklus Hidup & Metodologi · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="02">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menyebutkan lima process group dan apa yang terjadi di tiap kelompok.</li><li>Membedakan pendekatan predictive, Agile, dan hybrid.</li><li>Memilih pendekatan yang cocok berdasarkan ciri proyeknya.</li></ul></div>
+
+<h2>Fase dan process group</h2>
+<p>Proyek berjalan melalui rangkaian fase yang disebut <i data-k="siklus">siklus hidup</i>. Bentuk paling sederhana: <b>mulai → rencanakan → kerjakan → tutup</b>. Panduan <i data-k="pmbok">PMBOK</i> merangkum kegiatan manajemen proyek ke dalam lima <i data-k="processgroup">process group</i>. Klik tiap langkah untuk melihat contoh pada proyek lini baru.</p>
+<div class="sim"><div class="sim-h">Simulasi · lima process group</div><div id="pg"></div></div>
+<div class="note"><b>Penting</b><p>Process group <b>bukan</b> fase yang selalu berurutan. <i data-k="monitoring">Monitoring &amp; Controlling</i> berjalan sepanjang proyek, dan di proyek besar setiap fase punya perencanaan dan penutupannya sendiri.</p></div>
+
+<h2>Tiga cara bekerja</h2>
+<div class="grid g3">
+  <div class="card mini"><span class="tag">Predictive</span><h3><i data-k="predictive">Predictive / Waterfall</i></h3><p>Rencanakan hampir semuanya di awal, lalu kerjakan berurutan. Hasil baru terlihat di akhir. Perubahan dikendalikan ketat.</p></div>
+  <div class="card mini"><span class="tag o">Agile</span><h3><i data-k="agile">Agile</i></h3><p>Bekerja dalam siklus pendek, hasilnya diperlihatkan tiap siklus, arah disesuaikan dengan umpan balik. Perubahan disambut.</p></div>
+  <div class="card mini"><span class="tag g">Hybrid</span><h3><i data-k="hybrid">Hybrid</i></h3><p>Gabungan. Contoh: desain mesin dan instalasi ala predictive, sementara perangkat lunak kontrolnya dibuat ala sprint.</p></div>
+</div>
+<div class="tw" style="margin-top:14px"><table class="cmp">
+<tr><th></th><th>Predictive</th><th>Agile</th><th>Hybrid</th></tr>
+<tr><td>Perencanaan</td><td>Lengkap di awal</td><td>Bertahap, sedikit demi sedikit</td><td>Garis besar di awal, detail bertahap</td></tr>
+<tr><td>Scope</td><td>Dikunci, perubahan lewat prosedur</td><td>Boleh berubah, diurutkan ulang tiap siklus</td><td>Sebagian dikunci</td></tr>
+<tr><td>Penyerahan hasil</td><td>Sekali di akhir</td><td>Berkala, tiap siklus</td><td>Campuran</td></tr>
+<tr><td>Keterlibatan pelanggan</td><td>Di awal dan akhir</td><td>Terus-menerus</td><td>Pada bagian tertentu</td></tr>
+<tr><td>Peran pemimpin</td><td>Manajer proyek mengatur dan mengendalikan</td><td>Tim mengatur diri, pemimpin melayani</td><td>Menyesuaikan</td></tr>
+<tr><td>Contoh pabrik</td><td>Membangun gedung, memasang lini</td><td>Mengembangkan aplikasi monitoring produksi</td><td>NPI: hardware predictive, software Agile</td></tr>
+</table></div>
+<p>Di antara keduanya ada pendekatan <i data-k="iteratif">iteratif</i> (mengulang dan memperbaiki) dan <i data-k="iteratif">inkremental</i> (menambah hasil sedikit demi sedikit). Agile memakai keduanya.</p>
+
+<h2>Bagaimana memilih?</h2>
+<p>Tidak ada yang "paling benar". Pilih dari ciri proyeknya. Pertanyaan kunci: <b>seberapa mudah kebutuhan berubah, dan seberapa mahal perubahan di tengah jalan?</b> Mengubah desain pondasi gedung sangat mahal; mengubah tampilan sebuah layar aplikasi murah.</p>
+
+<div class="sim"><div class="sim-h">Simulasi · pilih pendekatan</div>
+<h3>Atur ciri proyek, lihat rekomendasinya</h3>
+<div class="seg" id="pre" style="margin-bottom:8px"></div>
+<div class="ctrl" style="flex-direction:column;align-items:stretch" id="sl"></div>
+<div id="ch-pick"></div>
+<div class="out" id="pk"></div>
+</div>
+<div class="case"><b>Contoh kasus · Dua proyek dalam satu pabrik</b>
+<p>Pak Dimas menangani dua proyek. <b>Pemasangan lini baru</b>: spesifikasi mesin jelas, perubahan setelah mesin dipesan sangat mahal, vendor memerlukan kontrak tetap. Cocok predictive.</p>
+<p>Proyek kedua: <b>aplikasi pencatat NG harian</b> untuk operator. Operator belum tahu persis maunya apa dan ingin mencoba dulu. Cocok Agile: rilis versi sederhana dalam dua minggu, lalu perbaiki dari masukan operator.</p></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<p><b>10 knowledge area</b> PMBOK: Integration, Scope, Schedule, Cost, Quality, Resource, Communications, Risk, Procurement, Stakeholder. Website ini membahas semuanya di modul 03–11.</p>
+<p><i data-k="gate">Phase gate</i>: pemeriksaan di akhir fase untuk memutuskan lanjut, perbaiki, atau hentikan. Umum di predictive. <i data-k="prince2">PRINCE2</i> adalah metodologi lain yang menekankan business case dan kontrol per tahap.</p>
+<p>Ujian modern (PMP) kira-kira setengahnya menguji cara kerja predictive dan setengahnya Agile/hybrid. Keduanya perlu dikuasai.</p></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+stepper('#pg', [
+  { t: 'Initiating', h: '<h3>1. <i data-k="initiating">Initiating</i>: memulai</h3><p>Menjawab: "Kenapa proyek ini ada dan siapa yang berkepentingan?"</p><div class="out"><b>Pak Dimas:</b> menyusun <i data-k="businesscase">business case</i> lini baru, mendapat <i data-k="charter">project charter</i> dari sponsor, dan mendata stakeholder (produksi, QC, maintenance, vendor mesin).</div>' },
+  { t: 'Planning', h: '<h3>2. <i data-k="planning">Planning</i>: merencanakan</h3><p>Menjawab: "Apa yang dikerjakan, kapan, berapa biayanya, apa risikonya?"</p><div class="out"><b>Pak Dimas:</b> membuat WBS, jadwal dengan jalur kritis, anggaran, daftar risiko, dan rencana komunikasi. Hasilnya menjadi baseline.</div>' },
+  { t: 'Executing', h: '<h3>3. <i data-k="executing">Executing</i>: melaksanakan</h3><p>Menjawab: "Bagaimana mengerjakan sesuai rencana?"</p><div class="out"><b>Pak Dimas:</b> memesan mesin, mengatur instalasi, melatih operator, dan menggelar rapat mingguan dengan tim dan vendor.</div>' },
+  { t: 'Monitoring & Controlling', h: '<h3>4. <i data-k="monitoring">Monitoring &amp; Controlling</i>: memantau</h3><p>Menjawab: "Apakah kita sesuai rencana? Jika tidak, apa tindakannya?"</p><div class="out"><b>Pak Dimas:</b> setiap minggu membandingkan progres dengan jadwal dan anggaran. Mesin terlambat tiba 1 minggu, ia menyesuaikan jadwal pelatihan dan melaporkan ke sponsor.</div>' },
+  { t: 'Closing', h: '<h3>5. <i data-k="closing">Closing</i>: menutup</h3><p>Menjawab: "Apakah hasilnya sudah diterima dan pelajaran apa yang didapat?"</p><div class="out"><b>Pak Dimas:</b> serah terima lini ke produksi, mendapat persetujuan sponsor, menutup kontrak vendor, dan menulis <i data-k="lessons">lessons learned</i>.</div>' },
+]);
+
+// pemilih pendekatan: [stabilitas kebutuhan, biaya perubahan, umpan balik pelanggan, rilis bertahap, regulasi/dokumentasi]
+const LBL = ['Kebutuhan stabil dan jelas?', 'Biaya mengubah di tengah jalan?', 'Umpan balik pelanggan bisa sering?', 'Hasil bisa dirilis bertahap?', 'Regulasi/dokumentasi ketat?'];
+const LOW = ['berubah-ubah', 'murah', 'sulit', 'tidak bisa', 'longgar'], HI = ['sangat pasti', 'sangat mahal', 'mudah', 'bisa sekali', 'sangat ketat'];
+const PRE = { 'Pasang lini produksi': [5, 5, 2, 1, 4], 'Aplikasi pencatat NG': [2, 1, 5, 5, 2], 'NPI produk elektronik': [3, 4, 3, 3, 4], 'Kaizen perbaikan proses': [2, 2, 5, 4, 2] };
+$('#sl').innerHTML = LBL.map((l, i) => `<label style="flex-wrap:wrap">${l}<span class="small muted">${LOW[i]}</span><input type="range" min="1" max="5" step="1" value="3" data-i="${i}" style="width:160px"><span class="small muted">${HI[i]}</span></label>`).join('');
+$('#pre').innerHTML = '<span class="small muted" style="align-self:center">Contoh:</span>' + Object.keys(PRE).map(k => `<button data-p="${k}">${k}</button>`).join('');
+function pick() {
+  const v = $$('#sl input').map(x => +x.value), [st, cc, fb, inc, rg] = v;
+  const p = (st + cc + rg + (6 - fb) + (6 - inc)) / 25, a = ((6 - st) + (6 - cc) + fb + inc + (6 - rg)) / 25, d = p - a;
+  C.bar('#ch-pick', { labels: ['Predictive', 'Agile'], values: [Math.round(p * 100), Math.round(a * 100)], colors: ['#1B2A41', '#D9480F'], min: 0, max: 100, fmt: x => Math.round(x) + '%', xl: 'Tingkat kecocokan (%)' });
+  const r = d > .15 ? ['Predictive', 'Kebutuhan pasti dan perubahan mahal: rencanakan matang di awal, kendalikan perubahan.'] : d < -.15 ? ['Agile', 'Kebutuhan berubah dan umpan balik mudah didapat: bekerja dalam siklus pendek dan rilis bertahap.'] : ['Hybrid', 'Ciri-cirinya campuran. Pecah proyek: bagian yang pasti dikerjakan predictive, bagian yang masih berkembang dikerjakan Agile.'];
+  $('#pk').innerHTML = `<b style="color:#0F766E">Rekomendasi: ${r[0]}.</b> ${r[1]}`;
+}
+$('#sl').oninput = pick;
+$('#pre').onclick = e => { const k = e.target.dataset.p; if (!k) return; $$('#sl input').forEach((x, i) => x.value = PRE[k][i]); $$('#pre button').forEach(b => b.classList.toggle('on', b.dataset.p === k)); pick(); };
+pick();
+
+quiz([
+  { q: 'Process group mana yang berjalan sepanjang proyek, dari awal sampai akhir?', o: ['Initiating', 'Planning', 'Monitoring & Controlling', 'Closing'], a: 2, e: 'Memantau dan mengendalikan terjadi terus-menerus: membandingkan hasil dengan rencana dan mengelola perubahan.' },
+  { q: 'Proyek memasang mesin dengan spesifikasi tetap dan perubahan sangat mahal. Pendekatan yang paling cocok?', o: ['Predictive', 'Agile', 'Tanpa rencana', 'Kanban murni'], a: 0, e: 'Kebutuhan pasti dan biaya perubahan tinggi mendukung perencanaan lengkap di awal.' },
+  { q: 'Kebutuhan pengguna belum jelas dan umpan balik bisa didapat tiap minggu. Pendekatan yang cocok?', o: ['Predictive', 'Agile', 'Phase gate ketat', 'Menunggu semua requirement lengkap'], a: 1, e: 'Agile cocok untuk kebutuhan yang berkembang karena hasil kecil diuji dan disesuaikan tiap siklus.' },
+  { q: 'Apa itu hybrid?', o: ['Proyek tanpa manajer', 'Menggabungkan unsur predictive dan Agile', 'Dua proyek berjalan bersamaan', 'Nama lain Waterfall'], a: 1, e: 'Hybrid memakai bagian terbaik dari keduanya sesuai karakter tiap bagian proyek.' },
+]);
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 Studi Kasus Akhir · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="15">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menerapkan alat-alat dari modul sebelumnya secara berurutan pada satu proyek.</li><li>Mengambil keputusan manajer proyek dari data: jadwal, risiko, earned value, dan perubahan.</li><li>Menentukan modul mana yang perlu diulang.</li></ul></div>
+
+<h2>Kasus: Lini 3 untuk produk baru</h2>
+<div class="case"><b>Situasi</b>
+<p>Anda adalah <b>Pak Dimas</b>, manajer proyek di pabrik komponen elektronik. Perusahaan memenangkan kontrak produk baru yang butuh kapasitas tambahan 30%. Direktur Pabrik (sponsor) meminta <b>lini perakitan 3</b> beroperasi dalam <b>26 minggu</b>, anggaran <b>Rp1.200 juta</b>.</p>
+<p>Lini terdiri dari mesin impor, utilitas, pelatihan operator, SOP, dan uji coba. Selain itu ada <b>aplikasi pencatat NG</b> untuk operator yang akan dibuat bersamaan oleh tim kecil. Sepuluh keputusan menanti Anda. Jawab, baca pembahasannya, dan lihat skor di akhir.</p></div>
+<div id="stg"></div>
+
+<h2>Hasil Anda</h2>
+<div class="sim"><div class="sim-h">Ringkasan</div>
+<div class="kpis"><div class="kpi"><span>Skor</span><b id="fs"></b></div><div class="kpi" style="flex:3 1 280px"><span>Modul yang perlu diulang</span><div id="fr" class="small"></div></div></div>
+<div class="out" id="fm"></div></div>
+
+<div class="note"><b>Langkah berikutnya</b><p>Ambil satu proyek nyata di pekerjaan Anda dan terapkan satu alat saja: tulis charter satu halaman, buat WBS di spreadsheet, atau pasang papan Kanban untuk pekerjaan tim. Alat yang dipakai di pekerjaan nyata jauh lebih cepat dipahami daripada yang hanya dibaca. Istilah yang belum jelas bisa dicari di <a href="glosarium.html">glosarium</a>.</p></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const ST = [
+  { m: '03', t: 'Business case', s: 'Investasi lini Rp1.200 juta. Perusahaan memperkirakan penghematan lembur dan margin tambahan sebesar <b>Rp40 juta per bulan</b>. Umur lini 4 tahun.', q: 'Berapa payback period, dan apakah masuk akal terhadap umur lini?', o: ['10 bulan, sangat layak', '30 bulan; masih di bawah umur lini 48 bulan sehingga layak, tetapi margin tipis', '48 bulan, impas tepat di akhir', '120 bulan, tidak layak'], a: 1, e: '1.200 ÷ 40 = 30 bulan. Umur lini 48 bulan, sehingga ada sisa 18 bulan keuntungan. ROI selama umur lini = (40×48 − 1.200) ÷ 1.200 = 60%.' },
+  { m: '03', t: 'Stakeholder', s: 'Di daftar stakeholder ada <b>auditor keselamatan</b> eksternal. Ia jarang terlibat sehari-hari, tetapi bisa menolak izin operasi lini.', q: 'Pada power/interest grid, strategi yang tepat untuk auditor?', o: ['Pantau saja', 'Beri informasi rutin', 'Jaga agar puas dan libatkan sebelum keputusan desain keselamatan', 'Abaikan sampai uji coba'], a: 2, e: 'Power tinggi, interest rendah: jaga agar puas. Libatkan sebelum desain final agar tidak ada kejutan di akhir.' },
+  { m: '04', t: 'Scope & WBS', s: 'Draf WBS berisi: desain layout, pembelian mesin, instalasi, utilitas, pelatihan, SOP, uji coba, serah terima, <b>renovasi ruang rapat manajer</b>, dan <b>persiapan lini 4</b>.', q: 'Apa yang harus dilakukan terhadap dua item terakhir?', o: ['Biarkan agar WBS lengkap', 'Keluarkan dari WBS karena tidak ada di scope yang disetujui, dan ajukan sebagai proyek terpisah bila perlu', 'Pindahkan ke akhir proyek', 'Kerjakan bila anggaran sisa'], a: 1, e: 'Aturan 100%: tidak kurang dan tidak lebih. Menambah pekerjaan di luar scope adalah gold plating dan awal scope creep.' },
+  { m: '05', t: 'Jadwal & critical path', s: 'Kegiatan (minggu): A Desain 4 → B Pesan & kirim mesin 10 dan C Utilitas 6 dan E Latih operator 7 (ketiganya setelah A) → D Pasang mesin 5 (setelah B dan C) → F Uji coba 4 (setelah D dan E) → G Serah terima 2.', q: 'Berapa durasi proyek dan jalur kritisnya?', o: ['21 minggu; A-C-D-F-G', '25 minggu; A-B-D-F-G', '17 minggu; A-E-F-G', '38 minggu; semua dijumlahkan'], a: 1, e: 'Jalur A-B-D-F-G = 4+10+5+4+2 = 25. Utilitas (C) punya float 4 minggu, pelatihan (E) float 8 minggu. Tenggat 26 minggu hanya menyisakan 1 minggu cadangan.' },
+  { m: '06', t: 'Estimasi', s: 'Estimasi PERT pada jalur kritis (tanpa serah terima): E total 24,5 minggu, SD total 1,86 minggu. Sponsor menetapkan tenggat 26 minggu.', q: 'Berapa kira-kira peluang selesai dalam 26 minggu, dan apa yang Anda sampaikan ke sponsor?', o: ['100%, aman', 'Sekitar 79%; cukup baik tetapi ada risiko, siapkan buffer atau rencana percepatan', 'Sekitar 50%; mustahil', 'Sekitar 5%; batalkan'], a: 1, e: 'z = (26 − 24,5) ÷ 1,86 ≈ 0,8 → peluang sekitar 79%. Sampaikan sebagai peluang dan tawarkan buffer, bukan sebagai kepastian.' },
+  { m: '07', t: 'Risiko', s: 'Risiko: (1) mesin telat 40% × Rp150 jt; (2) kapasitas listrik kurang 20% × Rp200 jt; (3) operator kunci resign 10% × Rp60 jt; (4) kurs naik 30% × Rp80 jt.', q: 'Risiko mana yang mendapat perhatian respons paling dahulu?', o: ['(1) mesin telat, EMV Rp60 jt', '(2) listrik, EMV Rp40 jt', '(3) operator, EMV Rp6 jt', '(4) kurs, EMV Rp24 jt'], a: 0, e: 'EMV tertinggi adalah risiko (1) mesin telat. Respons: pesan lebih awal dan siapkan vendor cadangan. Risiko (3) cukup diterima.' },
+  { m: '10', t: 'Pemantauan', s: 'Minggu ke-12 dari 20. BAC Rp1.000 juta. Menurut rencana PV = 648. Pekerjaan selesai 48% (EV = 480). Biaya aktual AC = 540.', q: 'Apa kesimpulan yang benar?', o: ['SPI 1,35 dan CPI 1,12: cepat dan hemat', 'SPI 0,74 dan CPI 0,89: terlambat dan boros; EAC ≈ Rp1.125 juta', 'SPI 0,89 dan CPI 0,74: hemat dan lambat', 'SPI 0,74 dan CPI 1,12: terlambat tetapi hemat'], a: 1, e: 'SPI = 480 ÷ 648 = 0,74; CPI = 480 ÷ 540 = 0,89; EAC = 1.000 ÷ 0,89 ≈ 1.125. Tanpa tindakan, proyek melebihi anggaran sekitar Rp125 juta.' },
+  { m: '11', t: 'Perubahan', s: 'Di minggu yang sama, Direktur menelepon: "Sekalian tambahkan satu stasiun kerja lagi di lini 3, ya." Ini tidak ada di scope baseline.', q: 'Langkah Anda?', o: ['Langsung menyetujui karena permintaan sponsor', 'Menolak mentah-mentah', 'Mencatat sebagai change request, menilai dampak waktu/biaya/risiko, lalu membawanya ke sponsor/CCB untuk keputusan', 'Mengerjakan diam-diam memakai contingency'], a: 2, e: 'Sponsor boleh meminta, tetapi dampak harus dinilai dan diputuskan lewat prosedur. Karena proyek sudah terlambat dan boros, data dampaknya penting untuk keputusan Direktur.' },
+  { m: '12', t: 'Aplikasi pencatat NG (Agile)', s: 'Tim kecil mengerjakan aplikasi dengan sprint 2 minggu. Backlog 80 poin. Velocity tiga sprint terakhir: 15, 16, 17.', q: 'Perkiraan selesai yang paling tepat?', o: ['Tepat 4 sprint', 'Sekitar 5 sprint (≈ 10 minggu), dengan rentang 5–6 sprint', 'Sekitar 2 sprint', 'Tidak bisa diperkirakan'], a: 1, e: '80 ÷ 16 = 5 sprint. Dengan velocity terendah (15) = 5,3 → 6 sprint. Sampaikan rentang, bukan satu tanggal.' },
+  { m: '11', t: 'Penutupan', s: 'Lini sudah beroperasi. Tim sudah dipanggil ke pekerjaan lain dan ada yang menyarankan "langsung ditutup saja".', q: 'Apa yang tidak boleh dilewatkan sebelum menutup proyek?', o: ['Pesta penutupan', 'Penerimaan formal dari sponsor, serah terima, penutupan kontrak vendor, dan lessons learned', 'Revisi anggaran awal', 'Menambah scope baru'], a: 1, e: 'Penutupan memastikan hasil diterima, kontrak selesai, dan pelajaran tersimpan. Manfaat (yield, output) juga perlu diukur setelah serah terima.' },
+];
+let tot = 0, ans = 0; const missed = new Set();
+$('#stg').innerHTML = ST.map((s, i) => `<h2>Tahap ${i + 1} · ${s.t}</h2><p class="muted small">Dibahas di <a href="${MODULES.find(m => m.id === s.m).file}">Modul ${s.m}</a></p><p>${s.s}</p><div class="quiz" id="sq${i}"><div class="q" style="margin:0"><p>${s.q}</p><div class="opts">${s.o.map((o, j) => `<button data-i="${i}" data-j="${j}">${o}</button>`).join('')}</div><div class="exp"></div></div></div>`).join('');
+$('#stg').addEventListener('click', e => {
+  const b = e.target.closest('.opts button'); if (!b || b.disabled) return; const i = +b.dataset.i, s = ST[i], ok = +b.dataset.j === s.a, box = b.closest('.q');
+  $$('button', box).forEach((x, j) => { x.disabled = true; if (j === s.a) x.classList.add('right'); }); if (!ok) { b.classList.add('wrong'); missed.add(s.m); } else tot++; ans++;
+  const ex = $('.exp', box); ex.style.display = 'block'; ex.innerHTML = (ok ? '<b style="color:#2B8A3E">Tepat.</b> ' : '<b style="color:#C92A2A">Belum tepat.</b> ') + s.e;
+  fin();
+});
+function fin() {
+  $('#fs').textContent = tot + ' / ' + ST.length;
+  const mods = [...missed].sort().map(id => { const m = MODULES.find(x => x.id === id); return `<a href="${m.file}">Modul ${m.id} · ${m.title}</a>`; });
+  $('#fr').innerHTML = ans < ST.length ? 'Selesaikan semua tahap untuk melihat ringkasan.' : (mods.length ? mods.join('<br>') : 'Tidak ada. Semua tepat.');
+  $('#fm').innerHTML = ans < ST.length ? `${ans} dari ${ST.length} tahap dijawab.` : tot === ST.length ? '<b style="color:#2B8A3E">Sempurna.</b> Anda sudah menerapkan alat predictive dan Agile dalam satu proyek dengan tepat.' : tot >= 7 ? '<b style="color:#0F766E">Sangat baik.</b> Ulangi modul yang tertaut di atas, lalu coba lagi tahap yang salah.' : '<b style="color:#B7791F">Dasar sudah ada.</b> Baca ulang modul yang tertaut di samping, terutama bagian simulasinya, lalu ulangi studi kasus ini.';
+}
+fin();
+</script>
+</body>
+</html>

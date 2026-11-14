@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12 Agile & Scrum · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="12">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menjelaskan empat nilai Agile dan kenapa ia lahir.</li><li>Menyebutkan peran, event, dan artefak Scrum beserta fungsinya.</li><li>Membaca burndown chart dan menentukan tindakan di tengah sprint.</li></ul></div>
+
+<h2>Kenapa Agile?</h2>
+<p>Pada proyek yang kebutuhannya belum jelas, perencanaan lengkap di awal sering menghasilkan produk yang sesuai rencana tetapi tidak sesuai kebutuhan. <i data-k="agile">Agile</i> membalik caranya: kerjakan potongan kecil, tunjukkan, dengarkan, lalu sesuaikan. Empat nilai Agile (dirumuskan para pengembang perangkat lunak pada tahun 2001, ditulis ulang di sini dengan kata-kata sendiri):</p>
+<div class="grid g2">
+  <div class="card mini"><span class="tag">1</span><h3>Orang &amp; interaksi</h3><p>Lebih utama daripada proses dan alat. Proses baik tidak menolong tim yang tidak bicara.</p></div>
+  <div class="card mini"><span class="tag b">2</span><h3>Produk yang berfungsi</h3><p>Lebih utama daripada dokumentasi lengkap. Dokumen perlu, tetapi hasil nyata adalah ukuran kemajuan.</p></div>
+  <div class="card mini"><span class="tag g">3</span><h3>Kolaborasi dengan pelanggan</h3><p>Lebih utama daripada tawar-menawar isi kontrak. Pelanggan menjadi bagian dari tim.</p></div>
+  <div class="card mini"><span class="tag o">4</span><h3>Menanggapi perubahan</h3><p>Lebih utama daripada mengikuti rencana. Rencana adalah alat, bukan kitab suci.</p></div>
+</div>
+<div class="note"><b>Bukan berarti tanpa rencana</b><p>Bagian di kanan tetap bernilai; Agile hanya menaruh bagian di kiri sebagai prioritas. Agile juga bukan hanya untuk perangkat lunak: tim manufaktur memakainya untuk proyek perbaikan, desain produk, dan sistem pendukung.</p></div>
+
+<h2>Scrum: kerangka Agile yang paling populer</h2>
+<p><i data-k="scrum">Scrum</i> memecah pekerjaan menjadi siklus pendek bernama <i data-k="sprint">sprint</i> (1–4 minggu). Setiap sprint menghasilkan <i data-k="increment">increment</i>: hasil kecil yang sudah bisa dipakai. Tiga peran, lima event, tiga artefak:</p>
+<div class="grid g3">
+  <div class="card mini"><span class="tag">Peran</span><h3>3 peran</h3><p><b><i data-k="productowner">Product Owner</i></b>: menentukan <i>apa</i> dan urutannya.<br><b><i data-k="scrummaster">Scrum Master</i></b>: menjaga proses dan menyingkirkan hambatan.<br><b><i data-k="developers">Developers</i></b>: mengerjakan dan mengatur diri sendiri.</p></div>
+  <div class="card mini"><span class="tag o">Event</span><h3>5 event</h3><p><b>Sprint</b> (wadah semuanya), <b><i data-k="sprintplanning">Sprint Planning</i></b>, <b><i data-k="daily">Daily Scrum</i></b>, <b><i data-k="sprintreview">Sprint Review</i></b>, <b><i data-k="retro">Sprint Retrospective</i></b>.</p></div>
+  <div class="card mini"><span class="tag g">Artefak</span><h3>3 artefak</h3><p><b><i data-k="backlog">Product Backlog</i></b> (daftar kebutuhan berurutan), <b><i data-k="sprintbacklog">Sprint Backlog</i></b> (rencana sprint), <b>Increment</b> (hasil), dengan komitmen <b><i data-k="dod">Definition of Done</i></b>.</p></div>
+</div>
+
+<h2>Satu sprint dari awal sampai akhir</h2>
+<p>Contoh: tim kecil membuat <b>aplikasi pencatat NG harian</b> untuk operator lini, sprint 2 minggu. Klik tiap tahap.</p>
+<div class="sim"><div class="sim-h">Simulasi · satu sprint</div><div id="sp"></div></div>
+
+<h2>User story: kebutuhan dari sudut pengguna</h2>
+<p>Item backlog biasanya ditulis sebagai <i data-k="userstory">user story</i>: <code>Sebagai [peran], saya ingin [aksi], supaya [manfaat].</code> Formatnya memaksa kita berpikir tentang <b>siapa</b> dan <b>untuk apa</b>, bukan hanya fitur.</p>
+<div class="sim"><div class="sim-h">Simulasi · rakit user story</div>
+<div class="ctrl"><label>Sebagai: <select id="us1"><option>operator lini</option><option>supervisor produksi</option><option>staf QC</option></select></label><label>saya ingin: <select id="us2"><option>mencatat NG dengan sekali tekan</option><option>melihat total NG per shift</option><option>menerima peringatan saat NG melewati batas</option></select></label><label>supaya: <select id="us3"><option>pencatatan tidak memakan waktu</option><option>saya bisa segera bertindak</option><option>tidak perlu menyalin manual ke Excel</option></select></label></div>
+<div class="out fade" id="usr"></div>
+<p class="muted small">Cek mutu story (INVEST): <b>I</b>ndependent, <b>N</b>egotiable, <b>V</b>aluable, <b>E</b>stimable, <b>S</b>mall, <b>T</b>estable. Tambahkan <i data-k="acceptance">acceptance criteria</i> agar jelas kapan story dianggap selesai.</p></div>
+
+<h2>Membaca burndown chart</h2>
+<p><i data-k="burndown">Burndown chart</i> menunjukkan sisa pekerjaan sprint tiap hari. Garis ideal turun lurus ke nol. Jika garis aktual berada di atasnya, tim tertinggal.</p>
+<div class="sim"><div class="sim-h">Simulasi · burndown sprint</div>
+<h3>Sprint 10 hari kerja, komitmen 40 story point</h3>
+<div class="ctrl"><label>Kecepatan tim: <input type="range" id="bv" min="2" max="6" step="0.5" value="4"> <b id="bvv"></b></label><label>Permintaan tambahan di hari ke-4: <input type="range" id="ba" min="0" max="12" step="1" value="0"> <b id="bav"></b></label></div>
+<div id="ch-bd"></div>
+<div class="kpis"><div class="kpi"><span>Sisa di hari ke-10</span><b id="b1"></b></div><div class="kpi"><span>Status sprint goal</span><b id="b2"></b></div></div>
+<div class="out" id="bm"></div></div>
+<div class="warn"><b>Prinsip Scrum yang sering salah</b><p>Sprint <b>tidak diperpanjang</b> bila pekerjaan belum selesai, dan <b>scope sprint tidak ditambah</b> begitu saja di tengah jalan. Product Owner bisa mengubah isi sprint hanya jika masih sejalan dengan sprint goal. Permintaan baru masuk ke backlog untuk sprint berikutnya.</p></div>
+
+<h2>Lalu di mana manajer proyek?</h2>
+<p>Scrum tidak memiliki jabatan "manajer proyek". Tanggung jawabnya tersebar: Product Owner (nilai dan prioritas), Scrum Master (proses dan hambatan), dan tim (cara mengerjakan). Di organisasi nyata, manajer proyek sering berperan sebagai Scrum Master, Product Owner, atau mengoordinasikan beberapa tim dan stakeholder. Yang berubah adalah gaya: dari <i>mengatur dan mengendalikan</i> ke <i>melayani dan memfasilitasi</i>.</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li>Panduan Scrum (2020): sprint maksimal <b>satu bulan</b>. Batas waktu event untuk sprint satu bulan: Planning ≤ <b>8 jam</b>, Daily <b>15 menit</b>, Review ≤ <b>4 jam</b>, Retrospective ≤ <b>3 jam</b>. Sprint lebih pendek, event lebih pendek.</li>
+<li>Tiga komitmen: <b>Product Goal</b> (untuk Product Backlog), <b>Sprint Goal</b> (untuk Sprint Backlog), <b>Definition of Done</b> (untuk Increment).</li>
+<li>Ada <b>satu Product Owner</b> per produk. Tim Scrum biasanya ≤ 10 orang, <b>self-managing</b> dan lintas fungsi.</li>
+<li>Sprint boleh <b>dibatalkan</b> hanya oleh Product Owner, misalnya bila sprint goal tidak lagi relevan.</li>
+<li><b>Empirisme</b> Scrum bertumpu pada tiga pilar: <b>transparansi, inspeksi, adaptasi</b>.</li>
+<li>Lima nilai Scrum: komitmen, fokus, keterbukaan, rasa hormat, keberanian.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+stepper('#sp', [
+  { t: 'Product backlog', h: '<h3>0. Product Backlog siap</h3><p>Product Owner (kepala produksi) menyusun daftar kebutuhan berurutan prioritas.</p><div class="out">1) Catat NG sekali tekan · 2) Rekap per shift · 3) Peringatan batas NG · 4) Ekspor ke Excel · 5) Laporan bulanan. Item atas sudah jelas dan kecil, item bawah masih kasar.</div>' },
+  { t: 'Sprint Planning', h: '<h3>1. <i data-k="sprintplanning">Sprint Planning</i> (hari 1)</h3><p>Tim memilih item dari atas backlog yang sanggup diselesaikan, menyepakati <b>sprint goal</b>, dan memecahnya menjadi tugas.</p><div class="out"><b>Sprint goal:</b> "Operator bisa mencatat NG dan melihat rekap shift di lini 1." Dipilih item 1 dan 2 (total 21 story point).</div>' },
+  { t: 'Daily Scrum', h: '<h3>2. <i data-k="daily">Daily Scrum</i> (tiap hari, 15 menit)</h3><p>Tim menyelaraskan rencana menuju sprint goal dan mengangkat hambatan.</p><div class="out">"Kemarin layar pencatat selesai. Hari ini membuat rekap. Hambatan: akses ke database belum diberi IT." Scrum Master segera mengurus akses tersebut.</div>' },
+  { t: 'Sprint Review', h: '<h3>3. <i data-k="sprintreview">Sprint Review</i> (akhir sprint)</h3><p>Tim memperlihatkan hasil nyata kepada stakeholder dan meminta umpan balik. Bukan presentasi slide.</p><div class="out">Operator mencoba aplikasinya langsung. Umpan balik: "Tombol terlalu kecil untuk sarung tangan." Masuk ke backlog sebagai item baru dengan prioritas tinggi.</div>' },
+  { t: 'Retrospective', h: '<h3>4. <i data-k="retro">Retrospective</i></h3><p>Tim memeriksa cara bekerjanya sendiri dan memilih satu-dua perbaikan untuk sprint berikutnya.</p><div class="out"><b>Baik:</b> demo ke operator di tengah sprint. <b>Kurang:</b> akses data terlambat. <b>Perbaikan:</b> urus akses sebelum sprint dimulai.</div>' },
+]);
+
+function us() { $('#usr').innerHTML = `<b>Sebagai</b> ${$('#us1').value}, <b>saya ingin</b> ${$('#us2').value}, <b>supaya</b> ${$('#us3').value}.`; }
+['us1', 'us2', 'us3'].forEach(i => $('#' + i).onchange = us); us();
+
+const rn = C.rng(5), nz0 = Array.from({ length: 10 }, () => (rn() - .5) * 1.2), nzm = nz0.reduce((a, b) => a + b, 0) / 10, nz = nz0.map(x => x - nzm);
+function bd() {
+  const v = +$('#bv').value, add = +$('#ba').value; $('#bvv').textContent = nf(v, 1) + ' poin/hari'; $('#bav').textContent = '+' + add + ' poin';
+  const ideal = [[0, 40], ...Array.from({ length: 10 }, (_, i) => [i + 1, 40 - 4 * (i + 1)])];
+  let rem = 40; const act = [[0, 40]];
+  for (let d = 1; d <= 10; d++) { rem -= Math.max(0, v + nz[d - 1]); if (d === 4) rem += add; act.push([d, Math.max(0, rem)]); }
+  const end = act[10][1], scope = 40 + add;
+  C.curve('#ch-bd', { xr: [0, 10], yr: [0, 55], series: [{ name: 'Ideal', pts: ideal, color: '#9AA5B5', dash: true }, { name: 'Aktual', pts: act, color: '#D9480F', dots: true }], xl: 'Hari sprint', fmt: v => nf(v, 0) });
+  $('#b1').textContent = nf(end, 0) + ' poin'; $('#b1').style.color = end > 0.5 ? '#C92A2A' : '#2B8A3E';
+  $('#b2').textContent = end <= 0.5 ? 'Tercapai' : 'Tidak tercapai'; $('#b2').style.color = end <= .5 ? '#2B8A3E' : '#C92A2A';
+  $('#bm').innerHTML = end <= .5 ? (add ? `Walaupun ada tambahan ${add} poin, tim sanggup menyelesaikannya. Tetap berhati-hati: tambahan mendadak mengurangi fokus dan seharusnya masuk lewat Product Owner.` : 'Tim berada di jalur sprint goal. Garis aktual mendekati garis ideal.') : `Tim tertinggal sekitar <b>${nf(end, 0)} poin</b>. Tindakan yang tepat di Scrum: bicarakan dengan Product Owner untuk <b>mengurangi isi sprint</b> yang paling tidak penting, bukan memperpanjang sprint atau memaksa lembur. Sisa item kembali ke backlog.` + (add ? ` Tambahan ${add} poin di tengah sprint memperburuk keadaan; seharusnya masuk sprint berikutnya.` : '');
+}
+$('#bv').oninput = bd; $('#ba').oninput = bd; bd();
+
+quiz([
+  { q: 'Siapa yang menentukan urutan prioritas item di Product Backlog?', o: ['Scrum Master', 'Developers', 'Product Owner', 'Manajer proyek'], a: 2, e: 'Product Owner bertanggung jawab atas nilai produk dan urutan backlog.' },
+  { q: 'Di tengah sprint, tim terlihat tidak akan menyelesaikan semua item. Tindakan terbaik?', o: ['Memperpanjang sprint', 'Menyepakati dengan Product Owner untuk mengurangi isi sprint', 'Menambah item agar cepat', 'Membatalkan Daily Scrum'], a: 1, e: 'Sprint berdurasi tetap (timebox). Yang disesuaikan adalah isinya, dengan persetujuan Product Owner.' },
+  { q: 'Apa tujuan Sprint Review?', o: ['Menilai kinerja individu', 'Memperlihatkan hasil kerja dan meminta umpan balik stakeholder', 'Merencanakan sprint berikutnya saja', 'Membahas cara kerja tim'], a: 1, e: 'Review adalah inspeksi hasil. Membahas cara bekerja tim adalah tugas Retrospective.' },
+  { q: 'Berapa lama Daily Scrum?', o: ['15 menit', '1 jam', '30 menit', 'Selama diperlukan'], a: 0, e: 'Daily Scrum adalah timebox 15 menit, setiap hari kerja pada sprint.' },
+  { q: 'Daftar syarat bersama yang menentukan kapan sebuah item dianggap benar-benar selesai disebut…', o: ['Sprint Goal', 'Definition of Done', 'Acceptance test', 'Backlog'], a: 1, e: 'Definition of Done adalah komitmen untuk Increment. Hanya item yang memenuhinya yang dihitung selesai.' },
+]);
+</script>
+</body>
+</html>

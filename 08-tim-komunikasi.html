@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>08 Tim, RACI & Komunikasi · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="08">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Menyusun matriks RACI yang valid.</li><li>Mengenali tahap perkembangan tim dan memilih cara menangani konflik.</li><li>Menghitung jalur komunikasi dan membuat rencana komunikasi sederhana.</li></ul></div>
+
+<h2>Proyek adalah pekerjaan orang</h2>
+<p>Sebagian besar masalah proyek bukan soal teknis, tetapi soal orang: tugas yang tidak jelas pemiliknya, informasi yang tidak sampai, atau konflik yang dibiarkan. Modul ini membahas tiga alatnya: peran, tim, dan komunikasi.</p>
+
+<h2>RACI: siapa melakukan apa</h2>
+<p><i data-k="raci">RACI</i> adalah tabel yang menetapkan peran setiap orang pada setiap kegiatan:</p>
+<div class="grid g4">
+  <div class="card mini"><span class="tag b">R</span><h3>Responsible</h3><p>Orang yang <b>mengerjakan</b>. Bisa lebih dari satu.</p></div>
+  <div class="card mini"><span class="tag o">A</span><h3>Accountable</h3><p>Penanggung jawab <b>akhir</b> dan pemberi persetujuan. Harus <b>tepat satu</b>.</p></div>
+  <div class="card mini"><span class="tag g">C</span><h3>Consulted</h3><p>Dimintai pendapat <b>dua arah</b> sebelum keputusan.</p></div>
+  <div class="card mini"><span class="tag">I</span><h3>Informed</h3><p>Diberi kabar <b>satu arah</b> setelah keputusan.</p></div>
+</div>
+<div class="note"><b>Dua aturan emas</b><p>Setiap baris wajib punya <b>satu dan hanya satu A</b>, dan <b>minimal satu R</b>. Dua A berarti saling lempar tanggung jawab; nol A berarti tidak ada yang bertanggung jawab.</p></div>
+
+<div class="sim"><div class="sim-h">Simulasi · perbaiki RACI</div>
+<h3>Klik sel untuk mengganti: kosong → R → A → C → I</h3>
+<p class="muted small">Tiga baris masih salah. Perbaiki sampai semuanya valid. Garis hijau di kiri baris berarti valid, merah berarti salah.</p>
+<div class="tw"><table class="raci"><thead><tr><th>Kegiatan</th><th>Manajer proyek</th><th>Produksi</th><th>Maintenance</th><th>QC</th><th>Vendor</th></tr></thead><tbody id="rc"></tbody></table></div>
+<div class="ctrl"><button class="ghost" id="rcs">Tampilkan contoh benar</button><button class="ghost" id="rcr">Ulangi</button></div>
+<div class="out" id="rcm"></div></div>
+
+<h2>Membangun tim</h2>
+<p>Tim yang baru dibentuk tidak langsung kompak. Bruce Tuckman menjelaskan lima tahap yang wajar dilalui (<i data-k="tuckman">tahapan Tuckman</i>). Klik tiap tahap untuk melihat contoh pada tim lini baru.</p>
+<div class="sim"><div class="sim-h">Simulasi · tahapan tim</div><div id="tk"></div></div>
+<div class="note"><b>Peran pemimpin berubah</b><p>Pada tahap forming pemimpin banyak mengarahkan. Pada storming ia menjadi mediator. Pada performing ia lebih banyak memberi ruang dan menyingkirkan hambatan, yang disebut <i data-k="servant">servant leadership</i>, sangat umum di tim Agile.</p></div>
+
+<h3>Menangani konflik</h3>
+<p>Konflik tidak selalu buruk: konflik tentang <i>cara</i> mengerjakan sering menghasilkan solusi lebih baik. Yang berbahaya adalah konflik pribadi yang dibiarkan. Lima gaya (<i data-k="konflik">resolusi konflik</i>):</p>
+<div class="tw"><table class="cmp"><tr><th>Gaya</th><th>Artinya</th><th>Kapan dipakai</th></tr>
+<tr><td>Collaborate / problem-solve</td><td>Cari solusi yang memuaskan semua pihak</td><td>Umumnya terbaik. Butuh waktu dan keterbukaan.</td></tr>
+<tr><td>Compromise</td><td>Masing-masing mengalah sebagian</td><td>Waktu terbatas, kedua pihak setara.</td></tr>
+<tr><td>Smooth / accommodate</td><td>Menekankan kesamaan, meredam</td><td>Sementara, untuk menjaga hubungan.</td></tr>
+<tr><td>Force / direct</td><td>Satu pihak memaksakan keputusan</td><td>Darurat atau soal keselamatan.</td></tr>
+<tr><td>Withdraw / avoid</td><td>Menghindar atau menunda</td><td>Perlu menenangkan diri. Tidak menyelesaikan masalah.</td></tr></table></div>
+
+<h2>Komunikasi</h2>
+<p>Makin banyak orang, makin banyak hubungan yang harus dijaga. Jumlah <i data-k="channels">jalur komunikasi</i> = <code>n × (n − 1) ÷ 2</code>.</p>
+<div class="sim"><div class="sim-h">Simulasi · jalur komunikasi</div>
+<h3>Berapa jalur komunikasi pada tim Anda?</h3>
+<div class="ctrl"><label>Jumlah orang: <input type="range" id="nn" min="2" max="30" step="1" value="6"> <b id="nnv"></b></label></div>
+<div id="ch-nn"></div>
+<div class="out" id="nnm"></div></div>
+<p>Tidak semua orang perlu bicara dengan semua orang. Karena itu dibuat <i data-k="commplan">rencana komunikasi</i> sederhana: <b>siapa mendapat informasi apa, kapan, dan lewat apa</b>.</p>
+<div class="tw"><table class="cmp"><tr><th>Informasi</th><th>Untuk</th><th>Dari</th><th>Kapan</th><th>Cara</th></tr>
+<tr><td>Status mingguan</td><td>Sponsor, manajer produksi</td><td>Manajer proyek</td><td>Jumat</td><td>Laporan satu halaman</td></tr>
+<tr><td>Koordinasi lapangan</td><td>Tim instalasi, vendor</td><td>Manajer proyek</td><td>Harian, 15 menit</td><td>Tatap muka di lokasi</td></tr>
+<tr><td>Perubahan jadwal</td><td>Semua stakeholder terdampak</td><td>Manajer proyek</td><td>Saat terjadi</td><td>Email + rapat singkat</td></tr>
+<tr><td>Risiko tinggi</td><td>Sponsor</td><td>Pemilik risiko</td><td>Segera</td><td>Telepon, lalu tertulis</td></tr></table></div>
+<p>Ada tiga cara menyampaikan: <b>push</b> (dikirim ke penerima, misalnya email), <b>pull</b> (penerima mengambil sendiri, misalnya dashboard bersama), dan <b>interactive</b> (dua arah, misalnya rapat). Hal penting dan rumit sebaiknya interaktif, lalu dicatat tertulis.</p>
+<p>Bila masalah tidak bisa selesai di tingkat bawah, lakukan <i data-k="eskalasi">eskalasi</i> ke orang yang berwenang, dengan fakta, dampak, dan pilihan solusi, bukan sekadar keluhan.</p>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li><b>Team charter</b> memuat nilai tim, aturan rapat, dan cara mengambil keputusan, dibuat bersama oleh tim.</li>
+<li>Teori motivasi: <b>Maslow</b> (hierarki kebutuhan), <b>Herzberg</b> (faktor higienis vs motivator), <b>McGregor</b> (Teori X dan Y), <b>Ouchi</b> (Teori Z), <b>McClelland</b> (prestasi, afiliasi, kekuasaan).</li>
+<li>Gaya kepemimpinan: directive, servant, transformational, situational, laissez-faire.</li>
+<li><i data-k="rbs">Resource calendar</i> dan histogram sumber daya dipakai untuk mengatur ketersediaan. <b>Responsibility Assignment Matrix (RAM)</b> adalah bentuk umum dari RACI.</li>
+<li>Model komunikasi: pengirim → encode → media → decode → penerima, dengan <i>noise</i> dan <i>feedback</i>. Komunikasi formal tertulis untuk hal kontraktual.</li>
+<li>Virtual team: perhatikan zona waktu, budaya, dan teknologi.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+const COLS = 5, ROWS = ['Menyetujui desain layout', 'Memesan mesin', 'Instalasi mesin', 'Pelatihan operator', 'Uji coba (SAT)', 'Serah terima ke produksi'];
+const INIT = [['A', 'A', '', '', ''], ['R', '', '', '', 'R'], ['A', '', 'R', '', 'R'], ['', '', '', '', ''], ['A', 'R', 'R', 'R', 'C'], ['R', 'A', 'I', 'C', 'I']];
+const SOL = [['R', 'A', 'C', 'C', 'I'], ['A', 'C', 'C', 'I', 'R'], ['A', 'I', 'R', 'I', 'R'], ['A', 'R', 'I', 'C', 'C'], ['A', 'R', 'R', 'R', 'C'], ['R', 'A', 'I', 'C', 'I']];
+const ORD = ['', 'R', 'A', 'C', 'I'];
+let G2 = INIT.map(r => [...r]);
+function rc() {
+  $('#rc').innerHTML = ROWS.map((r, i) => { const a = G2[i].filter(x => x === 'A').length, rr = G2[i].filter(x => x === 'R').length, ok = a === 1 && rr >= 1;
+    return `<tr><td class="${ok ? 'good' : 'bad2'}" style="box-shadow:inset 5px 0 0 ${ok ? '#2B8A3E' : '#C92A2A'}">${r}</td>${G2[i].map((c, j) => `<td class="cell ${c}" data-i="${i}" data-j="${j}">${c || '·'}</td>`).join('')}</tr>`; }).join('');
+  const ok = ROWS.filter((_, i) => G2[i].filter(x => x === 'A').length === 1 && G2[i].filter(x => x === 'R').length >= 1).length;
+  let m = `<b>${ok} dari ${ROWS.length} baris valid.</b> `;
+  if (ok < ROWS.length) { const bad = ROWS.findIndex((_, i) => !(G2[i].filter(x => x === 'A').length === 1 && G2[i].filter(x => x === 'R').length >= 1)); const a = G2[bad].filter(x => x === 'A').length; m += `Periksa "${ROWS[bad]}": ` + (a === 0 ? 'belum ada A (tidak ada yang bertanggung jawab akhir).' : a > 1 ? 'ada lebih dari satu A (tanggung jawab jadi kabur).' : 'belum ada R (tidak ada yang mengerjakan).'); }
+  else m += '<span style="color:#2B8A3E">Semua valid. Isinya boleh berbeda dengan contoh, asalkan setiap baris punya satu A dan minimal satu R.</span>';
+  $('#rcm').innerHTML = m;
+}
+$('#rc').onclick = e => { const t = e.target.closest('td.cell'); if (!t) return; const i = +t.dataset.i, j = +t.dataset.j; G2[i][j] = ORD[(ORD.indexOf(G2[i][j]) + 1) % ORD.length]; rc(); };
+$('#rcs').onclick = () => { G2 = SOL.map(r => [...r]); rc(); }; $('#rcr').onclick = () => { G2 = INIT.map(r => [...r]); rc(); }; rc();
+
+stepper('#tk', [
+  { t: 'Forming', h: '<h3>1. Forming: berkenalan</h3><p>Anggota sopan, belum saling kenal, masih menunggu arahan.</p><div class="out"><b>Tim lini baru:</b> teknisi produksi, maintenance, dan QC baru pertama bertemu di kick-off. Semua setuju dengan apa pun yang dikatakan manajer proyek.</div>' },
+  { t: 'Storming', h: '<h3>2. Storming: berbenturan</h3><p>Perbedaan pendapat muncul. Wajar, dan harus dikelola.</p><div class="out"><b>Tim lini baru:</b> produksi ingin instalasi dilakukan malam hari agar tidak mengganggu shift; maintenance ingin siang karena teknisi vendor hanya ada siang. Rapat jadi tegang.</div>' },
+  { t: 'Norming', h: '<h3>3. Norming: bersepakat</h3><p>Aturan main dan cara bekerja sama terbentuk.</p><div class="out"><b>Tim lini baru:</b> sepakat: pekerjaan bising siang hari, pekerjaan listrik malam hari. Aturan rapat harian disahkan di team charter.</div>' },
+  { t: 'Performing', h: '<h3>4. Performing: berkinerja</h3><p>Tim bekerja efisien dan saling percaya. Pemimpin memberi ruang.</p><div class="out"><b>Tim lini baru:</b> instalasi berjalan lancar. Masalah kecil selesai di lapangan tanpa menunggu manajer proyek.</div>' },
+  { t: 'Adjourning', h: '<h3>5. Adjourning: membubarkan</h3><p>Proyek selesai, tim bubar. Jangan dilewatkan.</p><div class="out"><b>Tim lini baru:</b> serah terima, ucapan terima kasih, evaluasi kinerja, dan retrospektif. Anggota kembali ke bagian masing-masing dengan pengalaman baru.</div>' },
+]);
+
+function nn() {
+  const n = +$('#nn').value, ch = n * (n - 1) / 2; $('#nnv').textContent = n + ' orang';
+  const pts = []; for (let k = 2; k <= 30; k++) pts.push([k, k * (k - 1) / 2]);
+  C.curve('#ch-nn', { xr: [2, 30], yr: [0, 450], series: [{ name: 'Jalur', pts, color: '#9AA5B5' }, { name: 'Tim Anda', pts: [[n, ch]], color: '#D9480F', dot: true }], vlines: [{ x: n, label: n + ' orang = ' + ch + ' jalur', color: '#D9480F' }], xl: 'Jumlah orang', fmt: v => nf(v, 0) });
+  $('#nnm').innerHTML = `<b>${ch} jalur komunikasi.</b> ` + (n <= 9 ? 'Ukuran yang masih mudah dikelola.' : n <= 15 ? 'Mulai sulit. Pertimbangkan membagi menjadi sub-tim dengan satu perwakilan.' : 'Terlalu banyak jalur. Bagi menjadi beberapa tim kecil dan atur komunikasi lewat perwakilan.') + (n === 6 ? ' Menambah satu orang saja menjadi 7 orang menambah 6 jalur baru (21 jalur).' : '');
+}
+$('#nn').oninput = nn; nn();
+
+quiz([
+  { q: 'Satu baris RACI memiliki dua huruf A. Masalahnya?', o: ['Tidak ada masalah', 'Tanggung jawab akhir menjadi kabur', 'Terlalu banyak yang dikonsultasi', 'Tidak ada yang diberi kabar'], a: 1, e: 'Harus tepat satu Accountable. Jika dua, masing-masing bisa mengira yang lain bertanggung jawab.' },
+  { q: 'Tim bertambah dari 5 menjadi 8 orang. Berapa jalur komunikasi sekarang?', o: ['10', '15', '28', '40'], a: 2, e: '8 × 7 ÷ 2 = 28 jalur (sebelumnya 10).' },
+  { q: 'Dua anggota tim berdebat sengit soal jadwal pemasangan. Tahapan tim yang mungkin sedang terjadi?', o: ['Forming', 'Storming', 'Performing', 'Adjourning'], a: 1, e: 'Perbedaan pendapat terbuka adalah ciri storming, dan wajar. Pemimpin berperan sebagai mediator.' },
+  { q: 'Gaya konflik yang umumnya paling efektif karena mencari solusi yang memuaskan semua pihak?', o: ['Force', 'Withdraw', 'Compromise', 'Collaborate / problem-solve'], a: 3, e: 'Collaborate menyelesaikan akar masalah. Compromise membuat semua pihak mengalah sebagian saja.' },
+]);
+</script>
+</body>
+</html>

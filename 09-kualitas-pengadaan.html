@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>09 Kualitas & Pengadaan · Belajar Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="09">
+<main class="wrap">
+
+<div class="goals"><b>Setelah modul ini, Anda bisa:</b>
+<ul><li>Membedakan QA dari QC dan menjelaskan kenapa pencegahan lebih murah daripada perbaikan.</li><li>Membaca Pareto chart dan control chart sederhana.</li><li>Memilih jenis kontrak yang sesuai dengan kejelasan scope.</li></ul></div>
+
+<h2>Kualitas: sesuai kebutuhan, bukan paling mewah</h2>
+<p><i data-k="kualitas">Kualitas</i> adalah sejauh mana hasil memenuhi kebutuhan yang disepakati. Mobil sederhana yang memenuhi spesifikasinya berkualitas baik; mobil mewah dengan banyak cacat berkualitas buruk. Bedakan dari <b>grade</b> (tingkat fitur): grade rendah boleh, kualitas rendah tidak.</p>
+<div class="tw"><table class="cmp"><tr><th></th><th><i data-k="qa">QA</i> (Quality Assurance)</th><th><i data-k="qc">QC</i> (Quality Control)</th></tr>
+<tr><td>Fokus</td><td>Proses kerja</td><td>Hasil kerja</td></tr>
+<tr><td>Pertanyaan</td><td>"Apakah cara kita bekerja sudah benar?"</td><td>"Apakah hasilnya sesuai spesifikasi?"</td></tr>
+<tr><td>Sifat</td><td>Mencegah cacat</td><td>Menemukan cacat</td></tr>
+<tr><td>Contoh pabrik</td><td>Audit SOP, pelatihan operator, poka-yoke</td><td>Inspeksi akhir, uji fungsi, pengukuran sampel</td></tr></table></div>
+<p>Prinsip utamanya: <b>kualitas direncanakan ke dalam proses, bukan diperiksa belakangan</b>. Cacat yang ditemukan lebih awal jauh lebih murah diperbaiki.</p>
+
+<h2>Cost of quality</h2>
+<p><i data-k="coq">Cost of quality</i> (COQ) memiliki dua sisi: biaya <b>menjaga</b> kualitas (pencegahan dan penilaian: pelatihan, inspeksi, kalibrasi) dan biaya <b>mutu buruk</b> (kegagalan internal seperti rework dan scrap, serta eksternal seperti retur dan klaim pelanggan). Menambah pencegahan menurunkan kegagalan, tetapi ada titik di mana tambahan itu tidak lagi sepadan.</p>
+<div class="sim"><div class="sim-h">Simulasi · cost of quality</div>
+<h3>Berapa investasi pencegahan yang paling hemat?</h3>
+<div class="ctrl"><label>Investasi pencegahan &amp; penilaian: <input type="range" id="cq" min="0" max="320" step="10" value="30"> <b id="cqv"></b></label></div>
+<div id="ch-cq"></div>
+<div class="kpis"><div class="kpi"><span>Biaya jaga mutu</span><b id="q1" style="color:#3B5BDB"></b></div><div class="kpi"><span>Biaya mutu buruk</span><b id="q2" style="color:#D9480F"></b></div><div class="kpi"><span>Total COQ</span><b id="q3"></b></div></div>
+<div class="out" id="qm"></div></div>
+<div class="case"><b>Contoh kasus · Lini baru</b>
+<p>Tanpa pelatihan dan jig pemosisi, reject di bulan pertama lini baru bisa 8%. Melatih operator dan memasang jig (biaya Rp40 juta) menurunkannya menjadi 3%. Selisih 5% dari output sebulan jauh lebih besar daripada biaya pelatihan.</p></div>
+
+<h2>Alat kualitas yang sering dipakai</h2>
+<h3><i data-k="pareto">Pareto chart</i>: cari penyebab yang paling besar</h3>
+<p>Prinsip 80/20: sedikit penyebab menimbulkan sebagian besar masalah. Pilih penyebab terbesar, bukan semuanya sekaligus.</p>
+<div class="sim"><div class="sim-h">Simulasi · Pareto</div>
+<h3>Cacat di lini baru minggu pertama (100 unit NG)</h3>
+<p class="muted small">Klik untuk menghilangkan satu penyebab (anggap 100% teratasi). Penyebab mana yang paling mengurangi NG?</p>
+<div class="seg" id="pa"></div>
+<div id="ch-pa"></div>
+<div class="out" id="pam"></div></div>
+
+<h3><i data-k="controlchart">Control chart</i>: apakah proses stabil?</h3>
+<p>Control chart menampilkan hasil pengukuran dari waktu ke waktu dengan batas kendali atas dan bawah (UCL dan LCL). Variasi di dalam batas itu normal. Titik di luar batas, atau tujuh titik berturut-turut di satu sisi rata-rata, menandakan ada sesuatu yang berubah.</p>
+<div class="sim"><div class="sim-h">Simulasi · control chart</div>
+<h3>Berat produk per sampel (gram), target 100</h3>
+<p class="muted small">Mesin bergeser mulai sampel ke-16. Geser slider dan lihat kapan titik keluar batas.</p>
+<div class="ctrl"><label>Pergeseran rata-rata: <input type="range" id="sh" min="0" max="8" step="0.5" value="0"> <b id="shv"></b></label></div>
+<div id="ch-cc"></div>
+<div class="out" id="ccm"></div></div>
+
+<h2>Pengadaan: membeli dari luar</h2>
+<p><i data-k="procurement">Pengadaan</i> adalah proses membeli barang atau jasa dari luar. Alurnya: putuskan <b>buat sendiri atau beli</b> (make-or-buy) → siapkan <i data-k="sow">SOW</i> (uraian pekerjaan) → minta penawaran lewat <i data-k="rfp">RFQ/RFP</i> → pilih vendor dengan kriteria tertulis → tanda tangan kontrak → kelola dan tutup kontrak.</p>
+<h3>Tiga jenis kontrak utama</h3>
+<div class="tw"><table class="cmp"><tr><th>Jenis</th><th>Cara bayar</th><th>Risiko biaya ditanggung</th><th>Cocok bila</th></tr>
+<tr><td><i data-k="fixedprice">Fixed Price</i></td><td>Harga tetap</td><td>Penjual</td><td>Scope jelas dan stabil</td></tr>
+<tr><td><i data-k="costplus">Cost Reimbursable</i></td><td>Biaya nyata + fee</td><td>Pembeli</td><td>Scope belum jelas, pekerjaan eksploratif</td></tr>
+<tr><td><i data-k="tm">Time &amp; Material</i></td><td>Tarif per jam/unit</td><td>Pembeli (total tidak pasti)</td><td>Tenaga ahli jangka pendek, scope belum bisa dipastikan</td></tr></table></div>
+
+<div class="sim"><div class="sim-h">Simulasi · siapa yang menanggung biaya?</div>
+<h3>Instalasi mesin oleh kontraktor: estimasi biaya kontraktor Rp1.000 juta</h3>
+<p class="muted small">Fixed Price: Rp1.100 juta. Cost-plus fixed fee: biaya nyata + fee Rp80 juta. T&amp;M: biaya nyata × 1,15 (tarif sudah termasuk margin). Geser biaya nyata yang ternyata dikeluarkan.</p>
+<div class="ctrl"><label>Biaya nyata kontraktor: <input type="range" id="ac" min="800" max="1500" step="20" value="1000"> <b id="acv"></b></label></div>
+<div id="ch-ct"></div>
+<div class="tw"><table><thead><tr><th>Jenis</th><th class="num">Pembeli membayar</th><th class="num">Untung kontraktor</th></tr></thead><tbody id="ctb"></tbody></table></div>
+<div class="out" id="ctm"></div></div>
+
+<div class="cert"><b>Untuk sertifikasi</b>
+<ul><li><b>Cost of quality</b>: konformitas (pencegahan, penilaian) vs non-konformitas (kegagalan internal/eksternal).</li>
+<li>Alat quality: <b>fishbone</b> (sebab-akibat), <b>checksheet</b>, <b>histogram</b>, <b>scatter diagram</b>, <b>flowchart</b>, <b>control chart</b>. <b>Specification limit</b> berasal dari pelanggan; <b>control limit</b> dihitung dari proses.</li>
+<li>Quality: <b>Plan Quality Management</b> → <b>Manage Quality (QA)</b> → <b>Control Quality (QC)</b>. Siklus perbaikan: <b>PDCA</b>.</li>
+<li>Jenis kontrak tambahan: <b>FPIF</b> (fixed price incentive fee), <b>FP-EPA</b> (dengan penyesuaian harga ekonomi), <b>CPIF</b> (cost plus incentive fee), <b>CPAF</b> (cost plus award fee), <b>CPFF</b> (cost plus fixed fee).</li>
+<li><b>Make-or-buy analysis</b>, <b>bidders conference</b>, <b>weighted scoring</b> untuk memilih vendor, <b>BAFO</b> (best and final offer), <b>teaming agreement</b>, <b>claims</b> dan <b>closing procurement</b>.</li>
+<li>Prinsip: dalam kontrak, risiko sebaiknya ditanggung pihak yang paling mampu mengendalikannya.</li></ul></div>
+
+<h2>Kuis</h2>
+<div id="quiz"></div>
+
+</main>
+<script src="assets/glossary.js"></script><script src="assets/charts.js"></script><script src="assets/app.js"></script>
+<script>
+// COQ: biaya kegagalan F = 400 * exp(-0.012 x)
+function cq() {
+  const x = +$('#cq').value, F = v => 400 * Math.exp(-.012 * v); $('#cqv').textContent = 'Rp' + x + ' jt';
+  const pa = [], pf = [], pt = []; for (let v = 0; v <= 320; v += 10) { pa.push([v, v]); pf.push([v, F(v)]); pt.push([v, v + F(v)]); }
+  C.curve('#ch-cq', { xr: [0, 320], yr: [0, 450], series: [{ name: 'Jaga mutu', pts: pa, color: '#3B5BDB' }, { name: 'Mutu buruk', pts: pf, color: '#D9480F' }, { name: 'Total', pts: pt, color: '#1B2A41', w: 3.2 }], vlines: [{ x, label: 'Anda', color: '#0F766E' }, ], xl: 'Investasi pencegahan & penilaian (juta rupiah)', fmt: v => nf(v, 0) });
+  const f = F(x), tot = x + f, opt = 131, best = opt + F(opt);
+  $('#q1').textContent = 'Rp' + nf(x, 0) + ' jt'; $('#q2').textContent = 'Rp' + nf(f, 0) + ' jt'; $('#q3').textContent = 'Rp' + nf(tot, 0) + ' jt';
+  $('#qm').innerHTML = x < 80 ? `<b style="color:#C92A2A">Terlalu sedikit pencegahan.</b> Hemat di depan, tetapi biaya rework, scrap, dan klaim sangat besar. Total Rp${nf(tot, 0)} juta, padahal bisa sekitar Rp${nf(best, 0)} juta.` : x > 200 ? `<b style="color:#B7791F">Pencegahan berlebihan.</b> Kegagalan sudah kecil, tetapi tambahan inspeksi dan pelatihan lebih mahal daripada kerugian yang dicegah. Total Rp${nf(tot, 0)} juta.` : `<b style="color:#2B8A3E">Mendekati titik terbaik</b> (sekitar Rp${opt} juta, total Rp${nf(best, 0)} juta). Di sini tambahan Rp1 pencegahan mengurangi tepat sekitar Rp1 kegagalan.`;
+}
+$('#cq').oninput = cq; cq();
+
+const PD = [['Gores', 42], ['Salah posisi', 25], ['Kotor', 12], ['Solder dingin', 8], ['Lainnya', 13]], fixed = {};
+$('#pa').innerHTML = PD.map((p, i) => `<button data-i="${i}">Atasi: ${p[0]}</button>`).join('') + '<button class="ghost" data-i="x">Ulangi</button>';
+function pd() {
+  const v = PD.map((p, i) => fixed[i] ? 0 : p[1]), tot = v.reduce((a, b) => a + b, 0);
+  if (tot > 0) C.pareto('#ch-pa', { labels: PD.map(p => p[0]), values: v }); else $('#ch-pa').innerHTML = '<p class="center muted" style="padding:40px 0">Semua penyebab teratasi: tidak ada NG tersisa.</p>';
+  $$('#pa button[data-i]:not([data-i=x])').forEach(b => b.classList.toggle('on', !!fixed[b.dataset.i]));
+  $('#pam').innerHTML = tot === 100 ? 'Dua penyebab teratas (Gores dan Salah posisi) menyumbang <b>67%</b> dari semua NG. Fokuskan upaya perbaikan di sana dulu.' : `NG tersisa <b>${nf(tot, 0)}</b> dari 100 (turun ${nf(100 - tot, 0)}%).` + (fixed[0] ? ' Mengatasi gores saja sudah memangkas hampir separuh masalah.' : '');
+}
+$('#pa').onclick = e => { const b = e.target.closest('button'); if (!b) return; if (b.dataset.i === 'x') Object.keys(fixed).forEach(k => delete fixed[k]); else fixed[b.dataset.i] = !fixed[b.dataset.i]; pd(); }; pd();
+
+const r = C.rng(11), base = Array.from({ length: 30 }, () => C.norm(r) * 2);
+function cc() {
+  const s = +$('#sh').value, pts = base.map((z, i) => [i + 1, 100 + z + (i >= 15 ? s : 0)]), UCL = 106, LCL = 94; $('#shv').textContent = '+' + nf(s, 1) + ' g';
+  C.curve('#ch-cc', { xr: [1, 30], yr: [90, 110], series: [{ name: 'Berat sampel', pts, color: '#3B5BDB', dots: true, dotc: p => p[1] > UCL || p[1] < LCL ? '#C92A2A' : '#3B5BDB' }], hlines: [{ y: UCL, label: 'UCL 106', color: '#D9480F' }, { y: LCL, label: 'LCL 94', color: '#D9480F' }, { y: 100, label: 'target', color: '#0F766E' }], xl: 'Nomor sampel', fmt: v => nf(v, 0) });
+  const out = pts.filter(p => p[1] > UCL || p[1] < LCL).length, run = pts.slice(15).filter(p => p[1] > 100).length;
+  $('#ccm').innerHTML = out ? `<b style="color:#C92A2A">${out} titik di luar batas kendali.</b> Proses tidak lagi stabil. Hentikan, cari penyebab (kalibrasi, material, operator), jangan hanya menyetel.` : s >= 2 && run >= 7 ? '<b style="color:#B7791F">Belum ada titik di luar batas, tetapi 7+ titik berturut-turut berada di atas rata-rata.</b> Itu tanda proses bergeser walau masih "lolos".' : 'Proses stabil: titik naik-turun acak di sekitar target.';
+}
+$('#sh').oninput = cc; cc();
+
+function ct() {
+  const a = +$('#ac').value; $('#acv').textContent = 'Rp' + nf(a, 0) + ' jt';
+  const rows = [['Fixed Price', 1100, 1100 - a], ['Cost-plus fixed fee', a + 80, 80], ['Time & Material', a * 1.15, a * .15]];
+  C.bar('#ch-ct', { labels: rows.map(x => x[0]), values: rows.map(x => x[1]), colors: ['#1B2A41', '#3B5BDB', '#B7791F'], min: 0, max: 1800, fmt: v => nf(v, 0), xl: 'Yang dibayar pembeli (juta rupiah)' });
+  $('#ctb').innerHTML = rows.map(x => `<tr><td>${x[0]}</td><td class="num">${nf(x[1], 0)}</td><td class="num" style="color:${x[2] < 0 ? '#C92A2A' : '#2B8A3E'};font-weight:700">${x[2] < 0 ? '−' : ''}${nf(Math.abs(x[2]), 0)}</td></tr>`).join('');
+  $('#ctm').innerHTML = a > 1100 ? '<b style="color:#C92A2A">Biaya membengkak melewati harga tetap.</b> Pada Fixed Price, kontraktor yang rugi, dan pembeli tetap membayar Rp1.100 juta. Pada dua kontrak lain, pembeli menanggung kenaikannya.' : a < 1000 ? '<b style="color:#2B8A3E">Biaya lebih rendah dari estimasi.</b> Pada Fixed Price, kontraktor menikmati hematnya. Pada cost-plus dan T&M, pembeli yang menikmati sebagian.' : 'Pada angka estimasi, ketiga kontrak berbeda tipis. Perbedaan besar muncul saat biaya nyata menyimpang dari estimasi.';
+}
+$('#ac').oninput = ct; ct();
+
+quiz([
+  { q: 'Melatih operator dan memeriksa SOP agar cacat tidak terjadi termasuk…', o: ['QC', 'QA', 'Rework', 'Inspeksi akhir'], a: 1, e: 'QA fokus pada proses dan pencegahan. QC memeriksa hasil untuk menemukan cacat.' },
+  { q: 'Pareto chart paling berguna untuk…', o: ['Melihat tren waktu', 'Menemukan sedikit penyebab yang menyumbang sebagian besar masalah', 'Menghitung jalur kritis', 'Memetakan stakeholder'], a: 1, e: 'Batang diurutkan dari terbesar dan garis kumulatif menunjukkan penyebab mana yang perlu didahulukan.' },
+  { q: 'Scope pekerjaan belum jelas dan bersifat eksploratif. Kontrak yang paling masuk akal?', o: ['Fixed price ketat', 'Cost reimbursable atau T&M', 'Tanpa kontrak', 'Fixed price tanpa SOW'], a: 1, e: 'Jika scope belum jelas, vendor tidak bisa memberi harga tetap yang wajar. Pembeli menanggung risiko biaya.' },
+  { q: 'Pada kontrak fixed price, biaya nyata kontraktor melebihi harga. Siapa yang menanggung kelebihannya?', o: ['Pembeli', 'Kontraktor (penjual)', 'Keduanya sama', 'Pihak ketiga'], a: 1, e: 'Fixed price memindahkan risiko biaya ke penjual. Karena itu pembeli membayar harga yang sama.' },
+]);
+</script>
+</body>
+</html>
